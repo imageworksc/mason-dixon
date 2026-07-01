@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mason Dixon Animal Emergency Hospital | 24/7 Emergency Vet Care in Shrewsbury, PA</title>
+  <meta name="description" content="24/7 emergency veterinary care for dogs, cats, and exotic pets across Southern York County, PA and Northern Baltimore County, MD. Call (717) 432-6030 or come in now." />
+  <meta name="theme-color" content="#242667" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='16' r='4' fill='%23c01d2e'/%3E%3Ccircle cx='5' cy='9' r='2.2' fill='%23c01d2e'/%3E%3Ccircle cx='9.5' cy='5.5' r='2.2' fill='%23c01d2e'/%3E%3Ccircle cx='14.5' cy='5.5' r='2.2' fill='%23c01d2e'/%3E%3Ccircle cx='19' cy='9' r='2.2' fill='%23c01d2e'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Flag JS early so reveal styles apply before first paint (no flash) -->
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================ Icon sprite ============================ -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </symbol>
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+      </symbol>
+      <symbol id="icon-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+      </symbol>
+      <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+      </symbol>
+      <symbol id="icon-medical-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/>
+      </symbol>
+      <symbol id="icon-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 3h6M10 3v6.5L4.5 19a1 1 0 0 0 .87 1.5h13.26a1 1 0 0 0 .87-1.5L14 9.5V3"/>
+      </symbol>
+      <symbol id="icon-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </symbol>
+      <symbol id="icon-wind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+      </symbol>
+      <symbol id="icon-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+      </symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </symbol>
+      <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </symbol>
+      <symbol id="icon-paw" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="16" r="4"/><circle cx="5" cy="9" r="2.2"/><circle cx="9.5" cy="5.5" r="2.2"/><circle cx="14.5" cy="5.5" r="2.2"/><circle cx="19" cy="9" r="2.2"/>
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22 12a10 10 0 1 0-11.5 9.95v-7.04H7.9V12h2.6V9.8c0-2.57 1.53-4 3.87-4 1.12 0 2.3.2 2.3.2v2.5h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.86l-.46 2.91h-2.4v7.04A10 10 0 0 0 22 12z"/>
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor">
+        <polygon points="12 2 14.9 8.6 22 9.3 16.5 14 18.2 21 12 17.3 5.8 21 7.5 14 2 9.3 9.1 8.6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============================ Alert bar ============================ -->
+  <div class="alert-bar" data-alert-bar>
+    <div class="container alert-bar__inner">
+      <span class="alert-bar__badge">Open 24/7</span>
+      <p class="alert-bar__msg">Pet Emergency? We're Open 24/7 — Serving Southern York County, PA and Northern Baltimore County, MD</p>
+      <p class="alert-bar__note">Critical patients are treated first. Stable patients may experience longer wait times.</p>
+      <button type="button" class="alert-bar__close" data-alert-dismiss aria-label="Dismiss alert">
+        <svg aria-hidden="true"><use href="#icon-close"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================ Header / Nav ============================ -->
+  <header class="site-header" data-site-header>
+    <div class="navbar">
+      <div class="container navbar__inner">
+        <a class="logo" href="#main" aria-label="Mason Dixon Animal Emergency Hospital">
+          <img src="assets/images/logo.png" alt="Mason Dixon Animal Emergency Hospital" width="327" height="94" />
+        </a>
+
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">
+          <svg class="nav-toggle__icon-open" aria-hidden="true"><use href="#icon-menu"/></svg>
+          <svg class="nav-toggle__icon-close" aria-hidden="true"><use href="#icon-close"/></svg>
+          <span class="sr-only">Toggle navigation menu</span>
+        </button>
+
+        <nav class="nav-links" id="primary-nav" data-nav-menu aria-label="Primary">
+          <a href="about.html">About</a>
+          <a href="#services">Emergency Services</a>
+          <a href="#team">Our Team</a>
+          <a href="resources.html">Resources</a>
+          <a href="#refer">For Vets</a>
+        </nav>
+
+        <div class="navbar__cta">
+          <a class="btn btn--primary" href="tel:+17174326030">
+            <svg class="btn-icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+            <span class="navbar__cta-label">Call</span> (717) 432-6030
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================ Hero ============================ -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy" data-reveal-stagger>
+          <h1>Emergency Vet Care When Your Pet Can't Wait</h1>
+          <p>24/7 emergency care for dogs, cats, and exotic pets across Southern York County, PA and Northern Baltimore County, MD. If something is wrong, call us or come in now.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="tel:+17174326030">Call Now</a>
+            <a class="btn btn--outline-light" href="https://www.google.com/maps/search/?api=1&query=96+Sofia+Drive+Suite+203+Shrewsbury+PA+17361" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+        <div class="hero__media" data-reveal>
+          <img src="assets/images/hero.jpg" alt="Veterinary staff caring for a black and white dog on the clinic floor." width="900" height="720" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Emergency symptoms ============================ -->
+    <section class="section section--navy symptoms" id="emergency-care" aria-labelledby="symptoms-heading">
+      <div class="container">
+        <div class="symptoms__head" data-reveal>
+          <h2 id="symptoms-heading">Does My Pet Need Emergency Care?</h2>
+          <p>Some symptoms and conditions should not wait for a regular veterinary appointment. Come in now or call us if your pet is experiencing:</p>
+        </div>
+
+        <ul class="symptoms__list" data-reveal-stagger>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Trouble breathing or respiratory distress</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Collapse, extreme weakness, or seizures</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Severe vomiting or diarrhea</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>A swollen or painful abdomen</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Trouble urinating or possible urinary blockage</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Pale gums or uncontrolled bleeding</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Bite wounds, major cuts, or traumatic injuries</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Possible poisoning or toxin exposure</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Heat stroke or overheating</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Eye injuries</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Sudden severe pain</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Labor complications</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>A swallowed toy, sock, bone, string, medication, or other foreign object</li>
+        </ul>
+
+        <div class="symptoms__cta" data-reveal>
+          <strong>Not sure if it is an emergency?</strong>
+          <p>Call us. We'd rather help you decide than have you wait too long.</p>
+          <div class="btn-row" style="margin-top: 1.5rem;">
+            <a class="btn btn--primary" href="tel:+17174326030">
+              <svg class="btn-icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+              (717) 432-6030
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Process timeline ============================ -->
+    <section class="section process bone-pattern" id="process" aria-labelledby="process-heading">
+      <div class="container">
+        <h2 id="process-heading" data-reveal>What happens when you arrive</h2>
+
+        <ol class="process__steps" data-reveal-stagger>
+          <li class="process__step">
+            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <h3>Immediate Triage</h3>
+            <p>Every patient is assessed when they arrive.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <h3>Critical Patients First</h3>
+            <p>Life-threatening emergencies receive immediate attention.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <h3>Diagnostic Testing</h3>
+            <p>Digital X-ray, ultrasound &amp; in-house lab testing.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <h3>Treatment Recommendations</h3>
+            <p>We explain findings, options and costs before proceeding.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <h3>Ongoing Communication</h3>
+            <p>Updates throughout the visit, shared with your vet.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================ Services grid ============================ -->
+    <section class="section services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-head section-head--center" style="margin-inline:auto; text-align:center;" data-reveal>
+          <h2 id="services-heading">What we provide around the clock</h2>
+        </div>
+
+        <div class="services__inner">
+          <ul class="services__grid" data-reveal-stagger>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-pulse"/></svg></span>
+              <div><h3>Emergency Exams and Triage</h3><p>Urgent assessment and stabilization for injured pets.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg></span>
+              <div><h3>Intensive Care</h3><p>Advanced monitoring for critically ill patients.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-medical-cross"/></svg></span>
+              <div><h3>Emergency Surgery</h3><p>Procedures for life-threatening and urgent conditions.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-flask"/></svg></span>
+              <div><h3>In-House Laboratory</h3><p>Rapid bloodwork and diagnostic testing.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-scan"/></svg></span>
+              <div><h3>Digital X-Ray and Ultrasound</h3><p>Advanced imaging available around the clock.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-wind"/></svg></span>
+              <div><h3>Oxygen Support</h3><p>Respiratory support for breathing difficulties.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-droplet"/></svg></span>
+              <div><h3>Blood Transfusions</h3><p>Type-matched transfusion services when needed.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-camera"/></svg></span>
+              <div><h3>Endoscopy</h3><p>Minimally invasive retrieval and diagnostics.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span>
+              <div><h3>Outpatient Emergency Care</h3><p>Treatment and discharge when hospitalization isn't required.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-users"/></svg></span>
+              <div><h3>Specialist Referrals</h3><p>Coordination with local specialists when needed.</p></div>
+            </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-heart"/></svg></span>
+              <div><h3>Euthanasia and Aftercare</h3><p>Compassionate support during difficult decisions.</p></div>
+            </li>
+            <li class="service-card service-card--cta">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-phone"/></svg></span>
+              <div>
+                <h3>Need Emergency Care Now?</h3>
+                <a href="tel:+17174326030">
+                  (717) 432-6030
+                  <svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="services__media" data-reveal>
+            <img src="assets/images/services.jpg" alt="A veterinarian smiling while holding a small puppy in the clinic." width="700" height="900" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Why us ============================ -->
+    <section class="section section--navy why" id="why" aria-labelledby="why-heading">
+      <div class="container why__inner">
+        <div class="why__media" data-reveal>
+          <img src="assets/images/why.jpg" alt="A veterinarian examining a small terrier mix dog's ear with an otoscope on an exam table." width="800" height="1000" loading="lazy" />
+        </div>
+
+        <div class="why__copy" data-reveal>
+          <h2 id="why-heading">When your pet is sick or injured, you need answers and action.</h2>
+          <p>Families throughout Pennsylvania and Maryland choose Mason Dixon Animal Emergency Hospital because we provide:</p>
+
+          <ul class="why__features" data-reveal-stagger>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-clock"/></svg></span>24/7 emergency veterinary care</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-users"/></svg></span>Emergency-focused veterinary team</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-pulse"/></svg></span>ICU and critical care monitoring</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-medical-cross"/></svg></span>Emergency surgery capabilities</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-scan"/></svg></span>Digital X-ray and ultrasound on-site</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-flask"/></svg></span>In-house laboratory testing</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-wind"/></svg></span>Oxygen therapy and respiratory support</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-droplet"/></svg></span>Blood transfusion capabilities</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-link"/></svg></span>Coordination with family veterinarians</li>
+            <li class="why__feature"><span class="icon-badge"><svg aria-hidden="true"><use href="#icon-pin"/></svg></span>Convenient access from York County and Northern Baltimore County</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Team ============================ -->
+    <section class="section team bone-pattern" id="team" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <h2 id="team-heading">Meet Our Emergency Veterinary Team</h2>
+          <p>Our emergency veterinarians and support staff bring decades of combined experience in emergency medicine, surgery, intensive care, and critical patient management. Working together, our team provides around-the-clock emergency care while coordinating closely with your primary veterinarian whenever follow-up care is needed.</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="team-marquee" data-marquee>
+          <ul class="team-marquee__track">
+          <!-- Set 1 (real, announced to assistive tech) -->
+          <li class="team-card">
+            <img src="assets/images/team-1.jpg" alt="Dr. Moore with a pet" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Moore</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <a class="team-card__link" href="about.html#dr-moore" aria-label="View Dr. Moore's bio"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+            </div>
+          </li>
+          <li class="team-card">
+            <img src="assets/images/team-2.jpg" alt="Dr. Kiebler with a golden retriever" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Kiebler</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <a class="team-card__link" href="about.html#dr-kiebler" aria-label="View Dr. Kiebler's bio"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+            </div>
+          </li>
+          <li class="team-card">
+            <img src="assets/images/team-3.jpg" alt="Dr. Longbottom with a French bulldog" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Longbottom</span><br /><span class="team-card__role">Veterinarian, Medical Director</span></span>
+              <a class="team-card__link" href="about.html#dr-longbottom" aria-label="View Dr. Longbottom's bio"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+            </div>
+          </li>
+          <li class="team-card">
+            <img src="assets/images/team-4.jpg" alt="Dr. McCafferty with a mastiff" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. McCafferty</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <a class="team-card__link" href="about.html#dr-mccafferty" aria-label="View Dr. McCafferty's bio"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+            </div>
+          </li>
+          <li class="team-card">
+            <img src="assets/images/team-5.jpg" alt="Dr. Parr with a dog" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Parr</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <a class="team-card__link" href="about.html#dr-parr" aria-label="View Dr. Parr's bio"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></a>
+            </div>
+          </li>
+          <!-- Set 2 (visual duplicate for a seamless loop, hidden from assistive tech) -->
+          <li class="team-card" aria-hidden="true">
+            <img src="assets/images/team-1.jpg" alt="" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Moore</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <span class="team-card__link"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></span>
+            </div>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <img src="assets/images/team-2.jpg" alt="" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Kiebler</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <span class="team-card__link"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></span>
+            </div>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <img src="assets/images/team-3.jpg" alt="" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Longbottom</span><br /><span class="team-card__role">Veterinarian, Medical Director</span></span>
+              <span class="team-card__link"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></span>
+            </div>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <img src="assets/images/team-4.jpg" alt="" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. McCafferty</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <span class="team-card__link"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></span>
+            </div>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <img src="assets/images/team-5.jpg" alt="" width="320" height="400" loading="lazy" />
+            <div class="team-card__caption">
+              <span><span class="team-card__name">Dr. Parr</span><br /><span class="team-card__role">Veterinarian</span></span>
+              <span class="team-card__link"><svg aria-hidden="true"><use href="#icon-arrow-up-right"/></svg></span>
+            </div>
+          </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container team__cta">
+        <a class="btn btn--outline-light" href="about.html#team">Meet Our Team</a>
+      </div>
+    </section>
+
+    <!-- ============================ Final CTA ============================ -->
+    <section class="section section--navy final-cta" aria-labelledby="final-cta-heading">
+      <div class="container final-cta__inner">
+        <div class="final-cta__copy" data-reveal>
+          <h2 id="final-cta-heading">Need an <em>Emergency</em> Vet Now?</h2>
+          <p>If your pet is experiencing a medical emergency, call <strong>Mason Dixon Animal Emergency Hospital</strong> or come in immediately.</p>
+          <p class="final-cta__hours">
+            <span class="final-cta__hours-dot" aria-hidden="true"></span>
+            Open 24 Hours a Day &middot; 7 Days a Week
+          </p>
+        </div>
+
+        <div class="final-cta__card" data-reveal>
+          <span class="final-cta__card-label">
+            <svg aria-hidden="true"><use href="#icon-phone"/></svg>
+            Call Us Now
+          </span>
+          <a class="final-cta__phone" href="tel:+17174326030">(717) 432-6030</a>
+          <p class="final-cta__address">96 Sofia Drive, Suite 203 &middot; Shrewsbury, PA 17361</p>
+
+          <div class="btn-row">
+            <a class="btn btn--navy" href="tel:+17174326030">
+              <svg class="btn-icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+              Call Now
+            </a>
+            <a class="btn btn--outline-white" href="https://www.google.com/maps/search/?api=1&query=96+Sofia+Drive+Suite+203+Shrewsbury+PA+17361" target="_blank" rel="noopener">
+              <svg class="btn-icon" aria-hidden="true"><use href="#icon-pin"/></svg>
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Refer a vet ============================ -->
+    <section class="section refer" id="refer" aria-labelledby="refer-heading">
+      <img class="refer__art refer__art--left" src="assets/images/refer-dog.png" alt="" aria-hidden="true" width="732" height="768" />
+      <img class="refer__art refer__art--right" src="assets/images/refer-cats.png" alt="" aria-hidden="true" width="1500" height="1001" />
+
+      <div class="container">
+        <div class="refer__copy" data-reveal>
+          <h2 id="refer-heading">For Referring Veterinarians</h2>
+          <p>We work closely with veterinary practices throughout Pennsylvania and Maryland to provide emergency and after-hours care when patients need immediate attention. We provide emergency evaluations, diagnostics, hospitalization, intensive care, emergency surgery, and specialist referrals when advanced care is required.</p>
+          <div class="btn-row">
+            <a class="btn btn--outline-light" href="contact.html">Ask a Question</a>
+            <a class="btn btn--primary" href="refer.html">Make a Referral</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section faq" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <h2 id="faq-heading" data-reveal>FAQ</h2>
+
+        <div class="faq__list" data-reveal-stagger>
+          <details class="faq__item">
+            <summary>
+              Is Mason Dixon Animal Emergency Hospital open 24 hours?
+              <span class="faq__chevron" aria-hidden="true"><svg><use href="#icon-chevron-down"/></svg></span>
+            </summary>
+            <p class="faq__answer">Yes. We're open 24 hours a day, 7 days a week, including holidays, so you can reach us any time your pet needs urgent care.</p>
+          </details>
+
+          <details class="faq__item">
+            <summary>
+              Do I need an appointment?
+              <span class="faq__chevron" aria-hidden="true"><svg><use href="#icon-chevron-down"/></svg></span>
+            </summary>
+            <p class="faq__answer">No appointment is needed for emergency visits — walk in, or call ahead so our team can prepare for your arrival and guide you on what to do on the way.</p>
+          </details>
+
+          <details class="faq__item">
+            <summary>
+              What animals do you treat?
+              <span class="faq__chevron" aria-hidden="true"><svg><use href="#icon-chevron-down"/></svg></span>
+            </summary>
+            <p class="faq__answer">We treat dogs, cats, and many exotic pets. If you're not sure whether we can help with your pet's species, call us and our team can advise you.</p>
+          </details>
+
+          <details class="faq__item">
+            <summary>
+              Why might another patient be seen first?
+              <span class="faq__chevron" aria-hidden="true"><svg><use href="#icon-chevron-down"/></svg></span>
+            </summary>
+            <p class="faq__answer">We use medical triage, not arrival order. Patients with life-threatening conditions are treated first, and stable patients may wait longer so we can prioritize the pets who need immediate care.</p>
+          </details>
+
+          <details class="faq__item">
+            <summary>
+              Can you communicate with my regular veterinarian?
+              <span class="faq__chevron" aria-hidden="true"><svg><use href="#icon-chevron-down"/></svg></span>
+            </summary>
+            <p class="faq__answer">Yes. We routinely share exam notes, diagnostics, and treatment summaries with your primary veterinarian so they can continue your pet's care after your visit.</p>
+          </details>
+
+          <details class="faq__item">
+            <summary>
+              What should I bring?
+              <span class="faq__chevron" aria-hidden="true"><svg><use href="#icon-chevron-down"/></svg></span>
+            </summary>
+            <p class="faq__answer">Bring your pet securely leashed or in a carrier, any medications they're currently taking, and your regular veterinarian's contact information if you have it. Call ahead if you can, so we know you're on your way.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ Footer ============================ -->
+  <footer class="site-footer">
+    <div class="container footer__main" data-reveal-stagger>
+      <div class="footer__brand">
+        <a class="footer__logo" href="#main" aria-label="Mason Dixon Animal Emergency Hospital">
+          <img src="assets/images/logo-white.png" alt="Mason Dixon Animal Emergency Hospital" width="240" height="70" />
+        </a>
+        <address class="footer__address">
+          96 Sofia Drive, Suite 203<br />
+          Shrewsbury, PA 17361<br />
+          <a href="tel:+17174326030">(717) 432-6030</a>
+          <strong>Open 24/7, 365 days a year</strong>
+        </address>
+      </div>
+
+      <nav class="footer__col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="about.html">About Our Emergency Hospital</a></li>
+          <li><a href="#team">Meet Our Team</a></li>
+          <li><a href="facility.html">Explore Our Facility</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Patients">
+        <h3>Patients</h3>
+        <ul>
+          <li><a href="#faq">Medical Emergencies &amp; Conditions (FAQ)</a></li>
+          <li><a href="#process">What to Expect on Your Visit</a></li>
+          <li><a href="financing.html">Financing Options</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Contact us">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><a href="contact.html">Contact Info</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=96+Sofia+Drive+Suite+203+Shrewsbury+PA+17361" target="_blank" rel="noopener">Directions</a></li>
+          <li><a href="#refer">Emergency Referral</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h3>Follow Us</h3>
+        <!-- TODO: replace "#" with the hospital's real social profile URLs -->
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook"><svg aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+          <a href="#" aria-label="Yelp"><svg aria-hidden="true"><use href="#icon-star"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__areas">
+      <div class="container">
+        <h2>Areas Served</h2>
+        <p>Located in Shrewsbury, PA — serving pets throughout Southern York County and Northern Baltimore County including Shrewsbury, New Freedom, Stewartstown, Glen Rock, Loganville, Jacobus, Fawn Grove, Red Lion, York, Hanover, Gettysburg, Delta, Parkton, White Hall, Hereford, Hunt Valley, Monkton, Sparks, Cockeysville, Hampstead, Jarrettsville, and surrounding communities.</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>&copy; 2026 Blue Moon Veterinary Group. All rights reserved worldwide.</p>
+      <div class="footer__legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="sitemap.html">Sitemap</a>
+        <a href="https://imageworkscreative.com" target="_blank" rel="noopener">Web Design by ImageWorks Creative</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
