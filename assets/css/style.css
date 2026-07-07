@@ -482,7 +482,7 @@ h3 {
 }
 
 .logo img {
-  height: 2.75rem;
+  height: 3.85rem;
   width: auto;
 }
 
@@ -628,7 +628,7 @@ h3 {
    9. Hero
    --------------------------------------------------------------------- */
 .hero {
-  padding-block: clamp(6rem, 10vw, 12rem) var(--section-space);
+  padding-block: clamp(4.3rem, 7vw, 8.5rem) clamp(5rem, 8vw, 9.5rem);
   overflow: hidden;
 }
 
@@ -636,6 +636,10 @@ h3 {
   display: grid;
   gap: var(--space-7);
   align-items: center;
+}
+
+.hero__copy h1 {
+  font-size: clamp(1.9rem, 3.4vw + 0.85rem, 3.5rem);
 }
 
 .hero__copy p {
@@ -665,7 +669,7 @@ h3 {
 
 @media (min-width: 1024px) {
   .hero__inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
   }
 
   .hero__media {
@@ -717,6 +721,7 @@ h3 {
    --------------------------------------------------------------------- */
 .symptoms {
   position: relative;
+  padding-block: clamp(5rem, 8vw, 9.5rem);
 }
 
 .symptoms__head {
@@ -732,7 +737,7 @@ h3 {
 .symptoms__list {
   margin-top: var(--space-7);
   display: grid;
-  gap: var(--space-4) var(--space-6);
+  gap: var(--space-4) var(--space-7);
 }
 
 .symptoms__item {
@@ -746,9 +751,9 @@ h3 {
 }
 
 .symptoms__item svg {
-  width: 1.1rem;
-  height: 1.1rem;
-  margin-top: 0.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0.05rem;
   color: var(--color-red);
   flex-shrink: 0;
 }
@@ -769,14 +774,24 @@ h3 {
 
 @media (min-width: 768px) {
   .symptoms__list {
+    grid-auto-flow: column;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, auto);
   }
 }
 
 @media (min-width: 1024px) {
   .symptoms__list {
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, auto);
   }
+
+  /* Force a 5-4-4 split: items 1-5 fill column 1, 6-9 column 2,
+     and the four short items are pinned to column 3. */
+  .symptoms__item:nth-child(10) { grid-column: 3; grid-row: 1; }
+  .symptoms__item:nth-child(11) { grid-column: 3; grid-row: 2; }
+  .symptoms__item:nth-child(12) { grid-column: 3; grid-row: 3; }
+  .symptoms__item:nth-child(13) { grid-column: 3; grid-row: 4; }
 }
 
 /* ---------------------------------------------------------------------
@@ -809,54 +824,83 @@ h3 {
 
 .process {
   background-color: var(--color-bg-light);
+  padding-block: clamp(3.5rem, 6vw, 7rem);
 }
 
 .process h2 {
   text-align: center;
   color: var(--color-red);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-7);
 }
 
 .process__steps {
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-4);
   counter-reset: step;
 }
 
 .process__step {
+  counter-increment: step;
   position: relative;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-red);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-4) var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
-.process__circle {
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: var(--radius-lg);
+/* Large, faint step number watermark — reads like a clinical protocol */
+.process__step::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  top: 0.35rem;
+  right: 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.75rem;
+  line-height: 1;
+  color: var(--color-navy);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.process__step:hover {
+  border-color: #c9c9e0;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.process__icon {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
   background: var(--color-navy);
   color: #fff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-4);
-  position: relative;
-  z-index: 1;
+  margin-bottom: var(--space-3);
 }
 
-.process__circle svg {
+.process__icon svg {
   width: 1.4rem;
   height: 1.4rem;
 }
 
 .process__step h3 {
+  font-size: 1rem;
   margin-bottom: var(--space-2);
+  color: var(--color-navy);
 }
 
 .process__step p {
   font-size: 0.9rem;
   color: var(--color-slate);
+  line-height: 1.5;
 }
 
 @media (min-width: 640px) and (max-width: 991px) {
@@ -868,24 +912,16 @@ h3 {
 @media (min-width: 992px) {
   .process__steps {
     grid-template-columns: repeat(5, 1fr);
-    position: relative;
-  }
-
-  .process__steps::before {
-    content: "";
-    position: absolute;
-    top: 1.6rem;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: var(--color-navy);
-    opacity: 0.25;
   }
 }
 
 /* ---------------------------------------------------------------------
    12. Services grid
    --------------------------------------------------------------------- */
+.services {
+  padding-block: clamp(3.5rem, 6vw, 7rem);
+}
+
 .services__inner {
   display: grid;
   gap: var(--space-7);
@@ -946,10 +982,19 @@ h3 {
 }
 
 .service-card--cta {
+  grid-column: 1 / -1;
+  height: auto;
   background: var(--color-red);
   border-color: var(--color-red);
   color: #fff;
   align-items: center;
+}
+
+.service-card--cta > div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
 }
 
 .service-card--cta .service-card__icon {
@@ -959,7 +1004,7 @@ h3 {
 
 .service-card--cta h3 {
   color: #fff;
-  margin-bottom: var(--space-1);
+  margin-bottom: 0;
 }
 
 .service-card--cta a {
@@ -998,13 +1043,22 @@ h3 {
 
 @media (min-width: 1024px) {
   .services__inner {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.4fr 1.1fr;
+    align-items: stretch;
+  }
+
+  .services__media {
+    aspect-ratio: auto;
   }
 }
 
 /* ---------------------------------------------------------------------
    13. Why us
    --------------------------------------------------------------------- */
+.why {
+  padding-block: clamp(5rem, 8vw, 9.5rem);
+}
+
 .why__inner {
   display: grid;
   gap: var(--space-7);
@@ -1079,12 +1133,21 @@ h3 {
 @media (min-width: 1024px) {
   .why__inner {
     grid-template-columns: 1fr 1.3fr;
+    align-items: stretch;
+  }
+
+  .why__media {
+    aspect-ratio: auto;
   }
 }
 
 /* ---------------------------------------------------------------------
    14. Team — auto-scrolling marquee (pauses on hover/focus)
    --------------------------------------------------------------------- */
+.team {
+  padding-block: clamp(3.5rem, 6vw, 7rem);
+}
+
 .team h2,
 .team .section-head p {
   text-align: center;
@@ -1092,6 +1155,59 @@ h3 {
 
 .team .section-head {
   margin-inline: auto;
+}
+
+.team-carousel {
+  position: relative;
+}
+
+/* Reserve room on both sides so the arrows sit clear of the cards. */
+@media (min-width: 768px) {
+  .team-carousel {
+    padding-inline: 5rem;
+  }
+}
+
+.team-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-navy);
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.team-nav:hover {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.team-nav:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+.team-nav svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.team-nav--prev {
+  left: 0;
+}
+
+.team-nav--next {
+  right: 0;
 }
 
 .team-marquee {
@@ -1214,6 +1330,10 @@ a.team-card__link:hover {
 /* ---------------------------------------------------------------------
    15. Final CTA
    --------------------------------------------------------------------- */
+.final-cta {
+  padding-block: clamp(5rem, 8vw, 9.5rem);
+}
+
 .final-cta__inner {
   display: grid;
   gap: var(--space-7);
@@ -1641,12 +1761,12 @@ a.team-card__link:hover {
     transform: translateY(-4px);
   }
 
-  /* Process check badges pop slightly on hover */
-  .process__circle {
+  /* Process icon badges pop slightly on hover */
+  .process__icon {
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .process__step:hover .process__circle {
-    transform: scale(1.12) rotate(-4deg);
+  .process__step:hover .process__icon {
+    transform: scale(1.08) rotate(-4deg);
   }
 }
 

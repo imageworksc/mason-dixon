@@ -32,6 +32,12 @@
       <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="6 9 12 15 18 9"/>
       </symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </symbol>
       <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="20 6 9 17 4 12"/>
       </symbol>
@@ -84,7 +90,11 @@
         <path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
       </symbol>
       <symbol id="icon-paw" viewBox="0 0 24 24" fill="currentColor">
-        <circle cx="12" cy="16" r="4"/><circle cx="5" cy="9" r="2.2"/><circle cx="9.5" cy="5.5" r="2.2"/><circle cx="14.5" cy="5.5" r="2.2"/><circle cx="19" cy="9" r="2.2"/>
+        <circle cx="5.6" cy="12" r="2.2"/>
+        <circle cx="9.6" cy="7.4" r="2.4"/>
+        <circle cx="14.4" cy="7.4" r="2.4"/>
+        <circle cx="18.4" cy="12" r="2.2"/>
+        <path d="M12 13c-3.3 0-6 2.4-6 5.2 0 2.2 1.9 3.1 3.5 3.1 1.05 0 1.65-.42 2.5-.42s1.45.42 2.5.42c1.6 0 3.5-.9 3.5-3.1 0-2.8-2.7-5.2-6-5.2z"/>
       </symbol>
       <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor">
         <path d="M22 12a10 10 0 1 0-11.5 9.95v-7.04H7.9V12h2.6V9.8c0-2.57 1.53-4 3.87-4 1.12 0 2.3.2 2.3.2v2.5h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.86l-.46 2.91h-2.4v7.04A10 10 0 0 0 22 12z"/>
@@ -175,16 +185,16 @@
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Trouble breathing or respiratory distress</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Collapse, extreme weakness, or seizures</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Severe vomiting or diarrhea</li>
-          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>A swollen or painful abdomen</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Trouble urinating or possible urinary blockage</li>
-          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Pale gums or uncontrolled bleeding</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Bite wounds, major cuts, or traumatic injuries</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Pale gums or uncontrolled bleeding</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Possible poisoning or toxin exposure</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>A swollen or painful abdomen</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>A swallowed toy, sock, bone, string, medication, or other foreign object</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Heat stroke or overheating</li>
-          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Eye injuries</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Sudden severe pain</li>
           <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Labor complications</li>
-          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>A swallowed toy, sock, bone, string, medication, or other foreign object</li>
+          <li class="symptoms__item"><svg aria-hidden="true"><use href="#icon-paw"/></svg>Eye injuries</li>
         </ul>
 
         <div class="symptoms__cta" data-reveal>
@@ -207,27 +217,27 @@
 
         <ol class="process__steps" data-reveal-stagger>
           <li class="process__step">
-            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <span class="process__icon"><svg aria-hidden="true"><use href="#icon-pulse"/></svg></span>
             <h3>Immediate Triage</h3>
             <p>Every patient is assessed when they arrive.</p>
           </li>
           <li class="process__step">
-            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <span class="process__icon"><svg aria-hidden="true"><use href="#icon-heart"/></svg></span>
             <h3>Critical Patients First</h3>
             <p>Life-threatening emergencies receive immediate attention.</p>
           </li>
           <li class="process__step">
-            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <span class="process__icon"><svg aria-hidden="true"><use href="#icon-scan"/></svg></span>
             <h3>Diagnostic Testing</h3>
             <p>Digital X-ray, ultrasound &amp; in-house lab testing.</p>
           </li>
           <li class="process__step">
-            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <span class="process__icon"><svg aria-hidden="true"><use href="#icon-medical-cross"/></svg></span>
             <h3>Treatment Recommendations</h3>
             <p>We explain findings, options and costs before proceeding.</p>
           </li>
           <li class="process__step">
-            <span class="process__circle"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <span class="process__icon"><svg aria-hidden="true"><use href="#icon-users"/></svg></span>
             <h3>Ongoing Communication</h3>
             <p>Updates throughout the visit, shared with your vet.</p>
           </li>
@@ -288,6 +298,10 @@
               <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-heart"/></svg></span>
               <div><h3>Euthanasia and Aftercare</h3><p>Compassionate support during difficult decisions.</p></div>
             </li>
+            <li class="service-card">
+              <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-medical-cross"/></svg></span>
+              <div><h3>Lorem Ipsum Dolor</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+            </li>
             <li class="service-card service-card--cta">
               <span class="service-card__icon"><svg aria-hidden="true"><use href="#icon-phone"/></svg></span>
               <div>
@@ -344,7 +358,11 @@
       </div>
 
       <div class="container">
-        <div class="team-marquee" data-marquee>
+        <div class="team-carousel">
+          <button type="button" class="team-nav team-nav--prev" data-marquee-prev aria-label="Show previous team members">
+            <svg aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+          </button>
+          <div class="team-marquee" data-marquee>
           <ul class="team-marquee__track">
           <!-- Set 1 (real, announced to assistive tech) -->
           <li class="team-card">
@@ -419,6 +437,10 @@
             </div>
           </li>
           </ul>
+          </div>
+          <button type="button" class="team-nav team-nav--next" data-marquee-next aria-label="Show next team members">
+            <svg aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+          </button>
         </div>
       </div>
 
