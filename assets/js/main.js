@@ -161,10 +161,108 @@
     check(); // reveal whatever is already in view on load (the hero)
   }
 
+  /* ---------------------------------------------------------------
+     Team carousel — auto-scroll marquee with prev/next arrow controls.
+     Takes over the CSS keyframe animation and drives scrollLeft so the
+     arrows, hover-pause, and seamless loop all share one position model.
+     --------------------------------------------------------------- */
+  function initTeamCarousel() {
+    var marquee = document.querySelector("[data-marquee]");
+    if (!marquee) return;
+    var track = marquee.querySelector(".team-marquee__track");
+    if (!track) return;
+    var prevBtn = document.querySelector("[data-marquee-prev]");
+    var nextBtn = document.querySelector("[data-marquee-next]");
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Hand off from the CSS animation to JS-driven scrolling.
+    track.style.animation = "none";
+
+    function stepAmount() {
+      var card = track.querySelector(".team-card");
+      var styles = window.getComputedStyle(track);
+      var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+      if (card) return card.getBoundingClientRect().width + gap;
+      return marquee.clientWidth * 0.8;
+    }
+
+    // The track holds two identical sets, so one set is exactly half its width.
+    function halfWidth() {
+      return track.scrollWidth / 2;
+    }
+
+    var pos = 0;
+
+    function apply() {
+      var half = halfWidth();
+      var disp = half > 0 ? ((pos % half) + half) % half : pos;
+      marquee.scrollLeft = disp;
+    }
+
+    /* Reduced motion: no auto-scroll or tweening. Arrows jump instantly. */
+    if (reduce) {
+      if (prevBtn) prevBtn.addEventListener("click", function () {
+        marquee.scrollBy({ left: -stepAmount() });
+      });
+      if (nextBtn) nextBtn.addEventListener("click", function () {
+        marquee.scrollBy({ left: stepAmount() });
+      });
+      return;
+    }
+
+    var SPEED = 0.5; // px per frame (~30px/s at 60fps)
+    var paused = false;
+    var tweening = false;
+
+    function tick() {
+      if (!paused && !tweening) {
+        var half = halfWidth();
+        pos += SPEED;
+        if (half > 0 && pos >= half) pos -= half;
+        apply();
+      }
+      window.requestAnimationFrame(tick);
+    }
+
+    function animateBy(delta) {
+      var startPos = pos;
+      var startTime = null;
+      var duration = 450;
+      tweening = true;
+      function frame(t) {
+        if (startTime === null) startTime = t;
+        var p = Math.min((t - startTime) / duration, 1);
+        var ease = 0.5 - Math.cos(p * Math.PI) / 2; // easeInOutSine
+        pos = startPos + delta * ease;
+        apply();
+        if (p < 1) {
+          window.requestAnimationFrame(frame);
+        } else {
+          var half = halfWidth();
+          if (half > 0) pos = ((pos % half) + half) % half;
+          tweening = false;
+        }
+      }
+      window.requestAnimationFrame(frame);
+    }
+
+    marquee.addEventListener("mouseenter", function () { paused = true; });
+    marquee.addEventListener("mouseleave", function () { paused = false; });
+    marquee.addEventListener("focusin", function () { paused = true; });
+    marquee.addEventListener("focusout", function () { paused = false; });
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { animateBy(-stepAmount()); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { animateBy(stepAmount()); });
+
+    window.requestAnimationFrame(tick);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initNav();
     initAlertBar();
     initHeaderScrollState();
     initReveals();
+    initTeamCarousel();
   });
 })();
