@@ -121,34 +121,6 @@
   }
 
   /* ---------------------------------------------------------------
-     Team carousel — native scroll-snap + prev/next buttons
-     --------------------------------------------------------------- */
-  function initCarousel() {
-    var carousel = document.querySelector("[data-carousel]");
-    if (!carousel) return;
-    var prev = document.querySelector("[data-carousel-prev]");
-    var next = document.querySelector("[data-carousel-next]");
-
-    function step() {
-      var card = carousel.querySelector(".team-card");
-      var gap = parseFloat(getComputedStyle(carousel.querySelector(".carousel__track")).columnGap) || 0;
-      return card ? card.getBoundingClientRect().width + gap : carousel.clientWidth * 0.8;
-    }
-
-    function scrollByStep(dir) {
-      carousel.scrollBy({ left: dir * step(), behavior: reduceMotion ? "auto" : "smooth" });
-    }
-
-    if (prev) prev.addEventListener("click", function () { scrollByStep(-1); });
-    if (next) next.addEventListener("click", function () { scrollByStep(1); });
-
-    carousel.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowRight") { event.preventDefault(); scrollByStep(1); }
-      if (event.key === "ArrowLeft") { event.preventDefault(); scrollByStep(-1); }
-    });
-  }
-
-  /* ---------------------------------------------------------------
      FAQ accordion (one open at a time, animated with grid rows)
      --------------------------------------------------------------- */
   function initAccordion() {
@@ -180,7 +152,6 @@
     initAlertBar();
     initScrollState();
     initReveals();
-    initCarousel();
     initAccordion();
   });
 })();

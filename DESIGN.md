@@ -68,9 +68,14 @@ Added tokens:
 | `--shadow-float` | `0 30px 60px -24px rgba(16,24,64,.28)` | Floating cards |
 | `--shadow-soft` | `0 12px 32px -12px rgba(16,24,64,.16)` | Card hover |
 
+Type scale is deliberately close to the live homepage (h1 ≤ 3.5rem, h2 ≤ 2.6rem) so
+headings never dominate a viewport.
+
 Primitives: island nav (glass pill, detached on desktop), pill buttons with nested icon
-circle, symptom chip, timeline step, bento service card, feature pill, team card
-(caption slides up), accordion item (grid-rows animation), sticky mobile call bar.
+circle, symptom chip, timeline step, hairline service row (icon circle + title + line,
+no card box) with a quiet lavender CTA panel, feature pill, team card inside a continuous
+CSS marquee (pauses on hover/focus; static row under reduced motion), accordion item
+(grid-rows animation), sticky mobile call bar.
 
 ## 4. Option B — "Emergency Bold" (`option-b/`)
 

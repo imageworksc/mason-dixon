@@ -242,34 +242,40 @@
           <h2 id="services-heading">What we provide around the clock</h2>
         </div>
 
-        <div class="bento" data-reveal-stagger>
-          <figure class="bento__media">
+        <div class="services__inner">
+          <figure class="services__media" data-reveal>
             <div class="bezel">
               <div class="bezel__core">
                 <img src="../assets/images/services.jpg" alt="A veterinarian smiling while holding a small puppy in the clinic." width="1100" height="732" loading="lazy" />
               </div>
             </div>
-            <figcaption><span class="live-dot" aria-hidden="true"></span>Around-the-clock care, every day of the year</figcaption>
+            <figcaption class="services__caption"><span class="live-dot" aria-hidden="true"></span>Around-the-clock care, every day of the year</figcaption>
           </figure>
 
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-pulse"/></svg></span><h3>Emergency Exams and Triage</h3><p>Urgent assessment and stabilization for injured pets.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg></span><h3>Intensive Care</h3><p>Advanced monitoring for critically ill patients.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-medical-cross"/></svg></span><h3>Emergency Surgery</h3><p>Procedures for life-threatening and urgent conditions.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-flask"/></svg></span><h3>In-House Laboratory</h3><p>Rapid bloodwork and diagnostic testing.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-scan"/></svg></span><h3>Digital X-Ray and Ultrasound</h3><p>Advanced imaging available around the clock.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-wind"/></svg></span><h3>Oxygen Support</h3><p>Respiratory support for breathing difficulties.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-droplet"/></svg></span><h3>Blood Transfusions</h3><p>Type-matched transfusion services when needed.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-camera"/></svg></span><h3>Endoscopy</h3><p>Minimally invasive retrieval and diagnostics.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span><h3>Outpatient Emergency Care</h3><p>Treatment and discharge when hospitalization isn't required.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-users"/></svg></span><h3>Specialist Referrals</h3><p>Coordination with local specialists when needed.</p></div>
-          <div class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-heart"/></svg></span><h3>Euthanasia and Aftercare</h3><p>Compassionate support during difficult decisions.</p></div>
+          <div class="services__body">
+            <ul class="service-list" data-reveal-stagger>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-pulse"/></svg></span><div><h3>Emergency Exams and Triage</h3><p>Urgent assessment and stabilization for injured pets.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-briefcase"/></svg></span><div><h3>Intensive Care</h3><p>Advanced monitoring for critically ill patients.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-medical-cross"/></svg></span><div><h3>Emergency Surgery</h3><p>Procedures for life-threatening and urgent conditions.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-flask"/></svg></span><div><h3>In-House Laboratory</h3><p>Rapid bloodwork and diagnostic testing.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-scan"/></svg></span><div><h3>Digital X-Ray and Ultrasound</h3><p>Advanced imaging available around the clock.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-wind"/></svg></span><div><h3>Oxygen Support</h3><p>Respiratory support for breathing difficulties.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-droplet"/></svg></span><div><h3>Blood Transfusions</h3><p>Type-matched transfusion services when needed.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-camera"/></svg></span><div><h3>Endoscopy</h3><p>Minimally invasive retrieval and diagnostics.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span><div><h3>Outpatient Emergency Care</h3><p>Treatment and discharge when hospitalization isn't required.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-users"/></svg></span><div><h3>Specialist Referrals</h3><p>Coordination with local specialists when needed.</p></div></li>
+              <li class="service"><span class="service__icon"><svg aria-hidden="true"><use href="#icon-heart"/></svg></span><div><h3>Euthanasia and Aftercare</h3><p>Compassionate support during difficult decisions.</p></div></li>
+            </ul>
 
-          <a class="service service--cta" href="tel:+17174326030">
-            <span class="service__icon"><svg aria-hidden="true"><use href="#icon-phone"/></svg></span>
-            <h3>Need Emergency Care Now?</h3>
-            <p>Call (717) 432-6030 — we're open right now.</p>
-            <span class="service__arrow" aria-hidden="true"><svg><use href="#icon-arrow-up-right"/></svg></span>
-          </a>
+            <a class="services__cta" href="tel:+17174326030" data-reveal>
+              <span class="services__cta-icon"><svg aria-hidden="true"><use href="#icon-phone"/></svg></span>
+              <span class="services__cta-text">
+                <strong>Need Emergency Care Now?</strong>
+                <span>We're open right now — no appointment needed.</span>
+              </span>
+              <span class="btn btn--primary btn--sm services__cta-btn"><span>(717) 432-6030</span><span class="btn__orb" aria-hidden="true"><svg><use href="#icon-arrow-up-right"/></svg></span></span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -311,21 +317,17 @@
     <!-- ============================ Team ============================ -->
     <section class="section team bone-pattern" id="team" aria-labelledby="team-heading">
       <div class="container">
-        <div class="team__head" data-reveal>
-          <div>
-            <span class="eyebrow">Our team</span>
-            <h2 id="team-heading">Meet Our Emergency Veterinary Team</h2>
-            <p>Our emergency veterinarians and support staff bring decades of combined experience in emergency medicine, surgery, intensive care, and critical patient management. Working together, our team provides around-the-clock emergency care while coordinating closely with your primary veterinarian whenever follow-up care is needed.</p>
-          </div>
-          <div class="team__controls">
-            <button type="button" class="round-btn" data-carousel-prev aria-label="Show previous team members"><svg aria-hidden="true"><use href="#icon-chevron-left"/></svg></button>
-            <button type="button" class="round-btn" data-carousel-next aria-label="Show next team members"><svg aria-hidden="true"><use href="#icon-chevron-right"/></svg></button>
-          </div>
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Our team</span>
+          <h2 id="team-heading">Meet Our Emergency Veterinary Team</h2>
+          <p>Our emergency veterinarians and support staff bring decades of combined experience in emergency medicine, surgery, intensive care, and critical patient management. Working together, our team provides around-the-clock emergency care while coordinating closely with your primary veterinarian whenever follow-up care is needed.</p>
         </div>
       </div>
 
-      <div class="carousel" data-carousel>
-        <ul class="carousel__track" data-reveal-stagger>
+      <!-- Continuous marquee: pauses on hover / keyboard focus. Set 2 is a visual
+           duplicate for the seamless loop and is hidden from assistive tech. -->
+      <div class="marquee" data-reveal>
+        <ul class="marquee__track">
           <li class="team-card">
             <a class="team-card__link" href="../about.html#dr-moore">
               <div class="team-card__media"><img src="../assets/images/team-1.jpg" alt="Dr. Moore with a pet" width="520" height="624" loading="lazy" /></div>
@@ -374,6 +376,37 @@
                 <span class="team-card__role">Veterinarian</span>
                 <span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
               </div>
+            </a>
+          </li>
+
+          <li class="team-card" aria-hidden="true">
+            <a class="team-card__link" href="../about.html#dr-moore" tabindex="-1">
+              <div class="team-card__media"><img src="../assets/images/team-1.jpg" alt="" width="520" height="624" loading="lazy" /></div>
+              <div class="team-card__caption"><span class="team-card__name">Dr. Moore</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
+            </a>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <a class="team-card__link" href="../about.html#dr-kiebler" tabindex="-1">
+              <div class="team-card__media"><img src="../assets/images/team-2.jpg" alt="" width="520" height="624" loading="lazy" /></div>
+              <div class="team-card__caption"><span class="team-card__name">Dr. Kiebler</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
+            </a>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <a class="team-card__link" href="../about.html#dr-longbottom" tabindex="-1">
+              <div class="team-card__media"><img src="../assets/images/team-3.jpg" alt="" width="520" height="624" loading="lazy" /></div>
+              <div class="team-card__caption"><span class="team-card__name">Dr. Longbottom</span><span class="team-card__role">Veterinarian, Medical Director</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
+            </a>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <a class="team-card__link" href="../about.html#dr-mccafferty" tabindex="-1">
+              <div class="team-card__media"><img src="../assets/images/team-4.jpg" alt="" width="520" height="624" loading="lazy" /></div>
+              <div class="team-card__caption"><span class="team-card__name">Dr. McCafferty</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
+            </a>
+          </li>
+          <li class="team-card" aria-hidden="true">
+            <a class="team-card__link" href="../about.html#dr-parr" tabindex="-1">
+              <div class="team-card__media"><img src="../assets/images/team-5.jpg" alt="" width="520" height="624" loading="lazy" /></div>
+              <div class="team-card__caption"><span class="team-card__name">Dr. Parr</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
             </a>
           </li>
         </ul>
