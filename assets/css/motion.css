@@ -1,0 +1,98 @@
+/* =========================================================================
+   Mason Dixon Animal Emergency Hospital — Homepage
+   motion.css — load/scroll reveals and micro-interactions (reduced-motion aware)
+   ========================================================================= */
+
+/* ---------------------------------------------------------------------
+   1. Motion — load & scroll reveals + micro-interactions
+   (all gated on prefers-reduced-motion; no-JS/reduced-motion = fully visible)
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal],
+  .js [data-reveal-stagger] > * {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js [data-reveal].is-visible,
+  .js [data-reveal-stagger].is-visible > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Decorative animal cutouts never hide (they're absolutely positioned art) */
+  .js .refer__art {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Subtle image zoom on hover within framed media */
+  .hero__media img,
+  .services__media img,
+  .why__media img,
+  .team-card img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hero__media:hover img,
+  .services__media:hover img,
+  .why__media:hover img,
+  .team-card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Gentle float on the final-CTA card */
+  .final-cta__card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  }
+  .final-cta__card:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Process icon badges pop slightly on hover */
+  .process__icon {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .process__step:hover .process__icon {
+    transform: scale(1.08) rotate(-4deg);
+  }
+}
+
+/* Animated underline on desktop nav links (cheap, no layout shift) */
+@media (min-width: 1024px) {
+  .nav-links a {
+    position: relative;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: 4px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-red);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Buttons: press feedback */
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Service / feature icon lift on card hover */
+.service-card .service-card__icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.service-card:not(.service-card--cta):hover .service-card__icon {
+  transform: translateY(-2px) scale(1.06);
+}

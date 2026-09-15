@@ -52,10 +52,10 @@ thin strip in the center:
 
 Container width is `80rem` (1280px at 16px) so it grows with the root size.
 
-## 3. File organisation (both options)
+## 3. File organisation (homepage and both options)
 
 ```
-option-x/
+<page>/                (homepage uses assets/css and assets/js)
   index.html          markup only — no inline styles or scripts
   css/base.css        tokens, large-display scaling, reset, typography, layout utilities
   css/components.css  buttons, header + navigation, (ticker), mobile call bar
