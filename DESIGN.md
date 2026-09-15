@@ -52,7 +52,23 @@ thin strip in the center:
 
 Container width is `80rem` (1280px at 16px) so it grows with the root size.
 
-## 3. Option A — "Calm Clinical" (`option-a/`)
+## 3. File organisation (both options)
+
+```
+option-x/
+  index.html          markup only — no inline styles or scripts
+  css/base.css        tokens, large-display scaling, reset, typography, layout utilities
+  css/components.css  buttons, header + navigation, (ticker), mobile call bar
+  css/sections.css    page sections in document order
+  css/motion.css      scroll reveals and reduced-motion overrides
+  js/head.js          one line, loaded synchronously: adds the `js` class before first paint
+  js/main.js          ES module (deferred), const/let, arrow functions; one init per feature
+```
+
+Per-item values that used to be inline custom properties (`--i`, `--n`) are set with
+`:nth-child()` rules in CSS.
+
+## 4. Option A — "Calm Clinical" (`option-a/`)
 
 Direction: light, airy, editorial. Signature material is a soft **double-bezel** frame
 (outer tinted shell + inner core with concentric radii) on hero media, the final-CTA card
@@ -87,7 +103,7 @@ call bar.
 Scroll reveals are keyframe animations with `fill-mode: backwards` (not transitions) so
 they never override a primitive's own hover transitions.
 
-## 4. Option B — "Emergency Bold" (`option-b/`)
+## 5. Option B — "Emergency Bold" (`option-b/`)
 
 Direction: dark, cinematic, urgent. Full-bleed photographic hero with a one-time slow
 zoom (the page's signature moment), red ticker alert, sticky-stacking process cards,

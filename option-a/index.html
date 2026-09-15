@@ -14,14 +14,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="../assets/images/hero.jpg" fetchpriority="high" />
 
-  <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="style.css" />
+  <script src="js/head.js"></script>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/motion.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ============================ Icon sprite ============================ -->
-  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <svg class="icon-sprite" aria-hidden="true">
     <defs>
       <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
       <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
@@ -53,18 +56,6 @@
     </defs>
   </svg>
 
-  <!-- ============================ Alert bar ============================ -->
-  <div class="alert-bar" data-alert-bar>
-    <div class="alert-bar__inner">
-      <span class="alert-bar__badge"><span class="live-dot" aria-hidden="true"></span>Open 24/7</span>
-      <p class="alert-bar__msg">Pet Emergency? We're Open 24/7<span class="alert-bar__region"> — Serving Southern York County, PA and Northern Baltimore County, MD</span></p>
-      <p class="alert-bar__note">Critical patients are treated first. Stable patients may experience longer wait times.</p>
-      <button type="button" class="alert-bar__close" data-alert-dismiss aria-label="Dismiss alert">
-        <svg aria-hidden="true"><use href="#icon-close"/></svg>
-      </button>
-    </div>
-  </div>
-
   <!-- ============================ Header / Island nav ============================ -->
   <header class="site-header" data-site-header>
     <div class="container navbar">
@@ -81,6 +72,7 @@
       </nav>
 
       <div class="navbar__actions">
+        <span class="navbar__status"><span class="live-dot" aria-hidden="true"></span>Open 24/7</span>
         <a class="btn btn--primary btn--sm navbar__call" href="tel:+17174326030">
           <svg class="btn__icon" aria-hidden="true"><use href="#icon-phone"/></svg>
           <span>(717) 432-6030</span>
@@ -97,13 +89,13 @@
   <!-- Full-screen mobile menu -->
   <div class="mobile-nav" id="mobile-nav" data-nav-menu aria-hidden="true">
     <nav class="mobile-nav__links" aria-label="Mobile">
-      <a href="../about.html" style="--i:0">About</a>
-      <a href="#services" style="--i:1">Emergency Services</a>
-      <a href="#team" style="--i:2">Our Team</a>
-      <a href="../resources.html" style="--i:3">Resources</a>
-      <a href="#refer" style="--i:4">For Vets</a>
+      <a href="../about.html">About</a>
+      <a href="#services">Emergency Services</a>
+      <a href="#team">Our Team</a>
+      <a href="../resources.html">Resources</a>
+      <a href="#refer">For Vets</a>
     </nav>
-    <div class="mobile-nav__foot" style="--i:5">
+    <div class="mobile-nav__foot">
       <span class="mobile-nav__hours">Open 24 hours · 7 days</span>
       <a class="mobile-nav__phone" href="tel:+17174326030">(717) 432-6030</a>
       <p>96 Sofia Drive, Suite 203 · Shrewsbury, PA 17361</p>
@@ -555,6 +547,6 @@
     </a>
   </div>
 
-  <script src="main.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
