@@ -173,17 +173,6 @@ p { text-wrap: pretty; }
 .section-head--center { margin-inline: auto; text-align: center; }
 .section-head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
 
-.eyebrow {
-  display: inline-flex; align-items: center; gap: var(--space-2);
-  padding: 0.4rem 0.85rem; border-radius: var(--radius-full);
-  border: 1px solid rgba(192, 29, 46, 0.25); background: rgba(192, 29, 46, 0.06);
-  font-family: var(--font-display); font-weight: 700; font-size: 0.68rem; line-height: 1;
-  letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-red);
-  margin-bottom: var(--space-4);
-}
-.eyebrow--light {
-  border-color: rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.08); color: #fff;
-}
 
 .live-dot {
   position: relative; display: inline-block; width: 0.55rem; height: 0.55rem;
@@ -227,7 +216,7 @@ p { text-wrap: pretty; }
   position: relative;
   display: inline-flex; align-items: center; justify-content: center; gap: var(--space-3);
   font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; line-height: 1;
-  padding: 0.85rem 1.5rem; border: 2px solid transparent; border-radius: var(--radius-full);
+  padding: 0.85rem 1.5rem; border: 2px solid transparent; border-radius: var(--radius-md);
   white-space: nowrap;
   transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease,
               color var(--dur-fast) ease, border-color var(--dur-fast) ease, box-shadow var(--dur-med) var(--ease-out);
@@ -238,7 +227,7 @@ p { text-wrap: pretty; }
 
 .btn__icon { width: 1.05rem; height: 1.05rem; }
 .btn__orb {
-  width: 2rem; height: 2rem; border-radius: 50%; flex-shrink: 0;
+  width: 2rem; height: 2rem; border-radius: calc(var(--radius-md) - 2px); flex-shrink: 0;
   display: inline-flex; align-items: center; justify-content: center;
   background: rgba(255, 255, 255, 0.18);
   transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease;
@@ -385,6 +374,7 @@ p { text-wrap: pretty; }
 }
 .mobile-nav.is-open .mobile-nav__links a, .mobile-nav.is-open .mobile-nav__foot { opacity: 1; transform: none; }
 .mobile-nav__foot p { color: var(--text-on-dark-muted); font-size: 0.9rem; margin-top: var(--space-2); }
+.mobile-nav__hours { display: block; margin-bottom: var(--space-2); font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-on-dark-muted); }
 .mobile-nav__phone { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 5vw, 1.9rem); color: #fff; }
 
 @media (min-width: 1024px) {
@@ -397,7 +387,7 @@ p { text-wrap: pretty; }
 
   .nav-links { display: flex; align-items: center; gap: var(--space-1); margin-inline: auto; }
   .nav-links a {
-    position: relative; padding: 0.6rem 0.95rem; border-radius: var(--radius-full);
+    position: relative; padding: 0.6rem 0.95rem; border-radius: var(--radius-md);
     font-weight: 500; font-size: 0.92rem; color: var(--color-slate);
     transition: color var(--dur-fast) ease, background-color var(--dur-fast) ease;
   }
@@ -427,7 +417,7 @@ p { text-wrap: pretty; }
 
 .status-pill {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.5rem 1rem 0.5rem 0.75rem; border-radius: var(--radius-full);
+  padding: 0.5rem 1rem 0.5rem 0.75rem; border-radius: var(--radius-md);
   background: #fff; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);
   font-size: 0.8rem; font-weight: 600; color: var(--color-navy); margin-bottom: var(--space-5);
 }
@@ -871,7 +861,7 @@ p { text-wrap: pretty; }
 .call-bar.is-visible { transform: none; }
 .call-bar__btn {
   flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-  padding: 0.95rem 1rem; border-radius: var(--radius-full);
+  padding: 0.95rem 1rem; border-radius: var(--radius-md);
   background: var(--color-red); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem;
   box-shadow: 0 10px 24px -12px rgba(192, 29, 46, 0.7);
   transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out);
@@ -879,7 +869,7 @@ p { text-wrap: pretty; }
 .call-bar__btn:active { transform: scale(0.98); }
 .call-bar__btn svg { width: 1.1rem; height: 1.1rem; }
 .call-bar__dir {
-  width: 3.25rem; border-radius: var(--radius-full); flex-shrink: 0;
+  width: 3.25rem; border-radius: var(--radius-md); flex-shrink: 0;
   border: 2px solid var(--color-navy); color: var(--color-navy);
   display: inline-flex; align-items: center; justify-content: center;
   transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease;
