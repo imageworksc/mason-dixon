@@ -72,8 +72,11 @@ Added tokens:
 Type scale is deliberately close to the live homepage (h1 ≤ 3.5rem, h2 ≤ 2.6rem) so
 headings never dominate a viewport.
 
-Primitives: island nav (glass pill, detached on desktop), pill buttons with nested icon
-circle, symptom chip, process step card (solid white → frosted glass on hover over a
+No eyebrow labels above headings. Buttons use `--radius-md` (8px), matching the live
+homepage; only the island nav, status badges and icon circles stay fully round.
+
+Primitives: island nav (glass pill, detached on desktop), buttons with a nested icon
+tile, symptom chip, process step card (solid white → frosted glass on hover over a
 white→light gradient with three slow-drifting radial colour halos — navy, red, lavender
 tints at ≤16% — no bone pattern in this section),
 hairline service row (icon circle + title + line, no card box) with a quiet lavender CTA
