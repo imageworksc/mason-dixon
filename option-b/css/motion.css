@@ -1,0 +1,32 @@
+/* =========================================================================
+   Mason Dixon Animal Emergency Hospital — Option B
+   motion.css — scroll reveals and reduced-motion overrides
+   ========================================================================= */
+
+/* ---------------------------------------------------------------------
+   1. Motion — scroll reveals (gated on reduced motion)
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal], .js [data-reveal-stagger] > * {
+    opacity: 0; transform: translateY(1.75rem);
+    transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .js [data-reveal].is-visible, .js [data-reveal-stagger].is-visible > * { opacity: 1; transform: none; }
+  .js [data-reveal-side] { opacity: 0; transition: opacity 1s var(--ease-out) 0.2s, transform 1.2s var(--ease-out) 0.2s; }
+  .js [data-reveal-side="left"] { transform: translateX(-3rem); }
+  .js [data-reveal-side="right"] { transform: translateX(3rem); }
+  .js [data-reveal-side].is-visible { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .hero__bg img { transform: none; animation: none; }
+  .ticker__track { animation: none; flex-wrap: wrap; width: auto; }
+  .ticker__item:nth-child(n + 3) { display: none; }
+  .ticker__item { white-space: normal; }
+  .live-dot::before { display: none; }
+  .stack__card { position: relative; top: auto; }
+  .why__band img { transform: none; }
+}
