@@ -35,7 +35,14 @@ Section rhythm: `--section-space: clamp(5rem, 9vw, 11rem)`.
 GPU-only properties (`transform`, `opacity`, `filter`). Everything is gated behind
 `prefers-reduced-motion`; with reduced motion the page is fully visible and static.
 
-## 2. Large-screen scaling (4K / 5K)
+## 2. Hero video
+
+All three pages use the hospital's official hero clip (`assets/video/hero.mp4`, MP4,
+4.4 MB, from masondixonveter.com) as the hero background: `autoplay muted loop playsinline`,
+`hero.jpg` as poster. `initHeroVideo` in each `main.js` never starts it for
+`prefers-reduced-motion` users and pauses it while the hero is off-screen.
+
+## 3. Large-screen scaling (4K / 5K)
 
 All layout values are in `rem`, and the root font-size steps up with the viewport so the
 page keeps its proportions on 2560, 3840 and 5120px wide displays instead of becoming a
@@ -52,7 +59,7 @@ thin strip in the center:
 
 Container width is `80rem` (1280px at 16px) so it grows with the root size.
 
-## 3. File organisation (homepage and both options)
+## 4. File organisation (homepage and both options)
 
 ```
 <page>/                (homepage uses assets/css and assets/js)
@@ -71,7 +78,7 @@ Per-item values that used to be inline custom properties (`--i`, `--n`) are set 
 CSS/JS references carry a `?v=yyyymmddhhmm` query so GitHub Pages' 10-minute cache never
 serves stale files after a deploy. Run `node scripts/stamp-assets.js` before committing.
 
-## 4. Option A — "Calm Clinical" (`option-a/`)
+## 5. Option A — "Calm Clinical" (`option-a/`)
 
 Direction: light, airy, editorial. Signature material is a soft **double-bezel** frame
 (outer tinted shell + inner core with concentric radii) on hero media, the final-CTA card
@@ -106,7 +113,7 @@ call bar.
 Scroll reveals are keyframe animations with `fill-mode: backwards` (not transitions) so
 they never override a primitive's own hover transitions.
 
-## 5. Option B — "Emergency Bold" (`option-b/`)
+## 6. Option B — "Emergency Bold" (`option-b/`)
 
 Direction: dark, cinematic, urgent. Full-bleed photographic hero with a one-time slow
 zoom (the page's signature moment), red ticker alert, sticky-stacking process cards,
