@@ -9,7 +9,7 @@
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
   font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; line-height: 1;
-  padding: 0.9rem 1.5rem; border: 2px solid transparent; border-radius: var(--radius-full); white-space: nowrap;
+  padding: 0.9rem 1.5rem; border: 2px solid transparent; border-radius: var(--radius-sm); white-space: nowrap;
   transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease, box-shadow var(--dur-med) var(--ease-out);
 }
 .btn:hover { transform: translateY(-2px); }
@@ -30,7 +30,7 @@
 .btn-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
 
 .round-btn {
-  width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  width: 2.75rem; height: 2.75rem; border-radius: var(--radius-sm);
   background: #fff; border: 1px solid var(--color-border); color: var(--color-navy); box-shadow: var(--shadow-sm);
   display: inline-flex; align-items: center; justify-content: center;
   transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-med) var(--ease-out);
@@ -50,7 +50,7 @@
 .ticker__item strong { font-weight: 700; }
 .ticker__item em { font-style: italic; opacity: 0.85; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 1.5rem)); } }
-.ticker__close { flex-shrink: 0; width: 2.4rem; height: 2.4rem; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.4rem; border-radius: 50%; transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
+.ticker__close { flex-shrink: 0; width: 2.4rem; height: 2.4rem; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.4rem; border-radius: var(--radius-sm); transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
 .ticker__close:hover { background: rgba(255, 255, 255, 0.18); transform: rotate(90deg); }
 .ticker__close svg { width: 1rem; height: 1rem; }
 
@@ -80,7 +80,7 @@
 .navbar__cta .btn--sm span { display: none; }
 .navbar__cta .btn--sm { padding: 0.75rem; }
 
-.nav-toggle { position: relative; width: 2.75rem; height: 2.75rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) ease; }
+.nav-toggle { position: relative; width: 2.75rem; height: 2.75rem; border-radius: var(--radius-sm); display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) ease; }
 .nav-toggle:hover { background: rgba(255, 255, 255, 0.12); }
 .nav-toggle__bar { position: absolute; left: 50%; width: 1.35rem; height: 2px; border-radius: 2px; background: currentColor; transition: transform var(--dur-med) var(--ease-out); }
 .nav-toggle__bar:nth-child(1) { transform: translate(-50%, -0.28rem); }
@@ -148,10 +148,10 @@
   transform: translateY(110%); transition: transform var(--dur-med) var(--ease-out);
 }
 .call-bar.is-visible { transform: none; }
-.call-bar__btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.95rem 1rem; border-radius: var(--radius-full); background: var(--color-red); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
+.call-bar__btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.95rem 1rem; border-radius: var(--radius-sm); background: var(--color-red); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-out); }
 .call-bar__btn:active { transform: scale(0.98); }
 .call-bar__btn svg { width: 1.1rem; height: 1.1rem; }
-.call-bar__dir { width: 3.25rem; border-radius: var(--radius-full); flex-shrink: 0; border: 2px solid rgba(255, 255, 255, 0.5); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) ease, border-color var(--dur-fast) ease; }
+.call-bar__dir { width: 3.25rem; border-radius: var(--radius-sm); flex-shrink: 0; border: 2px solid rgba(255, 255, 255, 0.5); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) ease, border-color var(--dur-fast) ease; }
 .call-bar__dir:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; }
 .call-bar__dir svg { width: 1.2rem; height: 1.2rem; }
 @media (min-width: 1024px) { .call-bar { display: none; } }
