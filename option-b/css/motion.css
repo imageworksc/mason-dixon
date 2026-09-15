@@ -22,7 +22,6 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .hero__bg img { transform: none; animation: none; }
   .ticker__track { animation: none; flex-wrap: wrap; width: auto; }
   .ticker__item:nth-child(n + 3) { display: none; }
   .ticker__item { white-space: normal; }

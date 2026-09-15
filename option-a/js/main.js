@@ -122,7 +122,30 @@ const initAccordion = () => {
   if (items[0]) setOpen(items[0], true);
 };
 
+/* ---------------------------------------------------------------
+   Hero background video — never plays for reduced-motion users and
+   pauses while the hero is off-screen to save CPU/battery.
+   --------------------------------------------------------------- */
+const initHeroVideo = () => {
+  const video = document.querySelector("[data-hero-video]");
+  if (!video) return;
+
+  if (reduceMotion) {
+    video.removeAttribute("autoplay");
+    video.pause();
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) return;
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) video.play().catch(() => {});
+    else video.pause();
+  }, { threshold: 0.1 });
+  observer.observe(video);
+};
+
 initNav();
+initHeroVideo();
 initScrollState();
 initReveals();
 initAccordion();
