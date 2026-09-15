@@ -23,8 +23,6 @@
 .btn--primary:hover { background: var(--color-red-dark); border-color: var(--color-red-dark); box-shadow: 0 18px 36px -12px rgba(192, 29, 46, 0.8); }
 .btn--ghost { background: transparent; border-color: rgba(255, 255, 255, 0.45); color: #fff; }
 .btn--ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; }
-.btn--white { background: #fff; border-color: #fff; color: var(--color-red); box-shadow: 0 16px 32px -14px rgba(0, 0, 0, 0.45); }
-.btn--white:hover { background: var(--color-lavender); border-color: var(--color-lavender); }
 .btn--outline { background: transparent; border-color: var(--color-navy); color: var(--color-navy); }
 .btn--outline:hover { background: var(--color-navy); color: #fff; }
 .btn-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
