@@ -14,14 +14,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
   <!-- Flag JS early so reveal styles apply before first paint (no flash) -->
-  <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/head.js?v=202609152306"></script>
+  <link rel="stylesheet" href="assets/css/base.css?v=202609152306" />
+  <link rel="stylesheet" href="assets/css/components.css?v=202609152306" />
+  <link rel="stylesheet" href="assets/css/sections.css?v=202609152306" />
+  <link rel="stylesheet" href="assets/css/motion.css?v=202609152306" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ============================ Icon sprite ============================ -->
-  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <svg class="icon-sprite" aria-hidden="true">
     <defs>
       <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -200,7 +203,7 @@
         <div class="symptoms__cta" data-reveal>
           <strong>Not sure if it is an emergency?</strong>
           <p>Call us. We'd rather help you decide than have you wait too long.</p>
-          <div class="btn-row" style="margin-top: 1.5rem;">
+          <div class="btn-row">
             <a class="btn btn--primary" href="tel:+17174326030">
               <svg class="btn-icon" aria-hidden="true"><use href="#icon-phone"/></svg>
               (717) 432-6030
@@ -248,7 +251,7 @@
     <!-- ============================ Services grid ============================ -->
     <section class="section services" id="services" aria-labelledby="services-heading">
       <div class="container">
-        <div class="section-head section-head--center" style="margin-inline:auto; text-align:center;" data-reveal>
+        <div class="section-head section-head--center" data-reveal>
           <h2 id="services-heading">What we provide around the clock</h2>
         </div>
 
@@ -631,6 +634,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/main.js?v=202609152306"></script>
 </body>
 </html>
