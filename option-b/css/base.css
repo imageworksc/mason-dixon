@@ -13,6 +13,7 @@
   --color-navy-700: #2d2f7a;
   --color-red: #c01d2e;
   --color-red-dark: #9c1622;
+  --color-red-bright: #e8303f; /* accent text on dark — same hue, lifted to clear 3:1 */
   --color-slate: #56566a;
   --color-gray: #6b6b78;
   --color-border: #e0e0e8;
@@ -131,7 +132,7 @@ p { text-wrap: pretty; }
 .bone-pattern > * { position: relative; z-index: 1; }
 
 .live { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 600; color: #fff; }
-.live--pill { padding: 0.5rem 1rem 0.5rem 0.8rem; border-radius: var(--radius-full); border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.1); margin-bottom: var(--space-5); }
+.live--pill { padding: 0.55rem 1rem 0.55rem 0.8rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.1); margin-bottom: var(--space-5); }
 .live-dot { position: relative; display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--color-red); flex-shrink: 0; }
 .live-dot::before { content: ""; position: absolute; inset: -0.2rem; border-radius: 50%; background: var(--color-red); opacity: 0.5; animation: ping 2s var(--ease-out) infinite; }
 .live-dot--white, .live-dot--white::before { background: #fff; }

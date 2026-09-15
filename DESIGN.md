@@ -114,6 +114,7 @@ Added tokens:
 | Token | Value | Use |
 |---|---|---|
 | `--color-navy-900` | `#12133a` | Hero base, darkest surface |
+| `--color-red-bright` | `#e8303f` | Accent word in headings on dark (brand hue lifted to clear 3:1) |
 | `--color-navy-700` | `#2d2f7a` | Raised surfaces on navy |
 | `--color-surface-dark` | `rgba(255,255,255,.06)` | Cards on navy |
 | `--color-line-dark` | `rgba(255,255,255,.14)` | Hairlines on navy |
