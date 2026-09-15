@@ -4,18 +4,21 @@
    ========================================================================= */
 
 /* ---------------------------------------------------------------------
-   1. Hero — copy on the left over the photo, greyed out under a light veil
+   1. Hero — photo in full view, navy gradient rising from the bottom,
+   white copy bottom-left; the gradient hands off to the navy section below
    --------------------------------------------------------------------- */
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
-  padding-block: clamp(4rem, 9vw, 8rem);
-  background: var(--color-bg-light);
+  min-height: 72vh; min-height: 72svh;
+  display: flex; align-items: flex-end;
+  padding-top: clamp(6rem, 12vw, 10rem); padding-bottom: clamp(3rem, 5vw, 4.5rem);
+  background: var(--color-navy); color: #fff;
 }
 .hero__bg { position: absolute; inset: 0; z-index: -1; }
-.hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; filter: grayscale(1); }
+.hero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(245, 245, 247, 0.9) 0%, rgba(245, 245, 247, 0.74) 45%, rgba(245, 245, 247, 0.42) 100%);
+  background: linear-gradient(to bottom, rgba(36, 38, 103, 0) 0%, rgba(36, 38, 103, 0) 28%, rgba(36, 38, 103, 0.72) 62%, var(--color-navy) 100%);
 }
 .hero__inner { display: grid; }
 .hero__copy { max-width: 52rem; }
@@ -26,14 +29,14 @@
   box-shadow: var(--shadow-sm);
   font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; color: var(--color-navy);
 }
-.hero__copy h1 { text-wrap: initial; }
-.hero__copy h1 em { font-style: normal; color: var(--color-red); }
-.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 50rem; }
+.hero__copy h1 { color: #fff; text-wrap: initial; }
+.hero__copy h1 em { font-style: normal; color: var(--color-red-bright); }
+.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 50rem; color: var(--text-on-dark-secondary); }
 .hero__copy .btn-row { margin-top: var(--space-6); }
 /* Explicit two-line breaks on desktop only; below that the text wraps naturally */
 .hero__br { display: none; }
 @media (min-width: 1024px) { .hero__br { display: inline; } }
-@media (min-width: 1024px) { .hero { min-height: 34rem; display: flex; align-items: center; } }
+@media (min-width: 1024px) { .hero { min-height: 80vh; min-height: 80svh; } }
 
 /* ---------------------------------------------------------------------
    2. Symptoms — chip grid on navy
