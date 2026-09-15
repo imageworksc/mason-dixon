@@ -64,6 +64,7 @@ Added tokens:
 | Token | Value | Use |
 |---|---|---|
 | `--color-lavender` | `#e7e7f4` | Icon chips, bezel shells |
+| `--color-red-bright` | `#e8303f` | Accent word in headings on navy (brand hue lifted to clear 3:1) |
 | `--color-glow` | `rgba(36, 38, 103, 0.10)` | Hero radial glow |
 | `--shadow-float` | `0 30px 60px -24px rgba(16,24,64,.28)` | Floating cards |
 | `--shadow-soft` | `0 12px 32px -12px rgba(16,24,64,.16)` | Card hover |
@@ -72,10 +73,15 @@ Type scale is deliberately close to the live homepage (h1 ≤ 3.5rem, h2 ≤ 2.6
 headings never dominate a viewport.
 
 Primitives: island nav (glass pill, detached on desktop), pill buttons with nested icon
-circle, symptom chip, timeline step, hairline service row (icon circle + title + line,
-no card box) with a quiet lavender CTA panel, feature pill, team card inside a continuous
-CSS marquee (pauses on hover/focus; static row under reduced motion), accordion item
-(grid-rows animation), sticky mobile call bar.
+circle, symptom chip, process step card (solid white → frosted glass on hover over a
+slowly drifting bone pattern; `bone-pattern--drift` slides exactly one tile per loop),
+hairline service row (icon circle + title + line, no card box) with a quiet lavender CTA
+panel, feature pill, team card inside a continuous CSS marquee (pauses on hover/focus;
+static row under reduced motion), accordion item (grid-rows animation), sticky mobile
+call bar.
+
+Scroll reveals are keyframe animations with `fill-mode: backwards` (not transitions) so
+they never override a primitive's own hover transitions.
 
 ## 4. Option B — "Emergency Bold" (`option-b/`)
 

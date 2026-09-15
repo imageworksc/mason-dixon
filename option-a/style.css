@@ -12,6 +12,7 @@
   --color-navy-dark: #1a1b4e;
   --color-red: #c01d2e;
   --color-red-dark: #9c1622;
+  --color-red-bright: #e8303f; /* accent text on navy — same hue, lifted to clear 3:1 */
   --color-slate: #56566a;
   --color-gray: #6b6b78;
   --color-border: #e0e0e8;
@@ -160,13 +161,28 @@ p { text-wrap: pretty; }
 .section--navy::before { top: 6%; left: 2%; }
 .section--navy::after { bottom: 5%; right: 2%; }
 
-.bone-pattern { position: relative; background-color: var(--color-bg-light); }
+.bone-pattern { position: relative; overflow: clip; background-color: var(--color-bg-light); }
 .bone-pattern::before {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: url("../assets/images/bone-pattern.svg") repeat; background-size: 12.5rem 11.25rem;
   opacity: 0.07;
+  transition: opacity 0.8s ease;
 }
 .bone-pattern > * { position: relative; z-index: 1; }
+
+/* Drifting variant: the layer is one tile larger than the section and slides
+   exactly one tile per loop, so the pattern moves forever without a seam.
+   Hovering the section lets the bones show through a little more. */
+.bone-pattern--drift::before {
+  inset: 0 -12.5rem -11.25rem 0;
+  animation: bone-drift 60s linear infinite;
+  will-change: transform;
+}
+.bone-pattern--drift:hover::before { opacity: 0.15; }
+@keyframes bone-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-12.5rem, -11.25rem, 0); }
+}
 
 .section-head { max-width: 46rem; margin-bottom: var(--space-8); }
 .section-head--center { margin-inline: auto; text-align: center; }
@@ -513,52 +529,60 @@ p { text-wrap: pretty; }
 @media (min-width: 1024px) { .symptoms__list { grid-template-columns: repeat(3, 1fr); } }
 
 /* ---------------------------------------------------------------------
-   9. Process — timeline with a line that draws in on scroll
+   9. Process — sticky intro + stepped cards over the drifting bones.
+   Cards are solid by default and turn to frosted glass on hover so the
+   moving pattern shows through.
    --------------------------------------------------------------------- */
-.timeline {
-  position: relative;
-  display: grid; gap: var(--space-6);
-  padding-left: 0;
-}
-/* Vertical rail (mobile) */
-.timeline::before, .timeline::after {
-  content: ""; position: absolute; left: 1.75rem; top: 1.75rem; bottom: 1.75rem; width: 2px;
-  background: var(--color-border); border-radius: 2px;
-}
-.timeline::after {
-  background: var(--color-red); transform: scaleY(0); transform-origin: top center;
-  transition: transform 1.6s var(--ease-out) 0.15s;
-}
-.timeline.is-visible::after { transform: scaleY(1); }
+.process__inner { display: grid; gap: var(--space-7); align-items: start; }
+.process__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 28rem; }
+.process__head .btn { margin-top: var(--space-5); }
 
-.timeline__step {
-  position: relative;
-  display: grid; grid-template-columns: 3.5rem 1fr; column-gap: var(--space-4);
-  align-items: start;
+.steps { position: relative; display: grid; gap: var(--space-3); }
+/* Dashed connector running behind the cards through the number column */
+.steps::before {
+  content: ""; position: absolute; z-index: 0; top: 2rem; bottom: 2rem; left: calc(var(--space-5) + 1.2rem);
+  border-left: 2px dashed rgba(36, 38, 103, 0.22);
 }
-.timeline__icon {
-  grid-row: 1 / span 3;
-  width: 3.5rem; height: 3.5rem; border-radius: 50%;
-  background: #fff; border: 2px solid var(--color-border); color: var(--color-navy);
-  display: inline-flex; align-items: center; justify-content: center; position: relative; z-index: 1;
-  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease, border-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-med) var(--ease-out);
+.step {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: auto 1fr; column-gap: var(--space-4); align-items: center;
+  padding: var(--space-5); border-radius: var(--radius-xl);
+  background: #fff; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);
+  transition: background-color var(--dur-med) ease, border-color var(--dur-fast) ease,
+              transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out),
+              -webkit-backdrop-filter var(--dur-med) ease, backdrop-filter var(--dur-med) ease;
 }
-.timeline__icon svg { width: 1.4rem; height: 1.4rem; }
-.timeline__step:hover .timeline__icon { background: var(--color-navy); border-color: var(--color-navy); color: #fff; transform: scale(1.1); box-shadow: 0 12px 24px -10px rgba(36, 38, 103, 0.6); }
-.timeline__num { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.14em; color: var(--color-red); padding-top: 0.2rem; }
-.timeline__step h3 { margin-top: var(--space-1); font-size: 1.05rem; }
-.timeline__step p { margin-top: var(--space-2); font-size: 0.92rem; line-height: 1.55; }
+.step:hover {
+  background: rgba(255, 255, 255, 0.42);
+  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  border-color: rgba(36, 38, 103, 0.18);
+  transform: translateX(6px); box-shadow: var(--shadow-soft);
+}
+.step__num {
+  position: absolute; top: 0.9rem; right: 1rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; line-height: 1; letter-spacing: -0.02em;
+  color: var(--color-red); opacity: 0.8;
+}
+.step__icon {
+  width: 2.75rem; height: 2.75rem; border-radius: 50%; flex-shrink: 0;
+  background: var(--color-lavender); color: var(--color-navy);
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring);
+}
+.step__icon svg { width: 1.3rem; height: 1.3rem; }
+.step:hover .step__icon { background: var(--color-navy); color: #fff; transform: scale(1.1) rotate(-6deg); }
+.step__body h3 { font-size: 1.05rem; }
+.step__body p { margin-top: 0.25rem; font-size: 0.92rem; line-height: 1.55; color: var(--color-gray); }
 
+@media (max-width: 639px) { .steps::before { display: none; } }
+@media (min-width: 640px) {
+  .step { grid-template-columns: 2.6rem auto 1fr; padding: var(--space-5) var(--space-6); }
+  .step__num { position: static; font-size: 1.5rem; opacity: 1; }
+  .steps::before { left: calc(var(--space-6) + 0.9rem); }
+}
 @media (min-width: 1024px) {
-  .timeline { grid-template-columns: repeat(5, 1fr); gap: var(--space-5); }
-  /* Rail runs through the icon centres: 1.75rem number offset + 1.75rem icon radius */
-  .timeline::before, .timeline::after { left: 10%; right: 10%; top: 3.5rem; bottom: auto; width: auto; height: 2px; }
-  .timeline::after { transform: scaleX(0); transform-origin: left center; }
-  .timeline.is-visible::after { transform: scaleX(1); }
-  .timeline__step { grid-template-columns: 1fr; justify-items: center; text-align: center; padding-top: 1.75rem; }
-  .timeline__num { position: absolute; top: 0; left: 50%; transform: translateX(-50%); padding-top: 0; }
-  .timeline__icon { grid-row: auto; margin-bottom: var(--space-4); }
-  .timeline__step h3 { margin-top: 0; }
+  .process__inner { grid-template-columns: 0.8fr 1.2fr; gap: var(--space-9); }
+  .process__head { position: sticky; top: calc(var(--header-offset) + 1rem); }
 }
 
 /* ---------------------------------------------------------------------
@@ -712,7 +736,7 @@ p { text-wrap: pretty; }
    13. Final CTA
    --------------------------------------------------------------------- */
 .final-cta__inner { display: grid; gap: var(--space-8); align-items: center; }
-.final-cta__copy h2 em { font-style: normal; color: #ff8f9a; }
+.final-cta__copy h2 em { font-style: normal; color: var(--color-red-bright); }
 .final-cta__copy p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 32rem; }
 .final-cta__copy strong { color: #fff; }
 .final-cta__hours { margin-top: var(--space-5); display: inline-flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em; color: #fff; }
@@ -853,21 +877,25 @@ p { text-wrap: pretty; }
 /* ---------------------------------------------------------------------
    18. Motion — scroll reveals (gated on reduced motion)
    --------------------------------------------------------------------- */
+/* Reveals run as keyframe animations (fill-mode: backwards) rather than
+   transitions, so they never override an element's own hover transitions
+   and release the transform once finished. */
 @media (prefers-reduced-motion: no-preference) {
-  .js [data-reveal],
-  .js [data-reveal-stagger] > * {
-    opacity: 0;
-    transform: translateY(1.75rem);
-    transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-  .js [data-reveal].is-visible,
-  .js [data-reveal-stagger].is-visible > * { opacity: 1; transform: none; }
+  .js [data-reveal]:not(.is-visible),
+  .js [data-reveal-stagger]:not(.is-visible) > *,
+  .js [data-reveal-side]:not(.is-visible) { opacity: 0; }
 
-  .js [data-reveal-side] { opacity: 0; transition: opacity 1s var(--ease-out) 0.2s, transform 1.2s var(--ease-out) 0.2s; }
-  .js [data-reveal-side="left"] { transform: translateX(-3rem); }
-  .js [data-reveal-side="right"] { transform: translateX(3rem); }
-  .js [data-reveal-side].is-visible { opacity: 1; transform: none; }
+  .js [data-reveal].is-visible,
+  .js [data-reveal-stagger].is-visible > * {
+    animation: reveal-up var(--dur-slow) var(--ease-out) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+  .js [data-reveal-side="left"].is-visible { animation: reveal-left 1.2s var(--ease-out) 0.2s backwards; }
+  .js [data-reveal-side="right"].is-visible { animation: reveal-right 1.2s var(--ease-out) 0.2s backwards; }
+
+  @keyframes reveal-up { from { opacity: 0; transform: translateY(1.75rem); } to { opacity: 1; transform: none; } }
+  @keyframes reveal-left { from { opacity: 0; transform: translateX(-3rem); } to { opacity: 1; transform: none; } }
+  @keyframes reveal-right { from { opacity: 0; transform: translateX(3rem); } to { opacity: 1; transform: none; } }
 }
 
 @media (prefers-reduced-motion: reduce) {
