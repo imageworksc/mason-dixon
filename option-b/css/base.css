@@ -104,7 +104,6 @@ p { text-wrap: pretty; }
 
 .icon-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .skip-link { position: absolute; top: -100%; left: var(--space-4); z-index: 1000; background: var(--color-red); color: #fff; padding: var(--space-3) var(--space-5); border-radius: var(--radius-full); font-weight: 600; transition: top var(--dur-fast); }
 .skip-link:focus { top: var(--space-4); }
 :focus-visible { outline: 3px solid #8fa5ff; outline-offset: 3px; border-radius: var(--radius-sm); }
@@ -135,6 +134,5 @@ p { text-wrap: pretty; }
 .live--pill { padding: 0.55rem 1rem 0.55rem 0.8rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.1); margin-bottom: var(--space-5); }
 .live-dot { position: relative; display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--color-red); flex-shrink: 0; }
 .live-dot::before { content: ""; position: absolute; inset: -0.2rem; border-radius: 50%; background: var(--color-red); opacity: 0.5; animation: ping 2s var(--ease-out) infinite; }
-.live-dot--white, .live-dot--white::before { background: #fff; }
 @keyframes ping { 0% { transform: scale(0.6); opacity: 0.6; } 100% { transform: scale(2.2); opacity: 0; } }
 
