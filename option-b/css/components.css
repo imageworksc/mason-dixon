@@ -100,7 +100,7 @@
 .mobile-nav__links { display: grid; }
 .mobile-nav__links a {
   display: flex; align-items: baseline; gap: var(--space-4);
-  font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 8vw, 3.2rem); letter-spacing: -0.03em; line-height: 1.1;
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 5.5vw, 2.1rem); letter-spacing: -0.03em; line-height: 1.1;
   padding: var(--space-3) 0; border-bottom: 1px solid var(--color-line-dark);
   transition: color var(--dur-fast) ease;
 }
@@ -118,7 +118,7 @@
 .mobile-nav__links a:nth-child(5) { transition-delay: 440ms; }
 .mobile-nav__foot { transition-delay: 520ms; }
 .mobile-nav.is-open .mobile-nav__links a, .mobile-nav.is-open .mobile-nav__foot { opacity: 1; transform: none; }
-.mobile-nav__phone { display: block; margin-top: var(--space-3); font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 6vw, 2.4rem); letter-spacing: -0.02em; color: #fff; }
+.mobile-nav__phone { display: block; margin-top: var(--space-3); font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 5vw, 1.9rem); letter-spacing: -0.02em; color: #fff; }
 .mobile-nav__foot p { margin-top: var(--space-2); color: var(--text-on-dark-muted); font-size: 0.9rem; }
 
 @media (min-width: 1024px) {
