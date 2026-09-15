@@ -8,6 +8,12 @@
    --------------------------------------------------------------------- */
 .hero { padding-block: clamp(2.5rem, 5vw, 5rem) clamp(3.5rem, 7vw, 7rem); }
 .hero__inner { display: grid; gap: var(--space-7); align-items: center; }
+.hero__status {
+  display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: var(--space-5);
+  padding: 0.45rem 0.85rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border); background: var(--color-bg-light);
+  font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; color: var(--color-navy);
+}
 .hero__copy h1 em { font-style: normal; color: var(--color-red); }
 .hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 34rem; }
 .hero__copy .btn-row { margin-top: var(--space-6); }
