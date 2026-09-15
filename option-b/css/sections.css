@@ -30,9 +30,9 @@
 @media (max-width: 767px) { .hero__bg img { object-position: 34% 50%; transform-origin: 34% 60%; } }
 
 .hero__inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.hero__inner h1 { color: #fff; max-width: 16ch; }
+.hero__inner h1 { color: #fff; max-width: 44rem; } /* two balanced lines on desktop */
 .hero__inner h1 em { font-style: normal; color: var(--color-red-bright); }
-.hero__inner p { margin-top: var(--space-5); font-size: 1.05rem; line-height: 1.7; max-width: 38rem; color: var(--text-on-dark-secondary); }
+.hero__inner p { margin-top: var(--space-5); font-size: 1.05rem; line-height: 1.7; max-width: 46rem; color: var(--text-on-dark-secondary); }
 .hero__inner .btn-row { margin-top: var(--space-6); justify-content: center; }
 
 /* ---------------------------------------------------------------------
