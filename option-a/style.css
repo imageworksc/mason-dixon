@@ -166,23 +166,8 @@ p { text-wrap: pretty; }
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: url("../assets/images/bone-pattern.svg") repeat; background-size: 12.5rem 11.25rem;
   opacity: 0.07;
-  transition: opacity 0.8s ease;
 }
 .bone-pattern > * { position: relative; z-index: 1; }
-
-/* Drifting variant: the layer is one tile larger than the section and slides
-   exactly one tile per loop, so the pattern moves forever without a seam.
-   Hovering the section lets the bones show through a little more. */
-.bone-pattern--drift::before {
-  inset: 0 -12.5rem -11.25rem 0;
-  animation: bone-drift 60s linear infinite;
-  will-change: transform;
-}
-.bone-pattern--drift:hover::before { opacity: 0.15; }
-@keyframes bone-drift {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-12.5rem, -11.25rem, 0); }
-}
 
 .section-head { max-width: 46rem; margin-bottom: var(--space-8); }
 .section-head--center { margin-inline: auto; text-align: center; }
@@ -529,10 +514,37 @@ p { text-wrap: pretty; }
 @media (min-width: 1024px) { .symptoms__list { grid-template-columns: repeat(3, 1fr); } }
 
 /* ---------------------------------------------------------------------
-   9. Process — sticky intro + stepped cards over the drifting bones.
+   9. Process — sticky intro + stepped cards over slow-drifting colour halos.
    Cards are solid by default and turn to frosted glass on hover so the
-   moving pattern shows through.
+   moving background shows through.
    --------------------------------------------------------------------- */
+.process {
+  position: relative; overflow: clip;
+  background: linear-gradient(180deg, #fff 0%, var(--color-bg-light) 100%);
+}
+.process__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.75; transition: opacity 0.8s ease; }
+.process:hover .process__bg { opacity: 1; }
+.process__bg span { position: absolute; border-radius: 50%; will-change: transform; }
+.process__bg span:nth-child(1) {
+  width: 48vw; height: 48vw; max-width: 46rem; max-height: 46rem; left: -14%; top: -22%;
+  background: radial-gradient(closest-side, rgba(36, 38, 103, 0.16), rgba(36, 38, 103, 0));
+  animation: halo-a 26s ease-in-out infinite alternate;
+}
+.process__bg span:nth-child(2) {
+  width: 42vw; height: 42vw; max-width: 40rem; max-height: 40rem; right: -12%; top: 6%;
+  background: radial-gradient(closest-side, rgba(192, 29, 46, 0.11), rgba(192, 29, 46, 0));
+  animation: halo-b 22s ease-in-out infinite alternate;
+}
+.process__bg span:nth-child(3) {
+  width: 38vw; height: 38vw; max-width: 36rem; max-height: 36rem; left: 28%; bottom: -28%;
+  background: radial-gradient(closest-side, rgba(36, 38, 103, 0.1), rgba(36, 38, 103, 0));
+  animation: halo-c 30s ease-in-out infinite alternate;
+}
+@keyframes halo-a { to { transform: translate(12%, 16%) scale(1.08); } }
+@keyframes halo-b { to { transform: translate(-14%, 12%) scale(0.94); } }
+@keyframes halo-c { to { transform: translate(-10%, -14%) scale(1.1); } }
+.process > .container { position: relative; z-index: 1; }
+
 .process__inner { display: grid; gap: var(--space-7); align-items: start; }
 .process__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 28rem; }
 .process__head .btn { margin-top: var(--space-5); }
@@ -553,8 +565,8 @@ p { text-wrap: pretty; }
               -webkit-backdrop-filter var(--dur-med) ease, backdrop-filter var(--dur-med) ease;
 }
 .step:hover {
-  background: rgba(255, 255, 255, 0.42);
-  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
   border-color: rgba(36, 38, 103, 0.18);
   transform: translateX(6px); box-shadow: var(--shadow-soft);
 }
