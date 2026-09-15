@@ -176,7 +176,9 @@
 .why__band img { position: absolute; left: 0; top: -15%; width: 100%; height: 130%; object-fit: cover; object-position: 60% 50%; transform: translateY(var(--parallax, 0)); will-change: transform; }
 .why__band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(18, 19, 58, 0.9), rgba(18, 19, 58, 0.15) 60%, rgba(18, 19, 58, 0)); }
 .why__band-caption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: var(--space-6) var(--container-pad); max-width: var(--container); margin-inline: auto; color: #fff; }
-.why__band-caption p { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.5rem); letter-spacing: -0.02em; line-height: 1.25; max-width: 34rem; }
+.why__band-caption p { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.27rem, 1.84vw, 1.73rem); letter-spacing: -0.02em; line-height: 1.25; max-width: 50rem; } /* +15%, two lines on desktop */
+.why__br { display: none; }
+@media (min-width: 1024px) { .why__br { display: inline; } }
 
 @media (min-width: 1024px) { .why__grid { grid-template-columns: repeat(5, 1fr); } }
 
