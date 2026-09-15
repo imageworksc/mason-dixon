@@ -74,7 +74,8 @@ headings never dominate a viewport.
 
 Primitives: island nav (glass pill, detached on desktop), pill buttons with nested icon
 circle, symptom chip, process step card (solid white → frosted glass on hover over a
-slowly drifting bone pattern; `bone-pattern--drift` slides exactly one tile per loop),
+white→light gradient with three slow-drifting radial colour halos — navy, red, lavender
+tints at ≤16% — no bone pattern in this section),
 hairline service row (icon circle + title + line, no card box) with a quiet lavender CTA
 panel, feature pill, team card inside a continuous CSS marquee (pauses on hover/focus;
 static row under reduced motion), accordion item (grid-rows animation), sticky mobile
