@@ -68,6 +68,9 @@ option-x/
 Per-item values that used to be inline custom properties (`--i`, `--n`) are set with
 `:nth-child()` rules in CSS.
 
+CSS/JS references carry a `?v=yyyymmddhhmm` query so GitHub Pages' 10-minute cache never
+serves stale files after a deploy. Run `node scripts/stamp-assets.js` before committing.
+
 ## 4. Option A — "Calm Clinical" (`option-a/`)
 
 Direction: light, airy, editorial. Signature material is a soft **double-bezel** frame
