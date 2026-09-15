@@ -4,57 +4,27 @@
    ========================================================================= */
 
 /* ---------------------------------------------------------------------
-   1. Hero
+   1. Hero — official video as the background under a white veil, copy left
    --------------------------------------------------------------------- */
 .hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 70vh; min-height: 70svh;
+  display: flex; align-items: center;
   padding-block: clamp(4.3rem, 7vw, 8.5rem) clamp(5rem, 8vw, 9.5rem);
-  overflow: hidden;
+  background: var(--color-bg-light);
 }
-
-.hero__inner {
-  display: grid;
-  gap: var(--space-7);
-  align-items: center;
+.hero__bg { position: absolute; inset: 0; z-index: -1; }
+.hero__video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.hero__bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 45%, rgba(255, 255, 255, 0.4) 100%);
 }
-
-.hero__copy h1 {
-  font-size: clamp(1.9rem, 3.4vw + 0.85rem, 3.5rem);
-}
-
-.hero__copy p {
-  margin-top: var(--space-5);
-  font-size: 1.1rem;
-  line-height: 1.7;
-  max-width: 34rem;
-}
-
-.hero__copy .btn-row {
-  margin-top: var(--space-6);
-}
-
-.hero__media {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--color-border);
-  aspect-ratio: 4 / 3;
-}
-
-.hero__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (min-width: 1024px) {
-  .hero__inner {
-    grid-template-columns: 0.9fr 1.1fr;
-  }
-
-  .hero__media {
-    aspect-ratio: 5 / 4;
-  }
-}
+.hero__inner { display: grid; }
+.hero__copy { max-width: 40rem; }
+.hero__copy h1 { font-size: clamp(1.9rem, 3.4vw + 0.85rem, 3.5rem); }
+.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 34rem; }
+.hero__copy .btn-row { margin-top: var(--space-6); }
+@media (max-width: 767px) { .hero__video { object-position: 34% 50%; } }
 
 /* ---------------------------------------------------------------------
    2. Emergency symptoms section
