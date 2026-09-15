@@ -4,28 +4,31 @@
    ========================================================================= */
 
 /* ---------------------------------------------------------------------
-   1. Hero — headline, copy, two buttons, photo
+   1. Hero — centred copy above a full-width panoramic photo
    --------------------------------------------------------------------- */
-.hero { padding-block: clamp(2.5rem, 5vw, 5rem) clamp(3.5rem, 7vw, 7rem); }
-.hero__inner { display: grid; gap: var(--space-7); align-items: center; }
+.hero { padding-block: clamp(2.5rem, 5vw, 4.5rem) clamp(3.5rem, 7vw, 6rem); }
+.hero__inner { display: grid; gap: clamp(2rem, 4vw, 3.5rem); justify-items: center; }
+.hero__copy { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 52rem; }
 .hero__status {
-  display: inline-flex; align-items: center; gap: 0.65rem; margin-bottom: var(--space-7);
+  display: inline-flex; align-items: center; gap: 0.65rem; margin-bottom: var(--space-6);
   padding: 0.65rem 1rem; border-radius: var(--radius-sm);
   background: var(--color-lavender); border: 1px solid rgba(36, 38, 103, 0.14);
   box-shadow: var(--shadow-sm);
   font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; color: var(--color-navy);
 }
+.hero__copy h1 { text-wrap: initial; }
 .hero__copy h1 em { font-style: normal; color: var(--color-red); }
-.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 34rem; }
-.hero__copy .btn-row { margin-top: var(--space-6); }
-.hero__media { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow-md); }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; transition: transform 1.2s var(--ease-out); }
-.hero__media:hover img { transform: scale(1.04); }
+.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 50rem; }
+.hero__copy .btn-row { margin-top: var(--space-6); justify-content: center; }
+/* Explicit two-line breaks on desktop only; below that the text wraps naturally */
+.hero__br { display: none; }
+@media (min-width: 1024px) { .hero__br { display: inline; } }
 
-@media (min-width: 1024px) {
-  .hero__inner { grid-template-columns: 1fr 1fr; gap: var(--space-9); }
-  .hero__media { aspect-ratio: 3 / 2; }
-}
+.hero__media { width: 100%; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow-md); }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; transition: transform 1.2s var(--ease-out); }
+.hero__media:hover img { transform: scale(1.03); }
+@media (min-width: 640px) { .hero__media { aspect-ratio: 16 / 9; } }
+@media (min-width: 1024px) { .hero__media { aspect-ratio: 2.4 / 1; } } /* the photo's native ratio — nothing cropped */
 
 /* ---------------------------------------------------------------------
    2. Symptoms — chip grid on navy
