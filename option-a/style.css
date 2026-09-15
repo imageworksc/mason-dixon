@@ -695,7 +695,9 @@ p { text-wrap: pretty; }
   --marquee-gap: var(--space-5);
   --marquee-duration: 48s;
   overflow: hidden;
-  padding-block: var(--space-3) var(--space-4); /* room for the hover lift + shadow */
+  /* Room for the hover lift (top) and the full float shadow (bottom) so
+     neither is clipped by the mask/overflow edge. */
+  padding-block: var(--space-4) 4.25rem;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
@@ -733,7 +735,7 @@ p { text-wrap: pretty; }
 .team-card__more svg { width: 0.95rem; height: 0.95rem; transition: transform var(--dur-med) var(--ease-out); }
 .team-card__link:hover .team-card__more, .team-card__link:focus-visible .team-card__more { opacity: 1; transform: none; }
 .team-card__link:hover .team-card__more svg { transform: translateX(3px); }
-.team__cta { margin-top: var(--space-6); text-align: center; }
+.team__cta { margin-top: 0; text-align: center; } /* marquee's bottom padding already provides the gap */
 
 @media (min-width: 1024px) { .team-card { width: clamp(15rem, 16vw, 17rem); } }
 
