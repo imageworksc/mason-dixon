@@ -14,14 +14,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="../assets/images/hero.jpg" fetchpriority="high" />
 
-  <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="style.css" />
+  <script src="js/head.js"></script>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/motion.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ============================ Icon sprite ============================ -->
-  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <svg class="icon-sprite" aria-hidden="true">
     <defs>
       <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
       <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
@@ -99,13 +102,13 @@
   <!-- Full-screen mobile menu -->
   <div class="mobile-nav" id="mobile-nav" data-nav-menu aria-hidden="true">
     <nav class="mobile-nav__links" aria-label="Mobile">
-      <a href="../about.html" style="--i:0"><span>01</span>About</a>
-      <a href="#services" style="--i:1"><span>02</span>Emergency Services</a>
-      <a href="#team" style="--i:2"><span>03</span>Our Team</a>
-      <a href="../resources.html" style="--i:3"><span>04</span>Resources</a>
-      <a href="#refer" style="--i:4"><span>05</span>For Vets</a>
+      <a href="../about.html"><span>01</span>About</a>
+      <a href="#services"><span>02</span>Emergency Services</a>
+      <a href="#team"><span>03</span>Our Team</a>
+      <a href="../resources.html"><span>04</span>Resources</a>
+      <a href="#refer"><span>05</span>For Vets</a>
     </nav>
-    <div class="mobile-nav__foot" style="--i:5">
+    <div class="mobile-nav__foot">
       <span class="live"><span class="live-dot" aria-hidden="true"></span>Open now · 24 hours · 7 days</span>
       <a class="mobile-nav__phone" href="tel:+17174326030">(717) 432-6030</a>
       <p>96 Sofia Drive, Suite 203 · Shrewsbury, PA 17361</p>
@@ -195,7 +198,7 @@
         </div>
 
         <ol class="stack">
-          <li class="stack__card" style="--n:0">
+          <li class="stack__card">
             <span class="stack__num" aria-hidden="true">01</span>
             <div class="stack__body">
               <span class="stack__icon"><svg aria-hidden="true"><use href="#icon-pulse"/></svg></span>
@@ -203,7 +206,7 @@
               <p>Every patient is assessed when they arrive.</p>
             </div>
           </li>
-          <li class="stack__card" style="--n:1">
+          <li class="stack__card">
             <span class="stack__num" aria-hidden="true">02</span>
             <div class="stack__body">
               <span class="stack__icon"><svg aria-hidden="true"><use href="#icon-heart"/></svg></span>
@@ -211,7 +214,7 @@
               <p>Life-threatening emergencies receive immediate attention.</p>
             </div>
           </li>
-          <li class="stack__card" style="--n:2">
+          <li class="stack__card">
             <span class="stack__num" aria-hidden="true">03</span>
             <div class="stack__body">
               <span class="stack__icon"><svg aria-hidden="true"><use href="#icon-scan"/></svg></span>
@@ -219,7 +222,7 @@
               <p>Digital X-ray, ultrasound &amp; in-house lab testing.</p>
             </div>
           </li>
-          <li class="stack__card" style="--n:3">
+          <li class="stack__card">
             <span class="stack__num" aria-hidden="true">04</span>
             <div class="stack__body">
               <span class="stack__icon"><svg aria-hidden="true"><use href="#icon-medical-cross"/></svg></span>
@@ -227,7 +230,7 @@
               <p>We explain findings, options and costs before proceeding.</p>
             </div>
           </li>
-          <li class="stack__card" style="--n:4">
+          <li class="stack__card">
             <span class="stack__num" aria-hidden="true">05</span>
             <div class="stack__body">
               <span class="stack__icon"><svg aria-hidden="true"><use href="#icon-users"/></svg></span>
@@ -501,6 +504,6 @@
     </a>
   </div>
 
-  <script src="main.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
