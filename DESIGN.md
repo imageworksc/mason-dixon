@@ -121,4 +121,4 @@ Added tokens:
 
 Primitives: transparent→solid header, full-screen overlay menu with staggered links,
 ticker, numbered symptom row, stacking process card, service row, feature card,
-spotlight team card (overlay caption), red CTA band, accordion item, sticky mobile call bar.
+spotlight team card (overlay caption), glass CTA card, accordion item, sticky mobile call bar.
