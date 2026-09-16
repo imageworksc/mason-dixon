@@ -51,12 +51,20 @@
   --transition: 180ms ease;
 
   /* Layout */
-  --container-width: 1280px;
+  --container-width: 80rem;
   --container-pad: clamp(1.25rem, 4vw, 3rem);
   --section-space: clamp(7rem, 11vw, 13rem);
-  --header-h: 64px;
-  --alert-h: 40px;
+  --header-h: 4rem;
+  --alert-h: 2.5rem;
 }
+
+/* Large-display scaling: everything is rem-based, so bumping the root
+   keeps the composition intact on 2K / 4K / 5K monitors. */
+@media (min-width: 1920px) { html { font-size: 17px; } }
+@media (min-width: 2560px) { html { font-size: 20px; } }
+@media (min-width: 3440px) { html { font-size: 24px; } }
+@media (min-width: 3840px) { html { font-size: 28px; } }
+@media (min-width: 5120px) { html { font-size: 36px; } }
 
 /* ---------------------------------------------------------------------
    2. Reset
@@ -236,7 +244,7 @@ h3 {
 .section--navy::after {
   content: "";
   position: absolute;
-  width: clamp(160px, 18vw, 290px);
+  width: clamp(10rem, 18vw, 18rem);
   aspect-ratio: 116 / 120;
   background: url("../images/paw.svg") no-repeat center / contain;
   z-index: 0;
