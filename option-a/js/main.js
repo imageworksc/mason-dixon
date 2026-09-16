@@ -144,8 +144,45 @@ const initHeroVideo = () => {
   observer.observe(video);
 };
 
+/* ---------------------------------------------------------------
+   Paw-print backdrop on the final CTA drifts a little with the cursor
+   --------------------------------------------------------------- */
+const initPawParallax = () => {
+  const section = document.querySelector("[data-paw-parallax]");
+  const layer = section?.querySelector(".final-cta__paws");
+  if (!section || !layer || reduceMotion) return;
+
+  const RANGE = 28; // px of travel in each axis
+  let ticking = false;
+  let target = { x: 0, y: 0 };
+
+  const apply = () => {
+    layer.style.setProperty("--paw-x", `${target.x.toFixed(1)}px`);
+    layer.style.setProperty("--paw-y", `${target.y.toFixed(1)}px`);
+    ticking = false;
+  };
+
+  section.addEventListener("mousemove", (event) => {
+    const rect = section.getBoundingClientRect();
+    // -1 … 1 from the section centre; the layer moves opposite to the cursor
+    const nx = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    const ny = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+    target = { x: -nx * RANGE, y: -ny * RANGE };
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(apply);
+    }
+  });
+
+  section.addEventListener("mouseleave", () => {
+    target = { x: 0, y: 0 };
+    window.requestAnimationFrame(apply);
+  });
+};
+
 initNav();
 initHeroVideo();
 initScrollState();
 initReveals();
 initAccordion();
+initPawParallax();
