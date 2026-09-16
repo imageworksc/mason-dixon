@@ -66,6 +66,20 @@
 /* ---------------------------------------------------------------------
    3. Process — sticky stacking cards
    --------------------------------------------------------------------- */
+/* Barely-there paw scatter that floats slowly and endlessly (transform only) */
+.process::before, .process::after { display: none; }
+.process__paws {
+  position: absolute; inset: -4rem; z-index: 0; pointer-events: none;
+  background: url("../../assets/images/paw-tile.svg") repeat; background-size: 27rem 27rem;
+  opacity: 0.028;
+  animation: paw-float 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes paw-float {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(-1.4rem, -1.1rem, 0); }
+  100% { transform: translate3d(0.6rem, -2.2rem, 0); }
+}
 .process__inner { display: grid; gap: var(--space-7); align-items: start; }
 .process__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 30rem; }
 
