@@ -276,15 +276,19 @@
 /* ---------------------------------------------------------------------
    7. Final CTA
    --------------------------------------------------------------------- */
-/* Faint, widely spaced paw scatter that drifts with the cursor (see initPawParallax) */
+/* Barely-there paw scatter that floats slowly and endlessly (transform only) */
 .final-cta::before, .final-cta::after { display: none; }
 .final-cta__paws {
   position: absolute; inset: -4rem; z-index: 0; pointer-events: none;
   background: url("../../assets/images/paw-tile.svg") repeat; background-size: 27rem 27rem;
-  opacity: 0.04;
-  transform: translate3d(var(--paw-x, 0px), var(--paw-y, 0px), 0);
-  transition: transform 0.9s var(--ease-out);
+  opacity: 0.028;
+  animation: paw-float 26s ease-in-out infinite alternate;
   will-change: transform;
+}
+@keyframes paw-float {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(-1.4rem, -1.1rem, 0); }
+  100% { transform: translate3d(0.6rem, -2.2rem, 0); }
 }
 .final-cta__inner { display: grid; gap: var(--space-8); align-items: center; }
 .final-cta__copy h2 em { font-style: normal; color: var(--color-red-bright); }
