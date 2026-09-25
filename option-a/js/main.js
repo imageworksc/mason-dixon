@@ -58,7 +58,7 @@ const initScrollState = () => {
     header?.classList.toggle("is-scrolled", y > 8);
     const pastHero = y > window.innerHeight * 0.6;
     callBar?.classList.toggle("is-visible", pastHero);
-    payPill?.classList.toggle("is-visible", pastHero);
+    payPill?.classList.toggle("is-raised", pastHero);
 
     if (bandImg && !reduceMotion && desktop.matches) {
       const rect = band.getBoundingClientRect();
@@ -83,6 +83,18 @@ const initScrollState = () => {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   update();
+};
+
+/* ---------------------------------------------------------------
+   Financing badge — on screen from the start, after a short beat so
+   it reads as arriving rather than being part of the first paint.
+   --------------------------------------------------------------- */
+const initPayPill = () => {
+  const pill = document.querySelector("[data-pay-pill]");
+  if (!pill) return;
+  const show = () => pill.classList.add("is-visible");
+  if (reduceMotion) show();
+  else window.setTimeout(show, 600);
 };
 
 /* ---------------------------------------------------------------
@@ -189,6 +201,7 @@ const initHeroVideo = () => {
 initNav();
 initHeroVideo();
 initScrollState();
+initPayPill();
 initReveals();
 initCarousel();
 initAccordion();

@@ -196,7 +196,7 @@
   --pill-pad: 0.3rem;
   --pill-radius: 0.7rem;
   position: fixed; left: var(--container-pad); z-index: 70;
-  bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  bottom: var(--space-5);
   padding: var(--pill-pad);
   border-radius: var(--pill-radius);
   background: rgba(36, 38, 103, 0.16);
@@ -205,8 +205,15 @@
   opacity: 0; transform: translateY(0.75rem); pointer-events: none;
   transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
 }
-.pay-pill.is-visible { opacity: 1; transform: none; pointer-events: auto; }
-.pay-pill:hover { transform: translateY(-3px); }
+.pay-pill.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.pay-pill.is-visible:hover { transform: translateY(-3px); }
+
+/* Below desktop the sticky call bar claims the bottom edge, so the badge
+   rides up above it once that bar slides in. */
+@media (max-width: 1023px) {
+  .pay-pill.is-visible.is-raised { transform: translateY(calc(-4.25rem - env(safe-area-inset-bottom, 0px))); }
+  .pay-pill.is-visible.is-raised:hover { transform: translateY(calc(-4.25rem - 3px - env(safe-area-inset-bottom, 0px))); }
+}
 
 .pay-pill__core {
   position: relative; overflow: hidden; isolation: isolate;
@@ -247,4 +254,4 @@
 }
 
 /* No call bar from here up, so the badge drops to the corner */
-@media (min-width: 1024px) { .pay-pill { left: var(--space-5); bottom: var(--space-5); } }
+@media (min-width: 1024px) { .pay-pill { left: var(--space-5); } }
