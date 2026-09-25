@@ -259,23 +259,48 @@
 }
 
 /* ---------------------------------------------------------------------
-   7. Reviews — narrow centred teaser between the team and the CTA
+   7. Reviews — narrow centred heading over three quote cards
    --------------------------------------------------------------------- */
 .reviews {
   background: var(--color-bg-light);
   padding-block: clamp(3.5rem, 6vw, 6rem);
 }
-.reviews__inner { max-width: 34rem; text-align: center; }
+.reviews__head { max-width: 34rem; text-align: center; }
 .reviews__mark {
   display: block; margin-bottom: var(--space-3);
   font-family: var(--font-display); font-weight: 800;
   font-size: 4.5rem; line-height: 0.6; color: var(--color-red); opacity: 0.22;
 }
 .reviews h2 { font-size: clamp(1.5rem, 1.4vw + 0.9rem, 2.1rem); }
-.reviews p { margin-top: var(--space-3); font-size: 1.05rem; line-height: 1.65; }
+.reviews__head p { margin-top: var(--space-3); font-size: 1.05rem; line-height: 1.65; }
+
+/* Capped well inside the container so the section stays narrow */
+.reviews__grid {
+  max-width: 62rem; margin: var(--space-7) auto 0;
+  padding-inline: var(--container-pad);
+  display: grid; gap: var(--space-4);
+}
+.review {
+  display: flex; flex-direction: column; height: 100%;
+  padding: var(--space-5);
+  background: #fff; border: 1px solid var(--color-border); border-radius: 1.25rem;
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease;
+}
+.review:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); border-color: rgba(192, 29, 46, 0.4); }
+.review blockquote { margin: 0; }
+.review blockquote p { font-size: 0.95rem; line-height: 1.65; color: var(--color-slate); }
+.review__by {
+  margin-top: auto; padding-top: var(--space-4); /* auto keeps the attributions aligned across cards */
+  border-top: 1px solid var(--color-border);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem var(--space-3);
+}
+.review__name { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--color-navy); }
+.review__src { font-size: 0.78rem; color: var(--color-gray); }
+
+.reviews__cta { text-align: center; }
 .reviews__link {
   position: relative; display: inline-flex; align-items: center; gap: 0.55rem;
-  margin-top: var(--space-6);
+  margin-top: var(--space-7);
   font-family: var(--font-display); font-weight: 700; font-size: 0.95rem;
   color: var(--color-red);
 }
@@ -287,6 +312,8 @@
 }
 .reviews__link:hover::after { transform: scaleX(1); }
 .reviews__link:hover svg { transform: translateX(4px); }
+
+@media (min-width: 768px) { .reviews__grid { grid-template-columns: repeat(3, 1fr); } }
 
 /* ---------------------------------------------------------------------
    8. Final CTA — glass card over a dark backdrop with soft colour glows
