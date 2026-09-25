@@ -259,11 +259,16 @@
 }
 
 /* ---------------------------------------------------------------------
-   7. Final CTA
+   7. Final CTA — glass card over a dark backdrop with soft colour glows
    --------------------------------------------------------------------- */
+.cta-glass { position: relative; overflow: clip; background: var(--color-navy-900); color: #fff; }
+.cta-glass__glow { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(40px); }
+.cta-glass__glow--red { width: 34rem; height: 34rem; left: 8%; top: -30%; background: radial-gradient(closest-side, rgba(192, 29, 46, 0.55), rgba(192, 29, 46, 0)); }
+.cta-glass__glow--blue { width: 38rem; height: 38rem; right: 4%; bottom: -40%; background: radial-gradient(closest-side, rgba(108, 140, 255, 0.4), rgba(108, 140, 255, 0)); }
+.cta-glass > .container { position: relative; z-index: 1; }
+
 /* Barely-there paw scatter that floats slowly and endlessly (transform only) */
-.final-cta::before, .final-cta::after { display: none; }
-.final-cta__paws {
+.cta-glass__paws {
   position: absolute; inset: -4rem; z-index: 0; pointer-events: none;
   background: url("../../assets/images/paw-tile.svg") repeat; background-size: 27rem 27rem;
   opacity: 0.028;
@@ -275,29 +280,32 @@
   50%  { transform: translate3d(-1.4rem, -1.1rem, 0); }
   100% { transform: translate3d(0.6rem, -2.2rem, 0); }
 }
-.final-cta__inner { display: grid; gap: var(--space-8); align-items: center; }
-.final-cta__copy h2 em { font-style: normal; color: var(--color-red-bright); }
-.final-cta__copy p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 32rem; }
-.final-cta__copy strong { color: #fff; }
-.final-cta__hours { margin-top: var(--space-5); display: inline-flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em; color: #fff; }
 
-.final-cta__card { transition: transform var(--dur-med) var(--ease-out); }
-.final-cta__card:hover { transform: translateY(-4px); }
-.final-cta__card .bezel__core { padding: clamp(1.5rem, 3vw, 2.5rem); }
-.final-cta__label { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-red); }
-.final-cta__label svg { width: 1rem; height: 1rem; }
-.final-cta__phone {
-  display: inline-block; margin-top: var(--space-3); font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.7rem, 2.6vw, 2.5rem); letter-spacing: -0.02em; color: var(--color-navy); line-height: 1;
+
+.glass-card {
+  max-width: 56rem; margin-inline: auto;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-4);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3); backdrop-filter: blur(20px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 40px 80px -30px rgba(0, 0, 0, 0.6);
+}
+.glass-card h2 { color: #fff; font-size: clamp(1.4rem, 1.6vw + 0.6rem, 2.1rem); }
+.glass-card__phone {
+  position: relative; display: inline-block; font-family: var(--font-display); font-weight: 800; line-height: 1;
+  font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.04em; color: #fff;
   transition: color var(--dur-fast) ease;
 }
-.final-cta__phone:hover { color: var(--color-red); }
-.final-cta__address { margin-top: var(--space-3); display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--color-slate); }
-.final-cta__address svg { width: 1rem; height: 1rem; color: var(--color-red); }
-.final-cta__card .btn-row { margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
-.final-cta__card .btn { flex: 1 1 0; }
-
-@media (min-width: 1024px) { .final-cta__inner { grid-template-columns: 1.15fr 1fr; gap: var(--space-9); } }
+.glass-card__phone::after { content: ""; position: absolute; left: 0.04em; right: 0.04em; bottom: -0.06em; height: 0.07em; border-radius: 1em; background: var(--color-red); transform: scaleX(0); transform-origin: left center; transition: transform var(--dur-slow) var(--ease-out); }
+.glass-card__phone:hover::after { transform: scaleX(1); }
+.glass-card p { font-size: 1.02rem; line-height: 1.65; max-width: 34rem; color: var(--text-on-dark-secondary); }
+.glass-card p strong { color: #fff; }
+.glass-card__meta { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3) var(--space-6); font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.02em; }
+.glass-card__meta li { display: inline-flex; align-items: center; gap: 0.55rem; }
+.glass-card__meta svg { width: 1rem; height: 1rem; color: #ff8f9a; }
+.glass-card .btn-row { margin-top: var(--space-2); justify-content: center; }
 
 /* ---------------------------------------------------------------------
    8. Refer a vet
