@@ -185,7 +185,7 @@
 /* ---------------------------------------------------------------------
    5. Why us — feature cards + parallax band
    --------------------------------------------------------------------- */
-.why { padding-bottom: 0; }
+.why { padding-bottom: 0; background: var(--color-bg-light); } /* flat tint, no bone texture */
 .why__head { max-width: 48rem; margin-bottom: var(--space-7); }
 .why__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
 .why__grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
@@ -276,7 +276,7 @@
 
 /* Capped well inside the container so the section stays narrow */
 .reviews__grid {
-  max-width: 62rem; margin: var(--space-7) auto 0;
+  max-width: 72rem; margin: var(--space-7) auto 0;
   padding-inline: var(--container-pad);
   display: grid; gap: var(--space-4);
 }
