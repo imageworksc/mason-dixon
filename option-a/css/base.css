@@ -11,9 +11,7 @@
   --color-navy-dark: #1a1b4e;
   --color-navy-900: #12133a; /* darkest surface — behind the why-us photo band */
   --color-red: #c01d2e;
-  --color-red-dark: #9c1622;
-  --color-red-bright: #e8303f; /* accent text on navy — same hue, lifted to clear 3:1 */
-  --color-slate: #56566a;
+  --color-red-dark: #9c1622;  --color-slate: #56566a;
   --color-gray: #6b6b78;
   --color-border: #e0e0e8;
   --color-bg-light: #f5f5f7;

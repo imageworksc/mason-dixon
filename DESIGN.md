@@ -80,36 +80,39 @@ serves stale files after a deploy. Run `node scripts/stamp-assets.js` before com
 
 ## 5. Option A — "Calm Clinical" (`option-a/`)
 
-Direction: light, airy, editorial. Signature material is a soft **double-bezel** frame
-(outer tinted shell + inner core with concentric radii) on hero media, the final-CTA card
-and team cards. Atmosphere comes from a faint navy/lavender radial glow behind the hero
-and the existing bone watermark on tinted sections.
+Direction: light, airy, editorial. The hero is the official video in full view with a
+white gradient rising from the bottom; label, two-line headline, two-line copy and two
+buttons sit bottom-left in navy. Atmosphere elsewhere comes from the bone watermark on
+tinted sections and the floating paw scatter behind the final CTA. The **double-bezel**
+frame (outer tinted shell + inner core with concentric radii) survives only on the
+services photo — the why-us, team and CTA sections now use Option B's treatments.
 
 Added tokens:
 
 | Token | Value | Use |
 |---|---|---|
-| `--color-lavender` | `#e7e7f4` | Icon chips, bezel shells |
-| `--color-red-bright` | `#e8303f` | Accent word in headings on navy (brand hue lifted to clear 3:1) |
-| `--color-glow` | `rgba(36, 38, 103, 0.10)` | Hero radial glow |
+| `--color-lavender` | `#e7e7f4` | Icon chips, bezel shell, hero label |
+| `--color-navy-900` | `#12133a` | Darkest surface — why-us photo band, CTA backdrop |
 | `--shadow-float` | `0 30px 60px -24px rgba(16,24,64,.28)` | Floating cards |
 | `--shadow-soft` | `0 12px 32px -12px rgba(16,24,64,.16)` | Card hover |
 
 Type scale is deliberately close to the live homepage (h1 ≤ 3.5rem, h2 ≤ 2.6rem) so
 headings never dominate a viewport.
 
-No eyebrow labels above headings. Buttons use `--radius-md` (8px), matching the live
-homepage; only the island nav, status badges and icon circles stay fully round.
+No eyebrow labels above headings — the hero status label is the only one left. Buttons
+use `--radius-sm` (4px) with plain inline icons; only the alert badge, icon circles and
+the carousel arrows stay fully round.
 
-Primitives: island nav (glass pill, detached on desktop), buttons with a nested icon
-tile, symptom chip, process step card (solid white → frosted glass on hover over a
-white→light gradient with three slow-drifting radial colour halos — navy, red, lavender
-tints at ≤16% — no bone pattern in this section),
-hairline service row (icon circle + title + line, no card box) with a quiet lavender CTA
-panel, why-us feature card grid over a photo band with a scroll parallax (shared with Option B),
-spotlight team card with an overlay caption (shared with Option B: a five-across grid on
-desktop, a scroll-snap carousel with round arrow buttons below it), accordion item
-(grid-rows animation), sticky mobile call bar.
+Primitives: full-width white header (hairline below, shadow once scrolled, links
+right-aligned with a red underline on hover, "Open 24/7" live indicator beside the call
+button), symptom chip, process step card (white card on flat `--color-bg-light`; hover =
+lift + shadow), hairline service row (icon circle + title + line, no card box) with a
+quiet lavender CTA panel, why-us feature card grid over a photo band with a scroll
+parallax, spotlight team card with an overlay caption (five-across grid on desktop, a
+scroll-snap carousel with round arrow buttons below it), glass CTA card over
+`--color-navy-900` with two blurred colour glows and the floating paw scatter,
+accordion item (grid-rows animation), sticky mobile call bar. The why-us, team and CTA
+primitives are shared with Option B.
 
 Scroll reveals are keyframe animations with `fill-mode: backwards` (not transitions) so
 they never override a primitive's own hover transitions.

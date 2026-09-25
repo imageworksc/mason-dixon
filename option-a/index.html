@@ -13,11 +13,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
-  <script src="js/head.js?v=202609251329"></script>
-  <link rel="stylesheet" href="css/base.css?v=202609251329" />
-  <link rel="stylesheet" href="css/components.css?v=202609251329" />
-  <link rel="stylesheet" href="css/sections.css?v=202609251329" />
-  <link rel="stylesheet" href="css/motion.css?v=202609251329" />
+  <script src="js/head.js?v=202609251343"></script>
+  <link rel="stylesheet" href="css/base.css?v=202609251343" />
+  <link rel="stylesheet" href="css/components.css?v=202609251343" />
+  <link rel="stylesheet" href="css/sections.css?v=202609251343" />
+  <link rel="stylesheet" href="css/motion.css?v=202609251343" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -308,25 +308,23 @@
       </div>
     </section>
 
-    <!-- ============================ Final CTA ============================ -->
-    <section class="section section--navy final-cta" aria-labelledby="final-cta-heading">
-      <div class="final-cta__paws" aria-hidden="true"></div>
-      <div class="container final-cta__inner">
-        <div class="final-cta__copy" data-reveal>
-          <h2 id="final-cta-heading">Need an <em>Emergency</em> Vet Now?</h2>
+    <!-- ============================ Final CTA — glass card ============================ -->
+    <section class="section cta-glass" aria-labelledby="cta-heading">
+      <div class="cta-glass__paws" aria-hidden="true"></div>
+      <div class="cta-glass__glow cta-glass__glow--red" aria-hidden="true"></div>
+      <div class="cta-glass__glow cta-glass__glow--blue" aria-hidden="true"></div>
+      <div class="container">
+        <div class="glass-card" data-reveal-stagger>
+          <h2 id="cta-heading">Need an Emergency Vet Now?</h2>
+          <a class="glass-card__phone" href="tel:+17174326030">(717) 432-6030</a>
           <p>If your pet is experiencing a medical emergency, call <strong>Mason Dixon Animal Emergency Hospital</strong> or come in immediately.</p>
-          <p class="final-cta__hours"><span class="live-dot" aria-hidden="true"></span>Open 24 Hours a Day · 7 Days a Week</p>
-        </div>
-
-        <div class="bezel bezel--dark final-cta__card" data-reveal>
-          <div class="bezel__core">
-            <span class="final-cta__label"><svg aria-hidden="true"><use href="#icon-phone"/></svg>Call Us Now</span>
-            <a class="final-cta__phone" href="tel:+17174326030">(717) 432-6030</a>
-            <p class="final-cta__address"><svg aria-hidden="true"><use href="#icon-pin"/></svg>96 Sofia Drive, Suite 203 · Shrewsbury, PA 17361</p>
-            <div class="btn-row">
-              <a class="btn btn--navy" href="tel:+17174326030"><svg class="btn__icon" aria-hidden="true"><use href="#icon-phone"/></svg><span>Call Now</span></a>
-              <a class="btn btn--outline" href="https://www.google.com/maps/search/?api=1&query=96+Sofia+Drive+Suite+203+Shrewsbury+PA+17361" target="_blank" rel="noopener"><svg class="btn__icon" aria-hidden="true"><use href="#icon-pin"/></svg><span>Get Directions</span></a>
-            </div>
+          <ul class="glass-card__meta">
+            <li><span class="live-dot" aria-hidden="true"></span>Open 24 Hours a Day · 7 Days a Week</li>
+            <li><svg aria-hidden="true"><use href="#icon-pin"/></svg>96 Sofia Drive, Suite 203 · Shrewsbury, PA 17361</li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn--primary btn--lg" href="tel:+17174326030"><svg class="btn__icon" aria-hidden="true"><use href="#icon-phone"/></svg><span>Call Now</span></a>
+            <a class="btn btn--ghost btn--lg" href="https://www.google.com/maps/search/?api=1&query=96+Sofia+Drive+Suite+203+Shrewsbury+PA+17361" target="_blank" rel="noopener"><svg class="btn__icon" aria-hidden="true"><use href="#icon-pin"/></svg><span>Get Directions</span></a>
           </div>
         </div>
       </div>
@@ -470,6 +468,6 @@
     </a>
   </div>
 
-  <script type="module" src="js/main.js?v=202609251329"></script>
+  <script type="module" src="js/main.js?v=202609251343"></script>
 </body>
 </html>
