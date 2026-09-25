@@ -42,26 +42,43 @@ const initNav = () => {
 };
 
 /* ---------------------------------------------------------------
-   Header shadow + sticky call bar once the page scrolls
+   Scroll-driven state: header shadow, sticky call bar, and the
+   why-us photo band's parallax. One rAF-throttled listener for all.
    --------------------------------------------------------------- */
 const initScrollState = () => {
   const header = document.querySelector("[data-site-header]");
   const callBar = document.querySelector("[data-call-bar]");
+  const band = document.querySelector("[data-parallax]");
+  const bandImg = band?.querySelector("img") ?? null;
   let ticking = false;
 
   const update = () => {
     const y = window.scrollY;
     header?.classList.toggle("is-scrolled", y > 8);
     callBar?.classList.toggle("is-visible", y > window.innerHeight * 0.6);
+
+    if (bandImg && !reduceMotion && desktop.matches) {
+      const rect = band.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < vh) {
+        // -1 (band entering from bottom) … +1 (band leaving at top)
+        const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
+        bandImg.style.setProperty("--parallax", `${(progress * -8).toFixed(2)}%`);
+      }
+    } else if (bandImg) {
+      bandImg.style.removeProperty("--parallax");
+    }
     ticking = false;
   };
 
-  window.addEventListener("scroll", () => {
+  const onScroll = () => {
     if (ticking) return;
     ticking = true;
     window.requestAnimationFrame(update);
-  }, { passive: true });
+  };
 
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
   update();
 };
 

@@ -35,4 +35,5 @@
     transition-duration: 0.01ms !important;
   }
   .live-dot::before { display: none; }
+  .why__band img { transform: none; }
 }

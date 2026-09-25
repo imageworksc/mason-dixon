@@ -183,37 +183,32 @@
 }
 
 /* ---------------------------------------------------------------------
-   5. Why us — sticky media + feature pills
+   5. Why us — feature cards + parallax band
    --------------------------------------------------------------------- */
-.why__inner { display: grid; gap: var(--space-8); align-items: start; }
-.why__media .bezel__core { aspect-ratio: 4 / 3; }
-.why__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
-.why__media:hover img { transform: scale(1.04); }
-.why__copy p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
+.why { padding-bottom: 0; }
+.why__head { max-width: 48rem; margin-bottom: var(--space-7); }
+.why__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
+.why__grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.fcard {
+  display: flex; flex-direction: column; gap: var(--space-4);
+  padding: var(--space-5); border-radius: 1.25rem; background: #fff; border: 1px solid var(--color-border);
+  font-weight: 600; font-size: 0.95rem; line-height: 1.4; color: var(--color-navy);
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease;
+}
+.fcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); border-color: rgba(192, 29, 46, 0.4); }
+.fcard__icon { width: 2.6rem; height: 2.6rem; border-radius: 0.8rem; background: var(--color-navy); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring); }
+.fcard__icon svg { width: 1.2rem; height: 1.2rem; }
+.fcard:hover .fcard__icon { background: var(--color-red); transform: scale(1.08) rotate(-6deg); }
 
-.features { margin-top: var(--space-6); display: grid; gap: var(--space-3); }
-.feature {
-  display: flex; align-items: center; gap: var(--space-3);
-  padding: 0.85rem 1rem; border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.92rem; font-weight: 500; color: #fff;
-  transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease, border-color var(--dur-fast) ease;
-}
-.feature:hover { transform: translateX(6px); background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.24); }
-.feature__icon {
-  width: 2.1rem; height: 2.1rem; border-radius: 0.6rem; flex-shrink: 0;
-  background: var(--color-red); color: #fff; display: inline-flex; align-items: center; justify-content: center;
-  transition: transform var(--dur-fast) var(--ease-spring);
-}
-.feature__icon svg { width: 1.1rem; height: 1.1rem; }
-.feature:hover .feature__icon { transform: scale(1.12) rotate(-6deg); }
+.why__band { position: relative; margin-top: var(--space-8); height: clamp(18rem, 48vw, 36rem); overflow: hidden; background: var(--color-navy-900); }
+.why__band img { position: absolute; left: 0; top: -15%; width: 100%; height: 130%; object-fit: cover; object-position: 60% 50%; transform: translateY(var(--parallax, 0)); will-change: transform; }
+.why__band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(18, 19, 58, 0.9), rgba(18, 19, 58, 0.15) 60%, rgba(18, 19, 58, 0)); }
+.why__band-caption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: var(--space-6) var(--container-pad); max-width: var(--container); margin-inline: auto; color: #fff; }
+.why__band-caption p { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.27rem, 1.84vw, 1.73rem); letter-spacing: -0.02em; line-height: 1.25; max-width: 50rem; } /* +15%, two lines on desktop */
+.why__br { display: none; }
+@media (min-width: 1024px) { .why__br { display: inline; } }
 
-@media (min-width: 768px) { .features { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) {
-  .why__inner { grid-template-columns: 0.9fr 1.1fr; gap: var(--space-9); }
-  .why__media { position: sticky; top: calc(var(--header-offset) + 1rem); }
-  .why__media .bezel__core { aspect-ratio: 4 / 5; }
-}
+@media (min-width: 1024px) { .why__grid { grid-template-columns: repeat(5, 1fr); } }
 
 /* ---------------------------------------------------------------------
    6. Team — continuous marquee (pauses on hover / focus)
