@@ -48,6 +48,7 @@ const initNav = () => {
 const initScrollState = () => {
   const header = document.querySelector("[data-site-header]");
   const callBar = document.querySelector("[data-call-bar]");
+  const payPill = document.querySelector("[data-pay-pill]");
   const band = document.querySelector("[data-parallax]");
   const bandImg = band?.querySelector("img") ?? null;
   let ticking = false;
@@ -55,7 +56,9 @@ const initScrollState = () => {
   const update = () => {
     const y = window.scrollY;
     header?.classList.toggle("is-scrolled", y > 8);
-    callBar?.classList.toggle("is-visible", y > window.innerHeight * 0.6);
+    const pastHero = y > window.innerHeight * 0.6;
+    callBar?.classList.toggle("is-visible", pastHero);
+    payPill?.classList.toggle("is-visible", pastHero);
 
     if (bandImg && !reduceMotion && desktop.matches) {
       const rect = band.getBoundingClientRect();
