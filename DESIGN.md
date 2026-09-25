@@ -111,7 +111,7 @@ quiet lavender CTA panel, why-us feature card grid over a photo band with a scro
 parallax, spotlight team card with an overlay caption (five-across grid on desktop, a
 scroll-snap carousel with round arrow buttons below it), glass CTA card over
 `--color-navy-900` with two blurred colour glows and the floating paw scatter,
-reviews block (narrow centred heading with a quote glyph, three white quote cards capped
+reviews block (narrow centred heading with a quote glyph, three white quote cards, each with the patient's photo as a round avatar, capped
 at 62rem whose attributions align on a shared baseline, arrow link to the testimonials
 page), accordion item (grid-rows animation), sticky mobile call bar,
 floating financing badge
