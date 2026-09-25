@@ -187,3 +187,41 @@
 .call-bar__dir svg { width: 1.2rem; height: 1.2rem; }
 @media (min-width: 1024px) { .call-bar { display: none; } }
 
+/* ---------------------------------------------------------------------
+   4. Floating financing badge — bottom-left, sits above the call bar
+   --------------------------------------------------------------------- */
+.pay-pill {
+  position: fixed; left: var(--container-pad); z-index: 70;
+  bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px));
+  display: inline-flex; align-items: center; gap: var(--space-3);
+  padding: 0.55rem 1.15rem 0.55rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-navy); color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: var(--shadow-float);
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; line-height: 1;
+  white-space: nowrap;
+  opacity: 0; transform: translateY(0.75rem); pointer-events: none;
+  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out),
+              background-color var(--dur-fast) ease;
+}
+.pay-pill.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.pay-pill:hover { background: var(--color-navy-dark); transform: translateY(-2px); }
+.pay-pill__icon {
+  width: 2.25rem; height: 2.25rem; border-radius: 50%; flex-shrink: 0;
+  background: var(--color-red); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: transform var(--dur-fast) var(--ease-spring);
+}
+.pay-pill__icon svg { width: 1.15rem; height: 1.15rem; }
+.pay-pill:hover .pay-pill__icon { transform: scale(1.08) rotate(-6deg); }
+
+/* Phones: icon only, so the badge never covers a card it floats over.
+   The label still reaches screen readers through aria-label. */
+@media (max-width: 639px) {
+  .pay-pill { padding: 0.4rem; gap: 0; }
+  .pay-pill span:not(.pay-pill__icon) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+}
+
+/* No call bar from here up, so the badge drops to the corner */
+@media (min-width: 1024px) { .pay-pill { left: var(--space-5); bottom: var(--space-5); } }
