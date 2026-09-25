@@ -113,7 +113,7 @@ scroll-snap carousel with round arrow buttons below it), glass CTA card over
 `--color-navy-900` with two blurred colour glows and the floating paw scatter,
 accordion item (grid-rows animation), sticky mobile call bar, floating financing badge
 (bottom-left double-bezel: tinted shell, navy gradient core, paw watermark that drifts on
-hover, red percent chip; appears with the call bar past the hero, chip-only under 640px). The why-us, team and CTA
+hover, red percent chip; on screen from load, rides up above the sticky call bar when that slides in, chip-only under 640px). The why-us, team and CTA
 primitives are shared with Option B.
 
 Scroll reveals are keyframe animations with `fill-mode: backwards` (not transitions) so
