@@ -106,7 +106,8 @@ tile, symptom chip, process step card (solid white → frosted glass on hover ov
 white→light gradient with three slow-drifting radial colour halos — navy, red, lavender
 tints at ≤16% — no bone pattern in this section),
 hairline service row (icon circle + title + line, no card box) with a quiet lavender CTA
-panel, feature pill, team card inside a continuous CSS marquee (pauses on hover/focus;
+panel, why-us feature card grid over a photo band with a scroll parallax (shared with Option B),
+team card inside a continuous CSS marquee (pauses on hover/focus;
 static row under reduced motion), accordion item (grid-rows animation), sticky mobile
 call bar.
 
