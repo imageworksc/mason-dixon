@@ -211,61 +211,51 @@
 @media (min-width: 1024px) { .why__grid { grid-template-columns: repeat(5, 1fr); } }
 
 /* ---------------------------------------------------------------------
-   6. Team — continuous marquee (pauses on hover / focus)
+   6. Team — spotlight cards with overlay captions
    --------------------------------------------------------------------- */
-.marquee {
-  --marquee-gap: var(--space-5);
-  --marquee-duration: 48s;
-  overflow: hidden;
-  /* Room for the hover lift (top) and the full float shadow (bottom) so
-     neither is clipped by the mask/overflow edge. */
-  padding-block: var(--space-4) 4.25rem;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-.marquee__track {
-  display: flex; gap: var(--marquee-gap); width: max-content;
-  animation: team-marquee var(--marquee-duration) linear infinite;
-  will-change: transform;
-}
-.marquee:hover .marquee__track,
-.marquee:focus-within .marquee__track { animation-play-state: paused; }
-@keyframes team-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-50% - (var(--marquee-gap) / 2))); } /* exactly one set + one gap */
-}
+.team__head { max-width: 48rem; margin-bottom: var(--space-7); }
+.team__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
 
-.team-card { flex: 0 0 auto; width: clamp(15rem, 60vw, 17rem); }
-.team-card__link {
-  display: block; padding: 0.4rem; border-radius: 1.6rem;
-  background: rgba(36, 38, 103, 0.05); border: 1px solid rgba(36, 38, 103, 0.08);
-  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease;
+.spotlight {
+  --edge: max(var(--container-pad), calc((100vw - var(--container)) / 2 + var(--container-pad)));
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+  padding-inline: var(--edge); scroll-padding-inline: var(--edge); padding-bottom: var(--space-3);
 }
-.team-card__link:hover { transform: translateY(-6px); box-shadow: var(--shadow-float); background: #fff; }
-.team-card__media { border-radius: 1.2rem; overflow: hidden; aspect-ratio: 4 / 5; background: var(--color-lavender); }
-.team-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease-out); }
-.team-card__link:hover img { transform: scale(1.06); }
-.team-card__caption { display: grid; gap: 0.15rem; padding: var(--space-4) var(--space-3) var(--space-3); }
-.team-card__name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--color-navy); }
-.team-card__role { font-size: 0.82rem; color: var(--color-gray); }
-.team-card__more {
-  display: inline-flex; align-items: center; gap: 0.35rem; margin-top: var(--space-2);
-  font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; color: var(--color-red);
-  opacity: 0; transform: translateY(6px);
-  transition: opacity var(--dur-fast) ease, transform var(--dur-med) var(--ease-out);
+.spotlight::-webkit-scrollbar { display: none; }
+.spotlight__track { display: flex; gap: var(--space-4); width: max-content; }
+.spot { flex: 0 0 auto; width: clamp(15rem, 62vw, 18rem); scroll-snap-align: start; }
+.spot__link { position: relative; display: block; aspect-ratio: 4 / 5; border-radius: 1.25rem; overflow: hidden; background: var(--color-lavender); isolation: isolate; }
+.spot__link img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease-out); }
+.spot__link:hover img { transform: scale(1.06); }
+.spot__overlay {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.15rem;
+  padding: var(--space-5); color: #fff;
+  background: linear-gradient(to top, rgba(18, 19, 58, 0.92) 0%, rgba(18, 19, 58, 0.4) 45%, rgba(18, 19, 58, 0) 75%);
 }
-.team-card__more svg { width: 0.95rem; height: 0.95rem; transition: transform var(--dur-med) var(--ease-out); }
-.team-card__link:hover .team-card__more, .team-card__link:focus-visible .team-card__more { opacity: 1; transform: none; }
-.team-card__link:hover .team-card__more svg { transform: translateX(3px); }
-.team__cta { margin-top: 0; text-align: center; } /* marquee's bottom padding already provides the gap */
+.spot__overlay::before { content: ""; position: absolute; inset: 0; background: rgba(18, 19, 58, 0.25); opacity: 0; transition: opacity var(--dur-med) ease; z-index: -1; }
+.spot__link:hover .spot__overlay::before { opacity: 1; }
+.spot__name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; transition: transform var(--dur-med) var(--ease-out); }
+.spot__role { font-size: 0.82rem; color: var(--text-on-dark-secondary); transition: transform var(--dur-med) var(--ease-out); }
+.spot__link:hover .spot__name, .spot__link:hover .spot__role { transform: translateY(-4px); }
+.spot__arrow {
+  position: absolute; top: var(--space-4); right: var(--space-4); width: 2.5rem; height: 2.5rem; border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.35);
+  display: inline-flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translate(-6px, 6px); transition: opacity var(--dur-fast) ease, transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease;
+}
+.spot__arrow svg { width: 1.05rem; height: 1.05rem; }
+.spot__link:hover .spot__arrow, .spot__link:focus-visible .spot__arrow { opacity: 1; transform: none; }
+.spot__link:hover .spot__arrow { background: var(--color-red); border-color: var(--color-red); }
 
-@media (min-width: 1024px) { .team-card { width: clamp(15rem, 16vw, 17rem); } }
+.team__foot { margin-top: var(--space-6); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
+.team__controls { display: flex; gap: var(--space-2); }
 
-/* Reduced motion: no auto-scroll — a plain swipeable row with one set of cards */
-@media (prefers-reduced-motion: reduce) {
-  .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; padding-inline: var(--container-pad); }
-  .marquee__track { animation: none; }
-  .marquee__track > .team-card[aria-hidden="true"] { display: none; }
+@media (min-width: 1024px) {
+  .spotlight { overflow: visible; padding-inline: var(--container-pad); max-width: var(--container); margin-inline: auto; padding-bottom: 0; }
+  .spotlight__track { width: auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4); }
+  .spot { width: auto; }
+  .team__controls { display: none; }
+  .team__foot { justify-content: center; }
 }
 
 /* ---------------------------------------------------------------------
