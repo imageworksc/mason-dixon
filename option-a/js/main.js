@@ -115,6 +115,28 @@ const initReveals = () => {
 };
 
 /* ---------------------------------------------------------------
+   Team spotlight — native scroll-snap + prev/next (below desktop)
+   --------------------------------------------------------------- */
+const initCarousel = () => {
+  const carousel = document.querySelector("[data-carousel]");
+  if (!carousel) return;
+  const prev = document.querySelector("[data-carousel-prev]");
+  const next = document.querySelector("[data-carousel-next]");
+
+  const step = () => {
+    const card = carousel.querySelector(".spot");
+    const gap = parseFloat(getComputedStyle(carousel.querySelector(".spotlight__track")).columnGap) || 0;
+    return card ? card.getBoundingClientRect().width + gap : carousel.clientWidth * 0.8;
+  };
+  const scrollByStep = (dir) => {
+    carousel.scrollBy({ left: dir * step(), behavior: reduceMotion ? "auto" : "smooth" });
+  };
+
+  prev?.addEventListener("click", () => scrollByStep(-1));
+  next?.addEventListener("click", () => scrollByStep(1));
+};
+
+/* ---------------------------------------------------------------
    FAQ accordion (one open at a time, animated with grid rows)
    --------------------------------------------------------------- */
 const initAccordion = () => {
@@ -165,4 +187,5 @@ initNav();
 initHeroVideo();
 initScrollState();
 initReveals();
+initCarousel();
 initAccordion();

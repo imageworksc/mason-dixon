@@ -107,9 +107,9 @@ white→light gradient with three slow-drifting radial colour halos — navy, re
 tints at ≤16% — no bone pattern in this section),
 hairline service row (icon circle + title + line, no card box) with a quiet lavender CTA
 panel, why-us feature card grid over a photo band with a scroll parallax (shared with Option B),
-team card inside a continuous CSS marquee (pauses on hover/focus;
-static row under reduced motion), accordion item (grid-rows animation), sticky mobile
-call bar.
+spotlight team card with an overlay caption (shared with Option B: a five-across grid on
+desktop, a scroll-snap carousel with round arrow buttons below it), accordion item
+(grid-rows animation), sticky mobile call bar.
 
 Scroll reveals are keyframe animations with `fill-mode: backwards` (not transitions) so
 they never override a primitive's own hover transitions.

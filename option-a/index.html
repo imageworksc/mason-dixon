@@ -13,11 +13,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
-  <script src="js/head.js?v=202609251322"></script>
-  <link rel="stylesheet" href="css/base.css?v=202609251322" />
-  <link rel="stylesheet" href="css/components.css?v=202609251322" />
-  <link rel="stylesheet" href="css/sections.css?v=202609251322" />
-  <link rel="stylesheet" href="css/motion.css?v=202609251322" />
+  <script src="js/head.js?v=202609251329"></script>
+  <link rel="stylesheet" href="css/base.css?v=202609251329" />
+  <link rel="stylesheet" href="css/components.css?v=202609251329" />
+  <link rel="stylesheet" href="css/sections.css?v=202609251329" />
+  <link rel="stylesheet" href="css/motion.css?v=202609251329" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -280,108 +280,31 @@
       </div>
     </section>
 
-    <!-- ============================ Team ============================ -->
-    <section class="section team bone-pattern" id="team" aria-labelledby="team-heading">
+    <!-- ============================ Team — spotlight grid ============================ -->
+    <section class="section team" id="team" aria-labelledby="team-heading">
       <div class="container">
-        <div class="section-head section-head--center" data-reveal>
+        <div class="team__head" data-reveal>
           <h2 id="team-heading">Meet Our Emergency Veterinary Team</h2>
           <p>Our emergency veterinarians and support staff bring decades of combined experience in emergency medicine, surgery, intensive care, and critical patient management. Working together, our team provides around-the-clock emergency care while coordinating closely with your primary veterinarian whenever follow-up care is needed.</p>
         </div>
       </div>
 
-      <!-- Continuous marquee: pauses on hover / keyboard focus. Set 2 is a visual
-           duplicate for the seamless loop and is hidden from assistive tech. -->
-      <div class="marquee" data-reveal>
-        <ul class="marquee__track">
-          <li class="team-card">
-            <a class="team-card__link" href="../about.html#dr-moore">
-              <div class="team-card__media"><img src="../assets/images/team-1.jpg" alt="Dr. Moore with a pet" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption">
-                <span class="team-card__name">Dr. Moore</span>
-                <span class="team-card__role">Veterinarian</span>
-                <span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
-              </div>
-            </a>
-          </li>
-          <li class="team-card">
-            <a class="team-card__link" href="../about.html#dr-kiebler">
-              <div class="team-card__media"><img src="../assets/images/team-2.jpg" alt="Dr. Kiebler with a golden retriever" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption">
-                <span class="team-card__name">Dr. Kiebler</span>
-                <span class="team-card__role">Veterinarian</span>
-                <span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
-              </div>
-            </a>
-          </li>
-          <li class="team-card">
-            <a class="team-card__link" href="../about.html#dr-longbottom">
-              <div class="team-card__media"><img src="../assets/images/team-3.jpg" alt="Dr. Longbottom with a French bulldog" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption">
-                <span class="team-card__name">Dr. Longbottom</span>
-                <span class="team-card__role">Veterinarian, Medical Director</span>
-                <span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
-              </div>
-            </a>
-          </li>
-          <li class="team-card">
-            <a class="team-card__link" href="../about.html#dr-mccafferty">
-              <div class="team-card__media"><img src="../assets/images/team-4.jpg" alt="Dr. McCafferty with a mastiff" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption">
-                <span class="team-card__name">Dr. McCafferty</span>
-                <span class="team-card__role">Veterinarian</span>
-                <span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
-              </div>
-            </a>
-          </li>
-          <li class="team-card">
-            <a class="team-card__link" href="../about.html#dr-parr">
-              <div class="team-card__media"><img src="../assets/images/team-5.jpg" alt="Dr. Parr with a dog" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption">
-                <span class="team-card__name">Dr. Parr</span>
-                <span class="team-card__role">Veterinarian</span>
-                <span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span>
-              </div>
-            </a>
-          </li>
-
-          <li class="team-card" aria-hidden="true">
-            <a class="team-card__link" href="../about.html#dr-moore" tabindex="-1">
-              <div class="team-card__media"><img src="../assets/images/team-1.jpg" alt="" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption"><span class="team-card__name">Dr. Moore</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
-            </a>
-          </li>
-          <li class="team-card" aria-hidden="true">
-            <a class="team-card__link" href="../about.html#dr-kiebler" tabindex="-1">
-              <div class="team-card__media"><img src="../assets/images/team-2.jpg" alt="" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption"><span class="team-card__name">Dr. Kiebler</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
-            </a>
-          </li>
-          <li class="team-card" aria-hidden="true">
-            <a class="team-card__link" href="../about.html#dr-longbottom" tabindex="-1">
-              <div class="team-card__media"><img src="../assets/images/team-3.jpg" alt="" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption"><span class="team-card__name">Dr. Longbottom</span><span class="team-card__role">Veterinarian, Medical Director</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
-            </a>
-          </li>
-          <li class="team-card" aria-hidden="true">
-            <a class="team-card__link" href="../about.html#dr-mccafferty" tabindex="-1">
-              <div class="team-card__media"><img src="../assets/images/team-4.jpg" alt="" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption"><span class="team-card__name">Dr. McCafferty</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
-            </a>
-          </li>
-          <li class="team-card" aria-hidden="true">
-            <a class="team-card__link" href="../about.html#dr-parr" tabindex="-1">
-              <div class="team-card__media"><img src="../assets/images/team-5.jpg" alt="" width="520" height="624" loading="lazy" /></div>
-              <div class="team-card__caption"><span class="team-card__name">Dr. Parr</span><span class="team-card__role">Veterinarian</span><span class="team-card__more">View bio <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg></span></div>
-            </a>
-          </li>
+      <div class="spotlight" data-carousel>
+        <ul class="spotlight__track" data-reveal-stagger>
+          <li class="spot"><a class="spot__link" href="../about.html#dr-moore"><img src="../assets/images/team-1.jpg" alt="Dr. Moore with a pet" width="520" height="624" loading="lazy" /><span class="spot__overlay"><span class="spot__name">Dr. Moore</span><span class="spot__role">Veterinarian</span><span class="spot__arrow" aria-hidden="true"><svg><use href="#icon-arrow-up-right"/></svg></span></span></a></li>
+          <li class="spot"><a class="spot__link" href="../about.html#dr-kiebler"><img src="../assets/images/team-2.jpg" alt="Dr. Kiebler with a golden retriever" width="520" height="624" loading="lazy" /><span class="spot__overlay"><span class="spot__name">Dr. Kiebler</span><span class="spot__role">Veterinarian</span><span class="spot__arrow" aria-hidden="true"><svg><use href="#icon-arrow-up-right"/></svg></span></span></a></li>
+          <li class="spot"><a class="spot__link" href="../about.html#dr-longbottom"><img src="../assets/images/team-3.jpg" alt="Dr. Longbottom with a French bulldog" width="520" height="624" loading="lazy" /><span class="spot__overlay"><span class="spot__name">Dr. Longbottom</span><span class="spot__role">Veterinarian, Medical Director</span><span class="spot__arrow" aria-hidden="true"><svg><use href="#icon-arrow-up-right"/></svg></span></span></a></li>
+          <li class="spot"><a class="spot__link" href="../about.html#dr-mccafferty"><img src="../assets/images/team-4.jpg" alt="Dr. McCafferty with a mastiff" width="520" height="624" loading="lazy" /><span class="spot__overlay"><span class="spot__name">Dr. McCafferty</span><span class="spot__role">Veterinarian</span><span class="spot__arrow" aria-hidden="true"><svg><use href="#icon-arrow-up-right"/></svg></span></span></a></li>
+          <li class="spot"><a class="spot__link" href="../about.html#dr-parr"><img src="../assets/images/team-5.jpg" alt="Dr. Parr with a dog" width="520" height="624" loading="lazy" /><span class="spot__overlay"><span class="spot__name">Dr. Parr</span><span class="spot__role">Veterinarian</span><span class="spot__arrow" aria-hidden="true"><svg><use href="#icon-arrow-up-right"/></svg></span></span></a></li>
         </ul>
       </div>
 
-      <div class="container team__cta" data-reveal>
-        <a class="btn btn--outline" href="../about.html#team">
-          <span>Meet Our Team</span>
-          <span class="btn__orb" aria-hidden="true"><svg><use href="#icon-arrow-right"/></svg></span>
-        </a>
+      <div class="container team__foot" data-reveal>
+        <div class="team__controls">
+          <button type="button" class="round-btn" data-carousel-prev aria-label="Show previous team members"><svg aria-hidden="true"><use href="#icon-chevron-left"/></svg></button>
+          <button type="button" class="round-btn" data-carousel-next aria-label="Show next team members"><svg aria-hidden="true"><use href="#icon-chevron-right"/></svg></button>
+        </div>
+        <a class="btn btn--outline" href="../about.html#team"><span>Meet Our Team</span><svg class="btn__icon btn__icon--trail" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
       </div>
     </section>
 
@@ -547,6 +470,6 @@
     </a>
   </div>
 
-  <script type="module" src="js/main.js?v=202609251322"></script>
+  <script type="module" src="js/main.js?v=202609251329"></script>
 </body>
 </html>
