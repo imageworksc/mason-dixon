@@ -292,8 +292,16 @@
 .review__by {
   margin-top: auto; padding-top: var(--space-4); /* auto keeps the attributions aligned across cards */
   border-top: 1px solid var(--color-border);
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem var(--space-3);
+  display: flex; align-items: center; gap: var(--space-3);
 }
+/* The patient the review is about */
+.review__pet {
+  width: 3.25rem; height: 3.25rem; flex-shrink: 0;
+  border-radius: 50%; object-fit: cover; background: var(--color-lavender);
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.review:hover .review__pet { transform: scale(1.06); }
+.review__who { display: grid; gap: 0.1rem; }
 .review__name { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--color-navy); }
 .review__src { font-size: 0.78rem; color: var(--color-gray); }
 
