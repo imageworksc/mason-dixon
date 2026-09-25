@@ -265,13 +265,13 @@
   background: var(--color-bg-light);
   padding-block: clamp(3.5rem, 6vw, 6rem);
 }
-.reviews__head { max-width: 34rem; text-align: center; }
+.reviews__head { max-width: 48rem; text-align: center; } /* wide enough to keep the headline on one line */
 .reviews__mark {
   display: block; margin-bottom: var(--space-3);
   font-family: var(--font-display); font-weight: 800;
-  font-size: 4.5rem; line-height: 0.6; color: var(--color-red); opacity: 0.22;
+  font-size: clamp(4.5rem, 6vw, 6rem); line-height: 0.55; color: var(--color-red); opacity: 0.32;
 }
-.reviews h2 { font-size: clamp(1.5rem, 1.4vw + 0.9rem, 2.1rem); }
+.reviews h2 { font-size: clamp(1.5rem, 1.6vw + 0.9rem, 2.35rem); }
 .reviews__head p { margin-top: var(--space-3); font-size: 1.05rem; line-height: 1.65; }
 
 /* Capped well inside the container so the section stays narrow */
@@ -283,7 +283,8 @@
 .review {
   display: flex; flex-direction: column; height: 100%;
   padding: var(--space-5);
-  background: #fff; border: 1px solid var(--color-border); border-radius: 1.25rem;
+  background: #fff; border: 1px solid var(--color-border); border-top: 3px solid var(--color-red);
+  border-radius: 1.25rem; box-shadow: var(--shadow-sm);
   transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease;
 }
 .review:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); border-color: rgba(192, 29, 46, 0.4); }
