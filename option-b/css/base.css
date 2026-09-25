@@ -121,13 +121,13 @@ p { text-wrap: pretty; }
 .section--navy::before, .section--navy::after {
   content: ""; position: absolute; z-index: 0; pointer-events: none;
   width: clamp(12rem, 22vw, 24rem); aspect-ratio: 116 / 120;
-  background: url("../assets/images/paw.svg") no-repeat center / contain;
+  background: url("../../assets/images/paw.svg") no-repeat center / contain;
 }
 .section--navy::before { top: -4%; left: -2%; }
 .section--navy::after { bottom: -6%; right: -2%; }
 
 .bone-pattern { position: relative; background-color: var(--color-bg-light); }
-.bone-pattern::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: url("../assets/images/bone-pattern.svg") repeat; background-size: 12.5rem 11.25rem; opacity: 0.07; }
+.bone-pattern::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: url("../../assets/images/bone-pattern.svg") repeat; background-size: 12.5rem 11.25rem; opacity: 0.07; }
 .bone-pattern > * { position: relative; z-index: 1; }
 
 .live { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 600; color: #fff; }

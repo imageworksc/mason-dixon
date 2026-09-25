@@ -152,7 +152,7 @@ p { text-wrap: pretty; }
 .section--navy::before, .section--navy::after {
   content: ""; position: absolute; z-index: 0; pointer-events: none;
   width: clamp(10rem, 18vw, 18rem); aspect-ratio: 116 / 120;
-  background: url("../assets/images/paw.svg") no-repeat center / contain;
+  background: url("../../assets/images/paw.svg") no-repeat center / contain;
   opacity: 0.9;
 }
 .section--navy::before { top: 6%; left: 2%; }
@@ -161,7 +161,7 @@ p { text-wrap: pretty; }
 .bone-pattern { position: relative; overflow: clip; background-color: var(--color-bg-light); }
 .bone-pattern::before {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url("../assets/images/bone-pattern.svg") repeat; background-size: 12.5rem 11.25rem;
+  background: url("../../assets/images/bone-pattern.svg") repeat; background-size: 12.5rem 11.25rem;
   opacity: 0.07;
 }
 .bone-pattern > * { position: relative; z-index: 1; }
