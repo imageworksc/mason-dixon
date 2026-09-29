@@ -303,37 +303,61 @@
 .reviews h2 { font-size: clamp(1.5rem, 1.6vw + 0.9rem, 2.35rem); }
 .reviews__head p { margin-top: var(--space-3); font-size: 1.05rem; line-height: 1.65; }
 
-/* Capped well inside the container so the section stays narrow */
+/* Capped well inside the container so the section stays narrow; the extra
+   top margin and row gap leave room for the pet photos that break the card edge */
 .reviews__grid {
-  max-width: 72rem; margin: var(--space-7) auto 0;
+  max-width: 72rem; margin: calc(var(--space-7) + 2.5rem) auto 0;
   padding-inline: var(--container-pad);
-  display: grid; gap: var(--space-4);
+  display: grid; gap: calc(var(--space-6) + 2.5rem) var(--space-5);
 }
-/* Red accent is a straight inset bar — a coloured border-top on a rounded
-   card bends into the corners and reads as a mistake */
 .review {
-  position: relative; overflow: hidden;
+  position: relative;
   display: flex; flex-direction: column; height: 100%;
-  padding: var(--space-6) var(--space-5) var(--space-5);
+  padding: 3.5rem var(--space-6) var(--space-6);
   background: #fff; border: 1px solid var(--color-border);
-  border-radius: 1.25rem; box-shadow: var(--shadow-sm);
+  border-radius: 1.25rem; box-shadow: var(--shadow-float);
 }
-.review::before { content: ""; position: absolute; top: 0; left: var(--space-5); width: 2.5rem; height: 3px; border-radius: 0 0 3px 3px; background: var(--color-red); }
+/* Oversized quotation mark tucked into the top-right corner */
+.review::before {
+  content: "\201D"; position: absolute; top: 0.6rem; right: 1.25rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 5.5rem; line-height: 1;
+  color: var(--color-red); opacity: 0.18; pointer-events: none;
+}
 .review blockquote { margin: 0 0 var(--space-5); }
-.review blockquote p { font-size: 0.95rem; line-height: 1.65; color: var(--color-slate); }
+.review blockquote p {
+  font-family: var(--font-display); font-weight: 600; font-size: 1.08rem; line-height: 1.55;
+  letter-spacing: -0.01em; color: var(--color-navy);
+}
 .review__by {
   margin-top: auto; padding-top: var(--space-4); /* auto keeps the attributions aligned across cards */
   border-top: 1px solid var(--color-border);
-  display: flex; align-items: center; gap: var(--space-3);
 }
-/* The patient the review is about */
+/* The patient the review is about — the card's face, breaking its top edge */
 .review__pet {
-  width: 3.25rem; height: 3.25rem; flex-shrink: 0;
+  position: absolute; top: -2.5rem; left: var(--space-6);
+  width: 5rem; height: 5rem;
   border-radius: 50%; object-fit: cover; background: var(--color-lavender);
+  border: 4px solid #fff; box-shadow: 0 0 0 2px var(--color-red), 0 12px 24px -10px rgba(16, 24, 64, 0.45);
 }
 .review__who { display: grid; gap: 0.1rem; }
-.review__name { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--color-navy); }
-.review__src { font-size: 0.78rem; color: var(--color-gray); }
+.review__name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--color-navy); }
+.review__src { font-size: 0.8rem; color: var(--color-gray); }
+
+/* Middle card inverts to navy so the row has a focal point */
+.reviews__grid > li:nth-child(2) .review { background: var(--color-navy); border-color: var(--color-navy); }
+.reviews__grid > li:nth-child(2) .review::before { color: #ff8f9a; opacity: 0.35; }
+.reviews__grid > li:nth-child(2) .review blockquote p,
+.reviews__grid > li:nth-child(2) .review__name { color: #fff; }
+.reviews__grid > li:nth-child(2) .review__src { color: var(--text-on-dark-muted); }
+.reviews__grid > li:nth-child(2) .review__by { border-top-color: rgba(255, 255, 255, 0.16); }
+.reviews__grid > li:nth-child(2) .review__pet { border-color: var(--color-navy); }
+
+/* Desktop: a slight tilt, like notes pinned beside the thank-you cards */
+@media (min-width: 768px) {
+  .reviews__grid > li:nth-child(1) .review { transform: rotate(-1.5deg); }
+  .reviews__grid > li:nth-child(2) .review { transform: translateY(-0.75rem) rotate(1deg); }
+  .reviews__grid > li:nth-child(3) .review { transform: rotate(-0.75deg); }
+}
 
 .reviews__cta { text-align: center; }
 .reviews__link {
