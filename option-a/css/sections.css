@@ -31,7 +31,7 @@
 }
 .hero__copy h1 { text-wrap: initial; }
 .hero__copy h1 em { font-style: normal; color: var(--color-red); }
-.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 50rem; }
+.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 38rem; } /* ~70 characters per line */
 .hero__copy .btn-row { margin-top: var(--space-6); }
 /* Explicit two-line breaks on desktop only; below that the text wraps naturally */
 .hero__br { display: none; }
@@ -44,23 +44,27 @@
 .symptoms__head { max-width: 40rem; }
 .symptoms__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
 
-.symptoms__list { margin-top: var(--space-7); display: grid; gap: var(--space-3); }
+/* Natural-width chips that wrap: no orphaned last row, and short symptoms
+   sit side by side on phones instead of stacking into a long column */
+.symptoms__list { margin-top: var(--space-7); display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .chip {
-  display: flex; align-items: center; gap: var(--space-3);
-  padding: 0.85rem 1rem; border-radius: var(--radius-lg);
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  padding: 0.5rem 1.1rem 0.5rem 0.5rem; border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1);
-  font-weight: 500; font-size: 0.95rem; line-height: 1.4; color: #fff;
-  transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+  font-weight: 500; font-size: 0.95rem; line-height: 1.35; color: #fff;
+  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
-.chip:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.24); }
+/* Not a link — hover only brightens, it doesn't lift like a button */
+.chip:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
 .chip__icon {
-  width: 2.25rem; height: 2.25rem; border-radius: 50%; flex-shrink: 0;
+  width: 1.9rem; height: 1.9rem; border-radius: 50%; flex-shrink: 0;
   display: inline-flex; align-items: center; justify-content: center;
   background: rgba(192, 29, 46, 0.2); color: #ff8f9a;
-  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
-.chip__icon svg { width: 1.15rem; height: 1.15rem; }
-.chip:hover .chip__icon { background: var(--color-red); color: #fff; transform: rotate(-10deg) scale(1.1); }
+.chip__icon svg { width: 1rem; height: 1rem; }
+.chip:hover .chip__icon { background: var(--color-red); color: #fff; }
+@media (max-width: 639px) { .chip { font-size: 0.9rem; } }
 
 .symptoms__cta {
   margin-top: var(--space-7);
@@ -71,8 +75,6 @@
 .symptoms__cta strong { display: block; font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: var(--space-1); }
 .symptoms__cta p { color: var(--text-on-dark-secondary); }
 
-@media (min-width: 640px) { .symptoms__list { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .symptoms__list { grid-template-columns: repeat(3, 1fr); } }
 
 /* ---------------------------------------------------------------------
    3. Process — sticky intro + stepped cards on a flat light background
@@ -94,9 +96,9 @@
   display: grid; grid-template-columns: auto 1fr; column-gap: var(--space-4); align-items: center;
   padding: var(--space-5); border-radius: var(--radius-xl);
   background: #fff; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);
-  transition: border-color var(--dur-fast) ease, transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+  transition: border-color var(--dur-fast) var(--ease-out);
 }
-.step:hover { border-color: rgba(36, 38, 103, 0.18); transform: translateX(6px); box-shadow: var(--shadow-soft); }
+.step:hover { border-color: rgba(36, 38, 103, 0.18); }
 .step__num {
   position: absolute; top: 0.9rem; right: 1rem;
   font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; line-height: 1; letter-spacing: -0.02em;
@@ -106,10 +108,10 @@
   width: 2.75rem; height: 2.75rem; border-radius: 50%; flex-shrink: 0;
   background: var(--color-lavender); color: var(--color-navy);
   display: inline-flex; align-items: center; justify-content: center;
-  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 .step__icon svg { width: 1.3rem; height: 1.3rem; }
-.step:hover .step__icon { background: var(--color-navy); color: #fff; transform: scale(1.1) rotate(-6deg); }
+.step:hover .step__icon { background: var(--color-navy); color: #fff; }
 .step__body h3 { font-size: 1.05rem; }
 .step__body p { margin-top: 0.25rem; font-size: 0.92rem; line-height: 1.55; color: var(--color-gray); }
 
@@ -134,6 +136,9 @@
 .services__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
 .services__media:hover img { transform: scale(1.04); }
 .services__caption { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 500; color: var(--color-gray); padding-inline: var(--space-2); }
+/* The pulsing "live" ring is kept for the header and hero status; repeated
+   further down the page it turns into background noise */
+.services__caption .live-dot::before, .glass-card__meta .live-dot::before { display: none; }
 
 .service-list { display: grid; column-gap: var(--space-7); border-top: 1px solid var(--color-border); }
 .service {
@@ -144,22 +149,20 @@
   flex-shrink: 0; width: 2.5rem; height: 2.5rem; border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--color-lavender); color: var(--color-navy);
-  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 .service__icon svg { width: 1.15rem; height: 1.15rem; }
-.service h3 { font-size: 0.98rem; transition: color var(--dur-fast) ease; }
+.service h3 { font-size: 0.98rem; }
 .service p { margin-top: 0.2rem; font-size: 0.86rem; line-height: 1.5; color: var(--color-gray); }
-.service > div { transition: transform var(--dur-med) var(--ease-out); }
-.service:hover .service__icon { background: var(--color-navy); color: #fff; transform: scale(1.08); }
-.service:hover h3 { color: var(--color-red); }
-.service:hover > div { transform: translateX(4px); }
+/* List items aren't links: hover tints the icon only, no red "link" text or slide */
+.service:hover .service__icon { background: var(--color-navy); color: #fff; }
 
 .services__cta {
   margin-top: var(--space-6);
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4);
   padding: var(--space-4) var(--space-5); border-radius: var(--radius-xl);
   background: var(--color-bg-faq); border: 1px solid var(--color-border);
-  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease;
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 .services__cta:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); border-color: transparent; }
 .services__cta-icon {
@@ -189,16 +192,18 @@
 .why__head { max-width: 48rem; margin-bottom: var(--space-7); }
 .why__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
 .why__grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+/* Phones: icon beside the text, so ten features don't stack into a screen-long column */
 .fcard {
-  display: flex; flex-direction: column; gap: var(--space-4);
-  padding: var(--space-5); border-radius: 1.25rem; background: #fff; border: 1px solid var(--color-border);
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-4); border-radius: 1.25rem; background: #fff; border: 1px solid var(--color-border);
   font-weight: 600; font-size: 0.95rem; line-height: 1.4; color: var(--color-navy);
-  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease;
+  transition: border-color var(--dur-fast) var(--ease-out);
 }
-.fcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); border-color: rgba(192, 29, 46, 0.4); }
-.fcard__icon { width: 2.6rem; height: 2.6rem; border-radius: 0.8rem; background: var(--color-navy); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring); }
+.fcard:hover { border-color: rgba(36, 38, 103, 0.22); }
+.fcard__icon { flex-shrink: 0; width: 2.6rem; height: 2.6rem; border-radius: 0.8rem; background: var(--color-navy); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) var(--ease-out); }
 .fcard__icon svg { width: 1.2rem; height: 1.2rem; }
-.fcard:hover .fcard__icon { background: var(--color-red); transform: scale(1.08) rotate(-6deg); }
+.fcard:hover .fcard__icon { background: var(--color-red); }
+@media (min-width: 1024px) { .fcard { flex-direction: column; align-items: flex-start; padding: var(--space-5); } }
 
 .why__band { position: relative; margin-top: var(--space-8); height: clamp(18rem, 48vw, 36rem); overflow: hidden; background: var(--color-navy-900); }
 .why__band img { position: absolute; left: 0; top: -15%; width: 100%; height: 130%; object-fit: cover; object-position: 50% 85%; transform: translateY(var(--parallax, 0)); will-change: transform; }
@@ -232,7 +237,7 @@
   padding: var(--space-5); color: #fff;
   background: linear-gradient(to top, rgba(18, 19, 58, 0.92) 0%, rgba(18, 19, 58, 0.4) 45%, rgba(18, 19, 58, 0) 75%);
 }
-.spot__overlay::before { content: ""; position: absolute; inset: 0; background: rgba(18, 19, 58, 0.25); opacity: 0; transition: opacity var(--dur-med) ease; z-index: -1; }
+.spot__overlay::before { content: ""; position: absolute; inset: 0; background: rgba(18, 19, 58, 0.25); opacity: 0; transition: opacity var(--dur-med) var(--ease-out); z-index: -1; }
 .spot__link:hover .spot__overlay::before { opacity: 1; }
 .spot__name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; transition: transform var(--dur-med) var(--ease-out); }
 .spot__role { font-size: 0.82rem; color: var(--text-on-dark-secondary); transition: transform var(--dur-med) var(--ease-out); }
@@ -241,7 +246,7 @@
   position: absolute; top: var(--space-4); right: var(--space-4); width: 2.5rem; height: 2.5rem; border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.35);
   display: inline-flex; align-items: center; justify-content: center;
-  opacity: 0; transform: translate(-6px, 6px); transition: opacity var(--dur-fast) ease, transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease;
+  opacity: 0; transform: translate(-6px, 6px); transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
 }
 .spot__arrow svg { width: 1.05rem; height: 1.05rem; }
 .spot__link:hover .spot__arrow, .spot__link:focus-visible .spot__arrow { opacity: 1; transform: none; }
@@ -262,8 +267,32 @@
    7. Reviews — narrow centred heading over three quote cards
    --------------------------------------------------------------------- */
 .reviews {
+  position: relative; overflow: clip; isolation: isolate;
   background: var(--color-bg-light);
-  padding-block: clamp(3.5rem, 6vw, 6rem);
+  padding-block: clamp(4.5rem, 7vw, 7rem);
+}
+.reviews > :not(.reviews__letters) { position: relative; z-index: 2; }
+
+/* Backdrop of real thank-you cards, scattered and overlapping at 30% */
+.reviews__letters { position: absolute; inset: 0; z-index: 0; opacity: 0.3; pointer-events: none; }
+.letter {
+  position: absolute; left: var(--x); top: var(--y);
+  width: clamp(8.5rem, 16vw, 16rem); height: auto;
+  padding: 0.4rem; background: #fff; border-radius: 3px;
+  box-shadow: 0 14px 28px -12px rgba(16, 24, 64, 0.45);
+  transform: rotate(var(--r));
+}
+/* Phones: the stacked reviews cover the middle, so three cards move down
+   to frame the "Read their words" link instead of hiding behind them */
+@media (max-width: 767px) {
+  .letter:nth-child(5) { left: 30%; top: 88%; }
+  .letter:nth-child(8) { left: -6%; top: 90%; }
+  .letter:nth-child(9) { left: 70%; top: 87%; }
+}
+/* Soft clearing behind the heading so it never competes with the handwriting */
+.reviews::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse 42% 30% at 50% 18%, rgba(245, 245, 247, 0.95), rgba(245, 245, 247, 0) 100%);
 }
 .reviews__head { max-width: 48rem; text-align: center; } /* wide enough to keep the headline on one line */
 .reviews__mark {
@@ -280,15 +309,17 @@
   padding-inline: var(--container-pad);
   display: grid; gap: var(--space-4);
 }
+/* Red accent is a straight inset bar — a coloured border-top on a rounded
+   card bends into the corners and reads as a mistake */
 .review {
+  position: relative; overflow: hidden;
   display: flex; flex-direction: column; height: 100%;
-  padding: var(--space-5);
-  background: #fff; border: 1px solid var(--color-border); border-top: 3px solid var(--color-red);
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  background: #fff; border: 1px solid var(--color-border);
   border-radius: 1.25rem; box-shadow: var(--shadow-sm);
-  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease;
 }
-.review:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); border-color: rgba(192, 29, 46, 0.4); }
-.review blockquote { margin: 0; }
+.review::before { content: ""; position: absolute; top: 0; left: var(--space-5); width: 2.5rem; height: 3px; border-radius: 0 0 3px 3px; background: var(--color-red); }
+.review blockquote { margin: 0 0 var(--space-5); }
 .review blockquote p { font-size: 0.95rem; line-height: 1.65; color: var(--color-slate); }
 .review__by {
   margin-top: auto; padding-top: var(--space-4); /* auto keeps the attributions aligned across cards */
@@ -299,9 +330,7 @@
 .review__pet {
   width: 3.25rem; height: 3.25rem; flex-shrink: 0;
   border-radius: 50%; object-fit: cover; background: var(--color-lavender);
-  transition: transform var(--dur-med) var(--ease-out);
 }
-.review:hover .review__pet { transform: scale(1.06); }
 .review__who { display: grid; gap: 0.1rem; }
 .review__name { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--color-navy); }
 .review__src { font-size: 0.78rem; color: var(--color-gray); }
@@ -362,7 +391,7 @@
 .glass-card__phone {
   position: relative; display: inline-block; font-family: var(--font-display); font-weight: 800; line-height: 1;
   font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.04em; color: #fff;
-  transition: color var(--dur-fast) ease;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 .glass-card__phone::after { content: ""; position: absolute; left: 0.04em; right: 0.04em; bottom: -0.06em; height: 0.07em; border-radius: 1em; background: var(--color-red); transform: scaleX(0); transform-origin: left center; transition: transform var(--dur-slow) var(--ease-out); }
 .glass-card__phone:hover::after { transform: scaleX(1); }
@@ -395,20 +424,20 @@
 .faq__head .btn { margin-top: var(--space-5); }
 
 .accordion { display: grid; gap: var(--space-3); }
-.accordion__item { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease; }
+.accordion__item { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
 .accordion__item:hover, .accordion__item.is-open { box-shadow: var(--shadow-soft); border-color: transparent; }
 .accordion__item h3 { font-size: 1rem; }
 .accordion__trigger {
   width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
   padding: 1.1rem 1.25rem; text-align: left; font-family: var(--font-display); font-weight: 700; font-size: 1rem;
-  color: var(--color-navy); transition: color var(--dur-fast) ease;
+  color: var(--color-navy); transition: color var(--dur-fast) var(--ease-out);
 }
 .accordion__trigger:hover { color: var(--color-red); }
 .accordion__chevron {
   flex-shrink: 0; width: 1.9rem; height: 1.9rem; border-radius: 50%;
   background: var(--color-lavender); color: var(--color-navy);
   display: inline-flex; align-items: center; justify-content: center;
-  transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) ease, color var(--dur-fast) ease;
+  transition: transform var(--dur-med) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 .accordion__chevron svg { width: 0.9rem; height: 0.9rem; }
 .accordion__item.is-open .accordion__chevron { transform: rotate(180deg); background: var(--color-red); color: #fff; }
@@ -429,19 +458,19 @@
 .footer__main { padding-block: var(--space-9) var(--space-8); display: grid; gap: var(--space-6) var(--space-7); grid-template-columns: 1fr; }
 .footer__logo img { width: auto; height: 3.5rem; }
 .footer__address { margin-top: var(--space-5); line-height: 1.9; }
-.footer__address a { transition: color var(--dur-fast) ease; }
+.footer__address a { transition: color var(--dur-fast) var(--ease-out); }
 .footer__address a:hover { color: #fff; }
 .footer__address strong { display: block; margin-top: var(--space-4); color: rgba(255, 255, 255, 0.85); }
 .footer__col h3 { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; margin-bottom: var(--space-4); }
 .footer__col ul { display: grid; gap: var(--space-3); }
-.footer__col a { display: inline-block; transition: color var(--dur-fast) ease, transform var(--dur-med) var(--ease-out); }
+.footer__col a { display: inline-block; transition: color var(--dur-fast) var(--ease-out), transform var(--dur-med) var(--ease-out); }
 .footer__col a:hover { color: #fff; transform: translateX(4px); }
-.footer__social { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.footer__social { display: flex; flex-wrap: wrap; gap: 0.4rem; } /* all four fit on one row in the desktop column */
 .footer__social a {
-  width: 2.4rem; height: 2.4rem; border-radius: 50%;
+  width: 2.25rem; height: 2.25rem; border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.06);
   display: inline-flex; align-items: center; justify-content: center;
-  transition: background-color var(--dur-fast) ease, transform var(--dur-med) var(--ease-out), border-color var(--dur-fast) ease;
+  transition: background-color var(--dur-fast) var(--ease-out), transform var(--dur-med) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 .footer__social a:hover { background: var(--color-red); border-color: var(--color-red); color: #fff; transform: translateY(-3px); }
 .footer__social svg { width: 1.1rem; height: 1.1rem; }
@@ -450,7 +479,7 @@
 .footer__areas p { line-height: 1.7; max-width: 64rem; }
 .footer__bottom { padding-block: var(--space-5); border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; font-size: 0.8rem; }
 .footer__legal { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
-.footer__legal a { transition: color var(--dur-fast) ease; }
+.footer__legal a { transition: color var(--dur-fast) var(--ease-out); }
 .footer__legal a:hover { color: #fff; }
 @media (min-width: 600px) { .footer__main { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 960px) { .footer__main { grid-template-columns: 1.6fr repeat(4, 1fr); align-items: start; } }
