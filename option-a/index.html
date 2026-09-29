@@ -13,11 +13,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
-  <script src="js/head.js?v=202609292057"></script>
-  <link rel="stylesheet" href="css/base.css?v=202609292057" />
-  <link rel="stylesheet" href="css/components.css?v=202609292057" />
-  <link rel="stylesheet" href="css/sections.css?v=202609292057" />
-  <link rel="stylesheet" href="css/motion.css?v=202609292057" />
+  <script src="js/head.js?v=202609292123"></script>
+  <link rel="stylesheet" href="css/base.css?v=202609292123" />
+  <link rel="stylesheet" href="css/components.css?v=202609292123" />
+  <link rel="stylesheet" href="css/sections.css?v=202609292123" />
+  <link rel="stylesheet" href="css/motion.css?v=202609292123" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -140,19 +140,19 @@
 
         <div class="symptoms__groups" data-reveal-stagger>
           <div class="sgroup">
-            <h3>Breathing &amp; collapse</h3>
+            <h3><svg class="sgroup__icon" aria-hidden="true"><use href="#icon-wind"/></svg>Breathing &amp; collapse</h3>
             <ul><li>Trouble breathing or respiratory distress</li><li>Collapse, extreme weakness, or seizures</li><li>Heat stroke or overheating</li></ul>
           </div>
           <div class="sgroup">
-            <h3>Injury, pain &amp; bleeding</h3>
+            <h3><svg class="sgroup__icon" aria-hidden="true"><use href="#icon-medical-cross"/></svg>Injury, pain &amp; bleeding</h3>
             <ul><li>Bite wounds, major cuts, or traumatic injuries</li><li>Pale gums or uncontrolled bleeding</li><li>Sudden severe pain</li><li>Eye injuries</li></ul>
           </div>
           <div class="sgroup">
-            <h3>Stomach &amp; swallowed items</h3>
+            <h3><svg class="sgroup__icon" aria-hidden="true"><use href="#icon-flask"/></svg>Stomach &amp; swallowed items</h3>
             <ul><li>Severe vomiting or diarrhea</li><li>A swollen or painful abdomen</li><li>Possible poisoning or toxin exposure</li><li>A swallowed toy, sock, bone, string, medication, or other foreign object</li></ul>
           </div>
           <div class="sgroup">
-            <h3>Urinary &amp; birth</h3>
+            <h3><svg class="sgroup__icon" aria-hidden="true"><use href="#icon-droplet"/></svg>Urinary &amp; birth</h3>
             <ul><li>Trouble urinating or possible urinary blockage</li><li>Labor complications</li></ul>
           </div>
         </div>
@@ -181,24 +181,24 @@
 
         <ol class="steps" data-reveal-stagger>
           <li class="step">
-            <span class="step__num" aria-hidden="true">01</span>
-            <div class="step__body"><h3>Immediate Triage</h3><p>Every patient is assessed when they arrive.</p></div>
+            <span class="step__node"><svg class="step__icon" aria-hidden="true"><use href="#icon-pulse"/></svg></span>
+            <div class="step__body"><span class="step__num" aria-hidden="true">Step 01</span><h3>Immediate Triage</h3><p>Every patient is assessed when they arrive.</p></div>
           </li>
           <li class="step">
-            <span class="step__num" aria-hidden="true">02</span>
-            <div class="step__body"><h3>Critical Patients First</h3><p>Life-threatening emergencies receive immediate attention.</p></div>
+            <span class="step__node"><svg class="step__icon" aria-hidden="true"><use href="#icon-heart"/></svg></span>
+            <div class="step__body"><span class="step__num" aria-hidden="true">Step 02</span><h3>Critical Patients First</h3><p>Life-threatening emergencies receive immediate attention.</p></div>
           </li>
           <li class="step">
-            <span class="step__num" aria-hidden="true">03</span>
-            <div class="step__body"><h3>Diagnostic Testing</h3><p>Digital X-ray, ultrasound &amp; in-house lab testing.</p></div>
+            <span class="step__node"><svg class="step__icon" aria-hidden="true"><use href="#icon-scan"/></svg></span>
+            <div class="step__body"><span class="step__num" aria-hidden="true">Step 03</span><h3>Diagnostic Testing</h3><p>Digital X-ray, ultrasound &amp; in-house lab testing.</p></div>
           </li>
           <li class="step">
-            <span class="step__num" aria-hidden="true">04</span>
-            <div class="step__body"><h3>Treatment Recommendations</h3><p>We explain findings, options and costs before proceeding.</p></div>
+            <span class="step__node"><svg class="step__icon" aria-hidden="true"><use href="#icon-medical-cross"/></svg></span>
+            <div class="step__body"><span class="step__num" aria-hidden="true">Step 04</span><h3>Treatment Recommendations</h3><p>We explain findings, options and costs before proceeding.</p></div>
           </li>
           <li class="step">
-            <span class="step__num" aria-hidden="true">05</span>
-            <div class="step__body"><h3>Ongoing Communication</h3><p>Updates throughout the visit, shared with your vet.</p></div>
+            <span class="step__node"><svg class="step__icon" aria-hidden="true"><use href="#icon-users"/></svg></span>
+            <div class="step__body"><span class="step__num" aria-hidden="true">Step 05</span><h3>Ongoing Communication</h3><p>Updates throughout the visit, shared with your vet.</p></div>
           </li>
         </ol>
       </div>
@@ -223,17 +223,17 @@
 
           <div class="services__body">
             <ul class="service-list" data-reveal-stagger>
-              <li class="service"><div><h3>Emergency Exams and Triage</h3><p>Urgent assessment and stabilization for injured pets.</p></div></li>
-              <li class="service"><div><h3>Intensive Care</h3><p>Advanced monitoring for critically ill patients.</p></div></li>
-              <li class="service"><div><h3>Emergency Surgery</h3><p>Procedures for life-threatening and urgent conditions.</p></div></li>
-              <li class="service"><div><h3>In-House Laboratory</h3><p>Rapid bloodwork and diagnostic testing.</p></div></li>
-              <li class="service"><div><h3>Digital X-Ray and Ultrasound</h3><p>Advanced imaging available around the clock.</p></div></li>
-              <li class="service"><div><h3>Oxygen Support</h3><p>Respiratory support for breathing difficulties.</p></div></li>
-              <li class="service"><div><h3>Blood Transfusions</h3><p>Type-matched transfusion services when needed.</p></div></li>
-              <li class="service"><div><h3>Endoscopy</h3><p>Minimally invasive retrieval and diagnostics.</p></div></li>
-              <li class="service"><div><h3>Outpatient Emergency Care</h3><p>Treatment and discharge when hospitalization isn't required.</p></div></li>
-              <li class="service"><div><h3>Specialist Referrals</h3><p>Coordination with local specialists when needed.</p></div></li>
-              <li class="service"><div><h3>Euthanasia and Aftercare</h3><p>Compassionate support during difficult decisions.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-pulse"/></svg><div><h3>Emergency Exams and Triage</h3><p>Urgent assessment and stabilization for injured pets.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-briefcase"/></svg><div><h3>Intensive Care</h3><p>Advanced monitoring for critically ill patients.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-medical-cross"/></svg><div><h3>Emergency Surgery</h3><p>Procedures for life-threatening and urgent conditions.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-flask"/></svg><div><h3>In-House Laboratory</h3><p>Rapid bloodwork and diagnostic testing.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-scan"/></svg><div><h3>Digital X-Ray and Ultrasound</h3><p>Advanced imaging available around the clock.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-wind"/></svg><div><h3>Oxygen Support</h3><p>Respiratory support for breathing difficulties.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-droplet"/></svg><div><h3>Blood Transfusions</h3><p>Type-matched transfusion services when needed.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-camera"/></svg><div><h3>Endoscopy</h3><p>Minimally invasive retrieval and diagnostics.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-home"/></svg><div><h3>Outpatient Emergency Care</h3><p>Treatment and discharge when hospitalization isn't required.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-users"/></svg><div><h3>Specialist Referrals</h3><p>Coordination with local specialists when needed.</p></div></li>
+              <li class="service"><svg class="service__icon" aria-hidden="true"><use href="#icon-heart"/></svg><div><h3>Euthanasia and Aftercare</h3><p>Compassionate support during difficult decisions.</p></div></li>
             </ul>
 
             <a class="services__cta" href="tel:+17174326030" data-reveal>
@@ -258,16 +258,16 @@
         </div>
 
         <ul class="why__list" data-reveal-stagger>
-          <li>24/7 emergency veterinary care</li>
-          <li>Emergency-focused veterinary team</li>
-          <li>ICU and critical care monitoring</li>
-          <li>Emergency surgery capabilities</li>
-          <li>Digital X-ray and ultrasound on-site</li>
-          <li>In-house laboratory testing</li>
-          <li>Oxygen therapy and respiratory support</li>
-          <li>Blood transfusion capabilities</li>
-          <li>Coordination with family veterinarians</li>
-          <li>Convenient access from York County and Northern Baltimore County</li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-clock"/></svg><span>24/7 emergency veterinary care</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-users"/></svg><span>Emergency-focused veterinary team</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-pulse"/></svg><span>ICU and critical care monitoring</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-medical-cross"/></svg><span>Emergency surgery capabilities</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-scan"/></svg><span>Digital X-ray and ultrasound on-site</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-flask"/></svg><span>In-house laboratory testing</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-wind"/></svg><span>Oxygen therapy and respiratory support</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-droplet"/></svg><span>Blood transfusion capabilities</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-link"/></svg><span>Coordination with family veterinarians</span></li>
+          <li><svg class="why__icon" aria-hidden="true"><use href="#icon-pin"/></svg><span>Convenient access from York County and Northern Baltimore County</span></li>
         </ul>
       </div>
 
@@ -535,6 +535,6 @@
     </a>
   </div>
 
-  <script type="module" src="js/main.js?v=202609292057"></script>
+  <script type="module" src="js/main.js?v=202609292123"></script>
 </body>
 </html>
