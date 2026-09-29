@@ -249,12 +249,16 @@
   box-shadow: 0 14px 28px -12px rgba(16, 24, 64, 0.45);
   transform: rotate(var(--r));
 }
+/* Pet snapshots are smaller, square polaroids with a deeper bottom margin */
+.letter--pet { width: clamp(6rem, 10vw, 9.5rem); padding: 0.4rem 0.4rem 1.4rem; }
 /* Phones: the stacked reviews cover the middle, so three cards move down
    to frame the "Read their words" link instead of hiding behind them */
 @media (max-width: 767px) {
   .letter:nth-child(5) { left: 30%; top: 88%; }
   .letter:nth-child(8) { left: -6%; top: 90%; }
   .letter:nth-child(9) { left: 70%; top: 87%; }
+  .letter:nth-child(10) { left: 72%; top: 1%; }
+  .letter:nth-child(11), .letter:nth-child(12) { display: none; }
 }
 /* Soft clearing behind the heading so it never competes with the handwriting */
 .reviews::after {
@@ -273,15 +277,19 @@
 /* Capped well inside the container so the section stays narrow; the extra
    top margin and row gap leave room for the pet photos that break the card edge */
 .reviews__grid {
-  max-width: 72rem; margin: calc(var(--space-7) + 4rem) auto 0;
+  max-width: 72rem; margin: var(--space-7) auto 0;
   padding-inline: var(--container-pad);
-  display: grid; gap: calc(var(--space-6) + 4rem) var(--space-5);
+  display: grid; gap: var(--space-5);
+}
+/* Room above the cards for the pet photo that pops out on hover */
+@media (hover: hover) and (min-width: 768px) {
+  .reviews__grid { margin-top: calc(var(--space-7) + 4rem); }
 }
 .review {
   --rot: 0deg; --lift: 0rem; --scale: 1;
   position: relative;
   display: flex; flex-direction: column; height: 100%;
-  padding: 5rem var(--space-6) var(--space-6);
+  padding: 3rem var(--space-6) var(--space-6);
   background: #fff; border: 1px solid var(--color-border);
   border-radius: 1.25rem; box-shadow: var(--shadow-float);
   transform: translateY(var(--lift)) rotate(var(--rot)) scale(var(--scale));
@@ -311,7 +319,9 @@
   width: 8rem; height: 8rem;
   border-radius: 50%; object-fit: cover; background: var(--color-lavender);
   border: 5px solid #fff; box-shadow: 0 0 0 2px var(--color-red), 0 14px 28px -10px rgba(16, 24, 64, 0.45);
-  transition: border-color var(--dur-med) var(--ease-out);
+  /* Hidden until the card is hovered — the photo is the highlight */
+  opacity: 0; transform: translateY(1rem) scale(0.6);
+  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-spring), border-color var(--dur-med) var(--ease-out);
 }
 .review__who { display: grid; gap: 0.1rem; }
 .review__name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--color-navy); transition: color var(--dur-med) var(--ease-out); }
@@ -342,10 +352,12 @@
 }
 
 /* Pointer devices: the hovered card grows and straightens; the other two
-   shrink back and fade to 30% */
+   shrink back and fade to 45% */
 @media (hover: hover) and (min-width: 768px) {
   .reviews__grid > li:hover .review { --scale: 1.07; --rot: 0deg; --lift: -0.75rem; box-shadow: 0 40px 70px -28px rgba(16, 24, 64, 0.55); }
-  .reviews__grid:hover > li:not(:hover) .review { --scale: 0.92; opacity: 0.3; }
+  .review { padding-top: 5rem; }
+  .reviews__grid:hover > li:not(:hover) .review { --scale: 0.92; opacity: 0.45; }
+  .reviews__grid > li:hover .review__pet { opacity: 1; transform: none; }
 }
 
 .reviews__cta { text-align: center; }
