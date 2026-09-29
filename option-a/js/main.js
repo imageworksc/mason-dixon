@@ -149,6 +149,37 @@ const initCarousel = () => {
 
   prev?.addEventListener("click", () => scrollByStep(-1));
   next?.addEventListener("click", () => scrollByStep(1));
+
+  // Disable the arrow that has nowhere left to go
+  const syncArrows = () => {
+    const max = carousel.scrollWidth - carousel.clientWidth - 2;
+    if (prev) prev.disabled = carousel.scrollLeft <= 2;
+    if (next) next.disabled = carousel.scrollLeft >= max;
+  };
+  carousel.addEventListener("scroll", syncArrows, { passive: true });
+  window.addEventListener("resize", syncArrows);
+  syncArrows();
+};
+
+/* ---------------------------------------------------------------
+   Nav "you are here" — marks the in-page link whose section is
+   currently in the middle of the viewport
+   --------------------------------------------------------------- */
+const initScrollSpy = () => {
+  const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const sections = links.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+  if (!sections.length || !("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const link = links.find((a) => a.getAttribute("href") === `#${entry.target.id}`);
+      if (!link) return;
+      if (entry.isIntersecting) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+
+  sections.forEach((section) => observer.observe(section));
 };
 
 /* ---------------------------------------------------------------
@@ -204,4 +235,5 @@ initScrollState();
 initPayPill();
 initReveals();
 initCarousel();
+initScrollSpy();
 initAccordion();
