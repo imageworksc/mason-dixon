@@ -97,11 +97,6 @@
 }
 .step__icon { width: 1.4rem; height: 1.4rem; }
 .step:hover .step__node { background: var(--color-red); border-color: var(--color-red); color: #fff; }
-.step__num {
-  display: block; margin-bottom: 0.2rem;
-  font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--color-red);
-}
 .step__body { padding-top: 0.1rem; }
 .step__body h3 { font-size: 1.2rem; }
 .step__body p { margin-top: 0.3rem; font-size: 0.98rem; line-height: 1.6; color: var(--color-gray); }
