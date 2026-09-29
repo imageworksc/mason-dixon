@@ -39,45 +39,37 @@
 @media (min-width: 1024px) { .hero { min-height: 80vh; min-height: 80svh; } }
 
 /* ---------------------------------------------------------------------
-   2. Symptoms — chip grid on navy
+   2. Symptoms — grouped lists on navy
    --------------------------------------------------------------------- */
 .symptoms__head { max-width: 40rem; }
 .symptoms__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
 
-/* Natural-width chips that wrap: no orphaned last row, and short symptoms
-   sit side by side on phones instead of stacking into a long column */
-.symptoms__list { margin-top: var(--space-7); display: flex; flex-wrap: wrap; gap: var(--space-3); }
-.chip {
-  display: inline-flex; align-items: center; gap: 0.65rem;
-  padding: 0.5rem 1.1rem 0.5rem 0.5rem; border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1);
-  font-weight: 500; font-size: 0.95rem; line-height: 1.35; color: #fff;
-  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+/* Symptoms grouped by what the owner is seeing, as plain ruled lists —
+   easier to scan than a wall of identical chips */
+.symptoms__groups { margin-top: var(--space-7); display: grid; gap: var(--space-6) var(--space-7); }
+.sgroup h3 {
+  padding-bottom: var(--space-3); border-bottom: 2px solid var(--color-red);
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ff8f9a;
 }
-/* Not a link — hover only brightens, it doesn't lift like a button */
-.chip:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-.chip__icon {
-  width: 1.9rem; height: 1.9rem; border-radius: 50%; flex-shrink: 0;
-  display: inline-flex; align-items: center; justify-content: center;
-  background: rgba(192, 29, 46, 0.2); color: #ff8f9a;
-  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+.sgroup li {
+  padding: 0.75rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1rem; line-height: 1.45; color: #fff;
 }
-.chip__icon svg { width: 1rem; height: 1rem; }
-.chip:hover .chip__icon { background: var(--color-red); color: #fff; }
-@media (max-width: 639px) { .chip { font-size: 0.9rem; } }
+@media (min-width: 640px) { .symptoms__groups { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .symptoms__groups { grid-template-columns: repeat(4, 1fr); } }
 
+/* Closing line instead of another box */
 .symptoms__cta {
-  margin-top: var(--space-7);
+  margin-top: var(--space-8); padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5);
-  padding: var(--space-6); border-radius: var(--radius-2xl);
-  background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .symptoms__cta strong { display: block; font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: var(--space-1); }
 .symptoms__cta p { color: var(--text-on-dark-secondary); }
 
 
 /* ---------------------------------------------------------------------
-   3. Process — sticky intro + stepped cards on a flat light background
+   3. Process — sticky intro + numbered timeline
    --------------------------------------------------------------------- */
 .process { background: var(--color-bg-light); }
 
@@ -85,42 +77,23 @@
 .process__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 28rem; }
 .process__head .btn { margin-top: var(--space-5); }
 
-.steps { position: relative; display: grid; gap: var(--space-3); }
-/* Dashed connector running behind the cards through the number column */
-.steps::before {
-  content: ""; position: absolute; z-index: 0; top: 2rem; bottom: 2rem; left: calc(var(--space-5) + 1.2rem);
-  border-left: 2px dashed rgba(36, 38, 103, 0.22);
+/* A plain numbered timeline: one line, five stops, no cards or icons */
+.steps { position: relative; display: grid; }
+/* Connector from each number down to the next one; none after the last */
+.step:not(:last-child)::after {
+  content: ""; position: absolute; left: 1.375rem; top: calc(var(--space-4) + 3rem); bottom: calc(0.25rem - var(--space-4));
+  border-left: 2px solid rgba(36, 38, 103, 0.14);
 }
-.step {
-  position: relative; z-index: 1;
-  display: grid; grid-template-columns: auto 1fr; column-gap: var(--space-4); align-items: center;
-  padding: var(--space-5); border-radius: var(--radius-xl);
-  background: #fff; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);
-  transition: border-color var(--dur-fast) var(--ease-out);
-}
-.step:hover { border-color: rgba(36, 38, 103, 0.18); }
+.step { position: relative; display: grid; grid-template-columns: 2.75rem 1fr; column-gap: var(--space-5); padding: var(--space-4) 0; }
 .step__num {
-  position: absolute; top: 0.9rem; right: 1rem;
-  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; line-height: 1; letter-spacing: -0.02em;
-  color: var(--color-red); opacity: 0.8;
+  width: 2.75rem; height: 2.75rem; display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; line-height: 1; letter-spacing: -0.02em;
+  color: var(--color-red);
 }
-.step__icon {
-  width: 2.75rem; height: 2.75rem; border-radius: 50%; flex-shrink: 0;
-  background: var(--color-lavender); color: var(--color-navy);
-  display: inline-flex; align-items: center; justify-content: center;
-  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
-.step__icon svg { width: 1.3rem; height: 1.3rem; }
-.step:hover .step__icon { background: var(--color-navy); color: #fff; }
-.step__body h3 { font-size: 1.05rem; }
-.step__body p { margin-top: 0.25rem; font-size: 0.92rem; line-height: 1.55; color: var(--color-gray); }
+.step__body { padding-top: 0.45rem; }
+.step__body h3 { font-size: 1.2rem; }
+.step__body p { margin-top: 0.3rem; font-size: 0.98rem; line-height: 1.6; color: var(--color-gray); }
 
-@media (max-width: 639px) { .steps::before { display: none; } }
-@media (min-width: 640px) {
-  .step { grid-template-columns: 2.6rem auto 1fr; padding: var(--space-5) var(--space-6); }
-  .step__num { position: static; font-size: 1.5rem; opacity: 1; }
-  .steps::before { left: calc(var(--space-6) + 0.9rem); }
-}
 @media (min-width: 1024px) {
   .process__inner { grid-template-columns: 0.8fr 1.2fr; gap: var(--space-9); }
   .process__head { position: sticky; top: calc(var(--header-offset) + 1rem); }
@@ -141,21 +114,9 @@
 .services__caption .live-dot::before, .glass-card__meta .live-dot::before { display: none; }
 
 .service-list { display: grid; column-gap: var(--space-7); border-top: 1px solid var(--color-border); }
-.service {
-  display: flex; align-items: flex-start; gap: var(--space-4);
-  padding: 1.1rem 0; border-bottom: 1px solid var(--color-border);
-}
-.service__icon {
-  flex-shrink: 0; width: 2.5rem; height: 2.5rem; border-radius: 50%;
-  display: inline-flex; align-items: center; justify-content: center;
-  background: var(--color-lavender); color: var(--color-navy);
-  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
-.service__icon svg { width: 1.15rem; height: 1.15rem; }
-.service h3 { font-size: 0.98rem; }
-.service p { margin-top: 0.2rem; font-size: 0.86rem; line-height: 1.5; color: var(--color-gray); }
-/* List items aren't links: hover tints the icon only, no red "link" text or slide */
-.service:hover .service__icon { background: var(--color-navy); color: #fff; }
+.service { padding: 1.1rem 0; border-bottom: 1px solid var(--color-border); }
+.service h3 { font-size: 1.02rem; }
+.service p { margin-top: 0.25rem; font-size: 0.9rem; line-height: 1.55; color: var(--color-gray); }
 
 .services__cta {
   margin-top: var(--space-6);
@@ -186,24 +147,20 @@
 }
 
 /* ---------------------------------------------------------------------
-   5. Why us — feature cards + parallax band
+   5. Why us — ruled list + parallax band
    --------------------------------------------------------------------- */
 .why { padding-bottom: 0; background: var(--color-bg-light); } /* flat tint, no bone texture */
 .why__head { max-width: 48rem; margin-bottom: var(--space-7); }
 .why__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
-.why__grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
-/* Phones: icon beside the text, so ten features don't stack into a screen-long column */
-.fcard {
-  display: flex; align-items: center; gap: var(--space-4);
-  padding: var(--space-4); border-radius: 1.25rem; background: #fff; border: 1px solid var(--color-border);
-  font-weight: 600; font-size: 0.95rem; line-height: 1.4; color: var(--color-navy);
-  transition: border-color var(--dur-fast) var(--ease-out);
+/* Plain two-column ruled list — the reasons read as statements, not tiles */
+.why__list { display: grid; column-gap: var(--space-8); border-top: 1px solid var(--color-border); }
+.why__list li {
+  display: flex; align-items: flex-start; gap: var(--space-4);
+  padding: 1.1rem 0; border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; line-height: 1.4; letter-spacing: -0.01em; color: var(--color-navy);
 }
-.fcard:hover { border-color: rgba(36, 38, 103, 0.22); }
-.fcard__icon { flex-shrink: 0; width: 2.6rem; height: 2.6rem; border-radius: 0.8rem; background: var(--color-navy); color: #fff; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--dur-fast) var(--ease-out); }
-.fcard__icon svg { width: 1.2rem; height: 1.2rem; }
-.fcard:hover .fcard__icon { background: var(--color-red); }
-@media (min-width: 1024px) { .fcard { flex-direction: column; align-items: flex-start; padding: var(--space-5); } }
+.why__list li::before { content: ""; flex: 0 0 1.25rem; height: 2px; margin-top: 0.7em; background: var(--color-red); }
+@media (min-width: 640px) { .why__list { grid-template-columns: repeat(2, 1fr); } }
 
 .why__band { position: relative; margin-top: var(--space-8); height: clamp(18rem, 48vw, 36rem); overflow: hidden; background: var(--color-navy-900); }
 .why__band img { position: absolute; left: 0; top: -15%; width: 100%; height: 130%; object-fit: cover; object-position: 50% 85%; transform: translateY(var(--parallax, 0)); will-change: transform; }
@@ -213,7 +170,6 @@
 .why__br { display: none; }
 @media (min-width: 1024px) { .why__br { display: inline; } }
 
-@media (min-width: 1024px) { .why__grid { grid-template-columns: repeat(5, 1fr); } }
 
 /* ---------------------------------------------------------------------
    6. Team — spotlight cards with overlay captions
