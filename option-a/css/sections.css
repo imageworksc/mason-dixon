@@ -429,10 +429,6 @@
 .refer__copy h2 { color: var(--color-red); }
 .refer__copy p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
 .refer__copy .btn-row { margin-top: var(--space-6); justify-content: center; }
-.refer__art { position: absolute; bottom: -3rem; z-index: 0; width: auto; height: 72%; pointer-events: none; display: none; }
-.refer__art--left { right: calc(50% + 20rem); }
-.refer__art--right { left: calc(50% + 12rem); }
-@media (min-width: 1024px) { .refer__art { display: block; } }
 
 /* ---------------------------------------------------------------------
    10. FAQ — accordion with animated grid rows
