@@ -162,10 +162,11 @@ const initCarousel = () => {
 };
 
 /* ---------------------------------------------------------------
-   Reviews — one at a time, dots to switch. Each review's pet photo
-   is one element that lives in the section's backdrop and travels to
-   the featured spot beside the quote when its review is shown; the
-   photo that was featured travels back into the backdrop.
+   Reviews — one slide at a time (a Google review, a thank-you card or
+   a gift), dots to switch. Every slide's photo is one element that
+   lives in the section's backdrop and travels to the featured box
+   beside the copy when its slide is shown; the photo that was featured
+   travels back into the backdrop.
    --------------------------------------------------------------- */
 const initReviews = () => {
   const root = document.querySelector("[data-reviews]");
@@ -173,13 +174,14 @@ const initReviews = () => {
   if (!root || !section) return;
   const slidesBox = root.querySelector(".reviews__slides");
   const slides = [...root.querySelectorAll(".review")];
-  const pets = [...section.querySelectorAll(".letter--pet")];
+  const photos = slides.map((slide) => document.getElementById(slide.dataset.photo));
   const slot = root.querySelector("[data-reviews-slot]");
   const dotsBox = root.querySelector("[data-reviews-dots]");
-  if (!slot || !dotsBox || slides.length < 2 || pets.length !== slides.length) return;
+  if (!slot || !dotsBox || slides.length < 2 || photos.some((photo) => !photo)) return;
 
   root.classList.add("is-enhanced");
   const FEATURED_TILT = -3; // deg — straightened, but still a pinned snapshot
+  const FIT = 0.94;         // leave room for the tilt's corners
   let current = -1;
 
   // Position of an element relative to the section, ignoring transforms
@@ -190,32 +192,35 @@ const initReviews = () => {
     return { x, y };
   };
 
-  // Transform that carries a backdrop photo onto the featured spot
-  const featuredTransform = (pet) => {
-    const scale = slot.offsetWidth / pet.offsetWidth;
-    const height = `${Math.round(pet.offsetHeight * scale)}px`;
-    if (slot.style.getPropertyValue("--slot-h") !== height) slot.style.setProperty("--slot-h", height);
+  // Transform that carries a backdrop photo into the featured box, as large as
+  // fits. Photos that were shot sideways (data-upright) are turned upright first.
+  const featuredTransform = (photo) => {
+    const upright = Number(photo.dataset.upright) || 0;
+    const sideways = upright % 180 !== 0;
+    const w = sideways ? photo.offsetHeight : photo.offsetWidth;
+    const h = sideways ? photo.offsetWidth : photo.offsetHeight;
+    const scale = Math.min((slot.offsetWidth * FIT) / w, (slot.offsetHeight * FIT) / h);
     const at = offsetIn(slot, section);
-    const dx = at.x + slot.offsetWidth / 2 - (pet.offsetLeft + pet.offsetWidth / 2);
-    const dy = at.y + slot.offsetHeight / 2 - (pet.offsetTop + pet.offsetHeight / 2);
-    return `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) rotate(${FEATURED_TILT}deg) scale(${scale.toFixed(4)})`;
+    const dx = at.x + slot.offsetWidth / 2 - (photo.offsetLeft + photo.offsetWidth / 2);
+    const dy = at.y + slot.offsetHeight / 2 - (photo.offsetTop + photo.offsetHeight / 2);
+    return `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) rotate(${upright + FEATURED_TILT}deg) scale(${scale.toFixed(4)})`;
   };
 
   // Recompute the featured photo's spot without animating (resize, fonts loading)
   const settle = () => {
-    const pet = pets[current];
-    if (!pet) return;
-    pet.style.transition = "none";
-    pet.style.transform = featuredTransform(pet);
-    pet.getBoundingClientRect(); // flush so the jump isn't animated
-    pet.style.transition = "";
+    const photo = photos[current];
+    if (!photo) return;
+    photo.style.transition = "none";
+    photo.style.transform = featuredTransform(photo);
+    photo.getBoundingClientRect(); // flush so the jump isn't animated
+    photo.style.transition = "";
   };
 
   const dots = slides.map((_, i) => {
     const dot = document.createElement("button");
     dot.type = "button";
     dot.className = "reviews__dot";
-    dot.setAttribute("aria-label", `Show review ${i + 1} of ${slides.length}`);
+    dot.setAttribute("aria-label", `Show ${i + 1} of ${slides.length}`);
     dot.setAttribute("aria-controls", slides[i].id);
     dot.addEventListener("click", () => show(i, true));
     dotsBox.append(dot);
@@ -224,7 +229,7 @@ const initReviews = () => {
 
   const show = (index, byUser = false) => {
     if (index === current) return;
-    const leaving = pets[current];
+    const leaving = photos[current];
     current = index;
     if (byUser) slidesBox.setAttribute("aria-live", "polite");
 
@@ -241,11 +246,11 @@ const initReviews = () => {
       leaving.alt = "";
       setTimeout(() => leaving.classList.remove("is-leaving"), reduceMotion ? 0 : 1000);
     }
-    const pet = pets[index];
-    pet.classList.remove("is-leaving");
-    pet.classList.add("is-active");
-    pet.alt = pet.dataset.alt || "";
-    pet.style.transform = featuredTransform(pet);
+    const photo = photos[index];
+    photo.classList.remove("is-leaving");
+    photo.classList.add("is-active");
+    photo.alt = photo.dataset.alt || "";
+    photo.style.transform = featuredTransform(photo);
   };
 
   dotsBox.addEventListener("keydown", (event) => {
@@ -261,7 +266,7 @@ const initReviews = () => {
   else window.addEventListener("resize", settle);
 
   // Wait for the section to come into view so the first photo's trip from the
-  // backdrop is seen; without observers the first review simply shows
+  // backdrop is seen; without observers the first slide simply shows
   if (reduceMotion || !("IntersectionObserver" in window)) { show(0); return; }
   const observer = new IntersectionObserver(([entry]) => {
     if (!entry.isIntersecting && entry.boundingClientRect.top >= 0) return;

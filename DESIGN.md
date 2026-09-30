@@ -111,11 +111,12 @@ quiet lavender CTA panel, why-us feature card grid over a photo band with a scro
 parallax, spotlight team card with an overlay caption (five-across grid on desktop, a
 scroll-snap carousel with round arrow buttons below it), glass CTA card over
 `--color-navy-900` with two blurred colour glows and the floating paw scatter,
-reviews block (left-aligned heading with a quote glyph over the thank-you-card backdrop; one
-quote at a time, left-aligned straight on the backdrop with no card, and dots to switch. The
-reviewer's pet snapshot is one polaroid that lives in the backdrop and travels to a featured spot
-beside the quote when its review is shown, while the previous one returns to the backdrop;
-arrow link to the testimonials
+reviews block (left-aligned heading with a quote glyph over the thank-you-card backdrop; a
+slider of twelve slides shown one at a time, with dots to switch: three Google reviews
+interleaved with nine thank-you cards and gifts. Copy sits on the left with no card box (the
+words on the card, then a short plain explanation, then a name and source); the slide's photo is
+one polaroid that lives in the backdrop and travels to a large featured box on the right, fitted
+inside it, while the previous one returns to the backdrop; arrow link to the testimonials
 page), accordion item (grid-rows animation), sticky mobile call bar,
 floating financing badge
 (bottom-left double-bezel: tinted shell, navy gradient core, paw watermark that drifts on
