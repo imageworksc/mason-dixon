@@ -89,13 +89,14 @@
 .process__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 28rem; }
 .process__head .btn { margin-top: var(--space-5); }
 
-/* Progress timeline: as each stop is reached its circle fills red, the icon gives
-   way to a check that draws itself, and the line to the next stop fills in.
-   initProcess (main.js) adds .is-done / .is-linked; --d / --dl stagger stops that
-   complete on the same scroll so they still read one after another. */
+/* Progress timeline: as each stop is reached the line above it draws in, its circle
+   fills red, a check draws and holds for a moment, then gives way to the stop's own
+   icon, now white on the red. initProcess (main.js) adds .is-done / .is-linked;
+   --d / --dl stagger stops that complete on the same scroll so they still read
+   one after another. Going back up simply undoes it, quickly. */
 .steps { position: relative; display: grid; }
 .step { --lead: 0s; position: relative; display: grid; grid-template-columns: 3.25rem 1fr; column-gap: var(--space-5); padding: var(--space-4) 0; }
-.step:not(:first-child) { --lead: 0.3s; } /* the line above finishes drawing first */
+.step:not(:first-child) { --lead: 0.5s; } /* the line above finishes drawing first */
 /* Connector running from each node down to the next (dashed track, red fill on top); none after the last */
 .step:not(:last-child)::before, .step:not(:last-child)::after {
   content: ""; position: absolute; left: calc(1.625rem - 1px); top: calc(var(--space-4) + 3.25rem); bottom: calc(-1 * var(--space-4));
@@ -103,9 +104,9 @@
 .step:not(:last-child)::after { border-left: 2px dashed rgba(36, 38, 103, 0.2); }
 .step:not(:last-child)::before {
   z-index: 1; border-left: 2px solid var(--color-red);
-  transform: scaleY(0); transform-origin: top; transition: transform 0.4s var(--ease-out);
+  transform: scaleY(0); transform-origin: top; transition: transform 0.3s var(--ease-out);
 }
-.step.is-linked::before { transform: scaleY(1); transition-delay: var(--dl, 0s); }
+.step.is-linked::before { transform: scaleY(1); transition: transform 0.7s var(--ease-out) var(--dl, 0s); }
 .step__node {
   position: relative; z-index: 2; overflow: hidden;
   width: 3.25rem; height: 3.25rem; border-radius: 50%;
@@ -117,18 +118,32 @@
 /* The fill grows from the centre of the circle */
 .step__node::before {
   content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--color-red);
-  transform: scale(0); transition: transform 0.5s var(--ease-out);
+  transform: scale(0); transition: transform 0.3s var(--ease-out);
 }
-.step__icon { position: relative; width: 1.4rem; height: 1.4rem; transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out); }
+.step__icon { position: relative; width: 1.4rem; height: 1.4rem; }
 .step__check {
   position: absolute; width: 1.6rem; height: 1.6rem; fill: none; stroke: #fff; stroke-width: 3;
   stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 1; stroke-dashoffset: 1; opacity: 0;
-  transition: stroke-dashoffset 0.35s var(--ease-out), opacity 0s linear 0.35s;
 }
 .step.is-done .step__node { border-color: var(--color-red); }
-.step.is-done .step__node::before { transform: scale(1); transition-delay: calc(var(--d, 0s) + var(--lead)); }
-.step.is-done .step__icon { opacity: 0; transform: scale(0.6); transition-delay: calc(var(--d, 0s) + var(--lead) + 0.25s); }
-.step.is-done .step__check { stroke-dashoffset: 0; opacity: 1; transition: stroke-dashoffset 0.4s var(--ease-out) calc(var(--d, 0s) + var(--lead) + 0.3s), opacity 0s linear calc(var(--d, 0s) + var(--lead) + 0.3s); }
+.step.is-done .step__node::before { transform: scale(1); transition: transform 0.9s var(--ease-out) calc(var(--d, 0s) + var(--lead)); }
+/* One 2.8s run per stop, after the fill starts: the icon steps aside, the check
+   draws (about 0.55s-1.15s), holds, and fades as the icon returns in white */
+.step.is-done .step__icon { animation: step-icon 2.8s var(--ease-out) calc(var(--d, 0s) + var(--lead)) both; }
+.step.is-done .step__check { animation: step-check 2.8s var(--ease-out) calc(var(--d, 0s) + var(--lead)) both; }
+@keyframes step-icon {
+  0%   { opacity: 1; transform: none; color: var(--color-red); }
+  12%  { opacity: 0; transform: scale(0.6); color: var(--color-red); }
+  68%  { opacity: 0; transform: scale(0.6); color: #fff; }
+  88%  { opacity: 1; transform: none; color: #fff; }
+  100% { opacity: 1; transform: none; color: #fff; }
+}
+@keyframes step-check {
+  0%, 19% { opacity: 0; stroke-dashoffset: 1; }
+  20%     { opacity: 1; stroke-dashoffset: 1; }
+  42%, 62% { opacity: 1; stroke-dashoffset: 0; }
+  74%, 100% { opacity: 0; stroke-dashoffset: 0; }
+}
 .step__body { padding-top: 0.1rem; }
 .step__body h3 { font-size: 1.2rem; }
 .step__body p { margin-top: 0.3rem; font-size: 0.98rem; line-height: 1.6; color: var(--color-gray); }
