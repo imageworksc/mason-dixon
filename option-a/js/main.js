@@ -162,6 +162,116 @@ const initCarousel = () => {
 };
 
 /* ---------------------------------------------------------------
+   Reviews — one at a time, dots to switch. Each review's pet photo
+   is one element that lives in the section's backdrop and travels to
+   the featured spot beside the quote when its review is shown; the
+   photo that was featured travels back into the backdrop.
+   --------------------------------------------------------------- */
+const initReviews = () => {
+  const root = document.querySelector("[data-reviews]");
+  const section = root?.closest(".reviews");
+  if (!root || !section) return;
+  const slidesBox = root.querySelector(".reviews__slides");
+  const slides = [...root.querySelectorAll(".review")];
+  const pets = [...section.querySelectorAll(".letter--pet")];
+  const slot = root.querySelector("[data-reviews-slot]");
+  const dotsBox = root.querySelector("[data-reviews-dots]");
+  if (!slot || !dotsBox || slides.length < 2 || pets.length !== slides.length) return;
+
+  root.classList.add("is-enhanced");
+  const FEATURED_TILT = -3; // deg — straightened, but still a pinned snapshot
+  let current = -1;
+
+  // Position of an element relative to the section, ignoring transforms
+  // (so it stays correct while a reveal animation is running)
+  const offsetIn = (el, ancestor) => {
+    let x = 0, y = 0;
+    for (let n = el; n && n !== ancestor; n = n.offsetParent) { x += n.offsetLeft; y += n.offsetTop; }
+    return { x, y };
+  };
+
+  // Transform that carries a backdrop photo onto the featured spot
+  const featuredTransform = (pet) => {
+    const scale = slot.offsetWidth / pet.offsetWidth;
+    const height = `${Math.round(pet.offsetHeight * scale)}px`;
+    if (slot.style.getPropertyValue("--slot-h") !== height) slot.style.setProperty("--slot-h", height);
+    const at = offsetIn(slot, section);
+    const dx = at.x + slot.offsetWidth / 2 - (pet.offsetLeft + pet.offsetWidth / 2);
+    const dy = at.y + slot.offsetHeight / 2 - (pet.offsetTop + pet.offsetHeight / 2);
+    return `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) rotate(${FEATURED_TILT}deg) scale(${scale.toFixed(4)})`;
+  };
+
+  // Recompute the featured photo's spot without animating (resize, fonts loading)
+  const settle = () => {
+    const pet = pets[current];
+    if (!pet) return;
+    pet.style.transition = "none";
+    pet.style.transform = featuredTransform(pet);
+    pet.getBoundingClientRect(); // flush so the jump isn't animated
+    pet.style.transition = "";
+  };
+
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "reviews__dot";
+    dot.setAttribute("aria-label", `Show review ${i + 1} of ${slides.length}`);
+    dot.setAttribute("aria-controls", slides[i].id);
+    dot.addEventListener("click", () => show(i, true));
+    dotsBox.append(dot);
+    return dot;
+  });
+
+  const show = (index, byUser = false) => {
+    if (index === current) return;
+    const leaving = pets[current];
+    current = index;
+    if (byUser) slidesBox.setAttribute("aria-live", "polite");
+
+    slides.forEach((slide, i) => slide.classList.toggle("is-active", i === index));
+    dots.forEach((dot, i) => {
+      if (i === index) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+
+    if (leaving) { // back into the backdrop; keeps its height until it lands
+      leaving.classList.remove("is-active");
+      leaving.classList.add("is-leaving");
+      leaving.style.transform = "";
+      leaving.alt = "";
+      setTimeout(() => leaving.classList.remove("is-leaving"), reduceMotion ? 0 : 1000);
+    }
+    const pet = pets[index];
+    pet.classList.remove("is-leaving");
+    pet.classList.add("is-active");
+    pet.alt = pet.dataset.alt || "";
+    pet.style.transform = featuredTransform(pet);
+  };
+
+  dotsBox.addEventListener("keydown", (event) => {
+    const step = { ArrowLeft: -1, ArrowUp: -1, ArrowRight: 1, ArrowDown: 1 }[event.key];
+    if (!step) return;
+    event.preventDefault();
+    const next = (current + step + slides.length) % slides.length;
+    show(next, true);
+    dots[next].focus();
+  });
+
+  if ("ResizeObserver" in window) new ResizeObserver(settle).observe(section);
+  else window.addEventListener("resize", settle);
+
+  // Wait for the section to come into view so the first photo's trip from the
+  // backdrop is seen; without observers the first review simply shows
+  if (reduceMotion || !("IntersectionObserver" in window)) { show(0); return; }
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting && entry.boundingClientRect.top >= 0) return;
+    observer.disconnect();
+    show(0);
+  }, { threshold: 0.35 });
+  observer.observe(root);
+};
+
+/* ---------------------------------------------------------------
    Nav "you are here" — marks the in-page link whose section is
    currently in the middle of the viewport
    --------------------------------------------------------------- */
@@ -235,5 +345,6 @@ initScrollState();
 initPayPill();
 initReveals();
 initCarousel();
+initReviews();
 initScrollSpy();
 initAccordion();
