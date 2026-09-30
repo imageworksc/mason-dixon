@@ -60,14 +60,24 @@
 @media (min-width: 640px) { .symptoms__groups { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .symptoms__groups { grid-template-columns: repeat(4, 1fr); } }
 
-/* Closing line instead of another box */
+/* Closing call to action: the one solid red block in the section, so it is the
+   thing the eye lands on. The button flips to white because red on red vanishes */
 .symptoms__cta {
-  margin-top: var(--space-8); padding-top: var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5);
+  margin-top: var(--space-8); padding: var(--space-6);
+  background: linear-gradient(135deg, #d32338 0%, var(--color-red) 45%, var(--color-red-dark) 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 30px 60px -28px rgba(192, 29, 46, 0.75);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-5) var(--space-6);
 }
-.symptoms__cta strong { display: block; font-family: var(--font-display); font-size: 1.3rem; color: #fff; margin-bottom: var(--space-1); }
-.symptoms__cta p { color: var(--text-on-dark-secondary); }
+.symptoms__cta strong {
+  display: block; margin-bottom: var(--space-1);
+  font-family: var(--font-display); font-size: clamp(1.4rem, 1.2vw + 1rem, 1.9rem); line-height: 1.15; letter-spacing: -0.02em; color: #fff;
+}
+.symptoms__cta p { font-size: 1.05rem; color: rgba(255, 255, 255, 0.92); }
+.symptoms__cta .btn--primary { background: #fff; border-color: #fff; color: var(--color-red); box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.5); }
+.symptoms__cta .btn--primary:hover { background: var(--color-navy-dark); border-color: var(--color-navy-dark); color: #fff; }
+@media (min-width: 768px) { .symptoms__cta { padding: var(--space-6) var(--space-7); } }
+@media (max-width: 639px) { .symptoms__cta .btn { width: 100%; } }
 
 
 /* ---------------------------------------------------------------------
