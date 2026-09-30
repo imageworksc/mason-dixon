@@ -233,8 +233,9 @@
 /* ---------------------------------------------------------------------
    7. Reviews — left-aligned heading, one quote at a time, dots to switch.
       No cards: the quote sits straight on the thank-you-card backdrop, and
-      the reviewer's pet photo travels between the backdrop and a featured
-      spot beside the quote (positioned by initReviews in main.js)
+      the photo that belongs to the slide on show (a reviewer's pet, a thank-you
+      card, a gift) travels between the backdrop and a featured spot beside the
+      copy (positioned by initReviews in main.js)
    --------------------------------------------------------------------- */
 .reviews {
   position: relative; overflow: clip; isolation: isolate;
@@ -243,27 +244,24 @@
 }
 .reviews > .container { position: relative; z-index: 2; }
 
-/* Backdrop of real thank-you cards, scattered and overlapping at 30% */
-.reviews__letters { position: absolute; inset: 0; z-index: 0; opacity: 0.3; pointer-events: none; }
-.reviews__pets { position: absolute; inset: 0; pointer-events: none; } /* no z-index: pets stack against the section */
+/* Backdrop of real thank-you cards, gifts and pet photos, scattered and overlapping at 30%.
+   No z-index on the layer itself: each photo stacks against the section */
+.reviews__backdrop { position: absolute; inset: 0; pointer-events: none; }
 .letter {
   position: absolute; left: var(--x); top: var(--y);
   width: clamp(8.5rem, 16vw, 16rem); height: auto;
   padding: 0.4rem; background: #fff; border-radius: 3px;
   box-shadow: 0 14px 28px -12px rgba(16, 24, 64, 0.45);
-  transform: rotate(var(--r));
-}
-/* Pet snapshots are smaller, square polaroids with a deeper bottom margin */
-.letter--pet {
-  width: clamp(6rem, 10vw, 9.5rem); padding: 0.4rem 0.4rem 1.4rem;
   transform: translate(0, 0) rotate(var(--r)) scale(1); /* full list, so the trip to the featured spot interpolates smoothly */
   opacity: 0.3; z-index: 0;
   transition: transform 1s var(--ease-out), opacity 0.6s var(--ease-out);
 }
-/* The featured pet rides above the text clearing; the one leaving keeps that
+/* Pet snapshots are smaller, square polaroids with a deeper bottom margin */
+.letter--pet { width: clamp(6rem, 10vw, 9.5rem); padding: 0.4rem 0.4rem 1.4rem; }
+/* The featured photo rides above the text clearing; the one leaving keeps that
    height until it has landed back in the backdrop */
-.letter--pet.is-active { opacity: 1; z-index: 3; }
-.letter--pet.is-leaving { z-index: 3; }
+.letter.is-active { opacity: 1; z-index: 3; }
+.letter.is-leaving { z-index: 3; }
 /* Soft clearing behind the text so it never competes with the handwriting */
 .reviews::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
@@ -279,15 +277,15 @@
 .reviews h2 { font-size: clamp(1.5rem, 1.6vw + 0.9rem, 2.35rem); }
 .reviews__head p { margin-top: var(--space-3); font-size: 1.05rem; line-height: 1.65; }
 
-/* Copy (heading, quote, dots, link) beside a reserved spot for the featured pet photo.
+/* Copy (heading, quote, dots, link) beside a reserved box for the featured photo, which is fitted inside it.
    Under 768px the copy dissolves into the grid so the photo can sit between heading and quote */
 .reviews__layout {
-  --slot-w: min(72vw, 15rem);
+  --slot-w: 100%; --slot-h: min(72vw, 17rem);
   display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-5);
 }
 .reviews__copy { display: contents; }
 .reviews__head { order: 1; }
-.reviews__slot { display: none; order: 2; width: var(--slot-w); height: var(--slot-h, var(--slot-w)); }
+.reviews__slot { display: none; order: 2; width: var(--slot-w); height: var(--slot-h); }
 .reviews__slides { order: 3; display: grid; gap: var(--space-6); }
 .reviews__dots { order: 4; }
 .reviews__cta { order: 5; }
@@ -298,10 +296,12 @@
 .review { margin: 0; }
 .is-enhanced .review { grid-area: 1 / 1; }
 .review blockquote { margin: 0 0 var(--space-5); }
-.review blockquote p {
+.review blockquote p, .review__lead {
   font-family: var(--font-display); font-weight: 600; font-size: clamp(1.2rem, 1vw + 1rem, 1.85rem);
   line-height: 1.42; letter-spacing: -0.015em; color: var(--color-navy);
 }
+.review__note { margin: calc(var(--space-2) * -1) 0 var(--space-5); max-width: 34rem; font-size: 1rem; line-height: 1.6; color: var(--color-slate); }
+.review__lead { margin: 0 0 var(--space-5); }
 .review__by { display: grid; gap: 0.1rem; }
 .review__by::before { content: ""; width: 2.5rem; height: 2px; margin-bottom: var(--space-3); background: var(--color-red); }
 .review__name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--color-navy); }
@@ -319,17 +319,17 @@
 /* Without JS there are no dots and the reviews simply stack */
 .reviews__dots:empty { display: none; }
 
-.reviews__dots { display: flex; align-items: center; gap: 0.25rem; margin-left: -0.6rem; } /* offset the buttons' padding so the first dot lines up with the text */
+.reviews__dots { display: flex; flex-wrap: wrap; align-items: center; margin-left: -0.5rem; } /* offset the buttons' padding so the first dot lines up with the text */
 .reviews__dot {
-  display: grid; place-items: center; width: 1.9rem; height: 2.75rem; /* comfortable touch target */
+  display: grid; place-items: center; width: 1.6rem; height: 2.75rem; /* comfortable touch target */
 }
 .reviews__dot::before {
-  content: ""; width: 0.65rem; height: 0.65rem; border-radius: var(--radius-full);
+  content: ""; width: 0.6rem; height: 0.6rem; border-radius: var(--radius-full);
   background: var(--color-navy); opacity: 0.25;
   transition: width var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
 }
 .reviews__dot:hover::before { opacity: 0.55; }
-.reviews__dot[aria-current="true"]::before { width: 1.75rem; background: var(--color-red); opacity: 1; }
+.reviews__dot[aria-current="true"]::before { width: 1.25rem; background: var(--color-red); opacity: 1; }
 .reviews__dot:focus-visible { outline: 2px solid var(--color-red); outline-offset: -2px; border-radius: var(--radius-md); }
 
 .reviews__cta { text-align: left; }
@@ -352,7 +352,7 @@
    spanning the height of the copy */
 @media (min-width: 768px) {
   .reviews__layout {
-    --slot-w: clamp(15rem, 34vw, 26rem);
+    --slot-w: clamp(15rem, 34vw, 26rem); --slot-h: clamp(20rem, 34vw, 29rem);
     grid-template-columns: minmax(0, 1fr) var(--slot-w);
     column-gap: clamp(2rem, 6vw, 6rem); align-items: center;
   }
@@ -366,9 +366,9 @@
   .letter:nth-child(5) { left: 30%; top: 88%; }
   .letter:nth-child(8) { left: -6%; top: 90%; }
   .letter:nth-child(9) { left: 70%; top: 87%; }
-  .letter--pet:nth-child(1) { left: 72%; top: 1%; }
-  .letter--pet:nth-child(2) { left: 4%; top: 92%; }
-  .letter--pet:nth-child(3) { left: 62%; top: 96%; }
+  .letter--pet:nth-child(10) { left: 72%; top: 1%; }
+  .letter--pet:nth-child(11) { left: 4%; top: 92%; }
+  .letter--pet:nth-child(12) { left: 62%; top: 96%; }
   .reviews::after { background: radial-gradient(ellipse 90% 45% at 40% 42%, rgba(245, 245, 247, 0.94), rgba(245, 245, 247, 0) 100%); }
 }
 
