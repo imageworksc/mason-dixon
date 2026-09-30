@@ -163,7 +163,7 @@
 .services__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
 .services__media:hover img { transform: scale(1.04); }
 .services__caption { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 500; color: var(--color-gray); padding-inline: var(--space-2); }
-/* The pulsing "live" ring is kept for the header and hero status; repeated
+/* The pulsing "live" ring is kept for the hero status; repeated
    further down the page it turns into background noise */
 .services__caption .live-dot::before, .glass-card__meta .live-dot::before { display: none; }
 

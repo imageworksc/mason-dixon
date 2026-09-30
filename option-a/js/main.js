@@ -8,45 +8,10 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const desktop = window.matchMedia("(min-width: 1024px)");
 
 /* ---------------------------------------------------------------
-   Full-screen mobile nav
-   --------------------------------------------------------------- */
-const initNav = () => {
-  const toggle = document.querySelector("[data-nav-toggle]");
-  const menu = document.querySelector("[data-nav-menu]");
-  if (!toggle || !menu) return;
-
-  const setOpen = (open) => {
-    menu.classList.toggle("is-open", open);
-    menu.setAttribute("aria-hidden", String(!open));
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
-    document.body.classList.toggle("nav-open", open);
-  };
-
-  toggle.addEventListener("click", () => setOpen(!menu.classList.contains("is-open")));
-
-  menu.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setOpen(false);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menu.classList.contains("is-open")) {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-
-  desktop.addEventListener("change", (event) => {
-    if (event.matches) setOpen(false);
-  });
-};
-
-/* ---------------------------------------------------------------
-   Scroll-driven state: header shadow, sticky call bar, and the
+   Scroll-driven state: sticky call bar, and the
    why-us photo band's parallax. One rAF-throttled listener for all.
    --------------------------------------------------------------- */
 const initScrollState = () => {
-  const header = document.querySelector("[data-site-header]");
   const callBar = document.querySelector("[data-call-bar]");
   const payPill = document.querySelector("[data-pay-pill]");
   const band = document.querySelector("[data-parallax]");
@@ -55,7 +20,6 @@ const initScrollState = () => {
 
   const update = () => {
     const y = window.scrollY;
-    header?.classList.toggle("is-scrolled", y > 8);
     const pastHero = y > window.innerHeight * 0.6;
     callBar?.classList.toggle("is-visible", pastHero);
     payPill?.classList.toggle("is-raised", pastHero);
@@ -311,27 +275,6 @@ const initReviews = () => {
 };
 
 /* ---------------------------------------------------------------
-   Nav "you are here" — marks the in-page link whose section is
-   currently in the middle of the viewport
-   --------------------------------------------------------------- */
-const initScrollSpy = () => {
-  const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-  const sections = links.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
-  if (!sections.length || !("IntersectionObserver" in window)) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const link = links.find((a) => a.getAttribute("href") === `#${entry.target.id}`);
-      if (!link) return;
-      if (entry.isIntersecting) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
-    });
-  }, { rootMargin: "-45% 0px -50% 0px" });
-
-  sections.forEach((section) => observer.observe(section));
-};
-
-/* ---------------------------------------------------------------
    FAQ accordion (one open at a time, animated with grid rows)
    --------------------------------------------------------------- */
 const initAccordion = () => {
@@ -378,7 +321,6 @@ const initHeroVideo = () => {
   observer.observe(video);
 };
 
-initNav();
 initHeroVideo();
 initScrollState();
 initPayPill();
@@ -386,5 +328,4 @@ initReveals();
 initCarousel();
 initReviews();
 initProcess();
-initScrollSpy();
 initAccordion();
