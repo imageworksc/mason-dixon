@@ -147,7 +147,7 @@ const initProcess = () => {
       const node = step.querySelector(".step__node");
       const done = node.getBoundingClientRect().top < line;
       if (done && !step.classList.contains("is-done")) {
-        const delay = `${fresh * 0.6}s`;
+        const delay = `${fresh * 0.9}s`;
         step.style.setProperty("--d", delay);
         steps[i - 1]?.style.setProperty("--dl", delay);
         fresh += 1;
