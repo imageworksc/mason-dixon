@@ -305,10 +305,10 @@
 }
 /* Pet snapshots are smaller, square polaroids with a deeper bottom margin */
 .letter--pet { width: clamp(6rem, 10vw, 9.5rem); padding: 0.4rem 0.4rem 1.4rem; }
-/* The featured photo rides above the text clearing; the one leaving keeps that
-   height until it has landed back in the backdrop */
+/* The featured photo rides above the text clearing; the one leaving flies back
+   underneath the copy so it never crosses over the review text */
 .letter.is-active { opacity: 1; z-index: 3; }
-.letter.is-leaving { z-index: 3; }
+.letter.is-leaving { z-index: 1; }
 /* Soft clearing behind the text so it never competes with the handwriting */
 .reviews::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
