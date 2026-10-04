@@ -84,6 +84,8 @@
    3. Process — sticky intro + progress timeline
    --------------------------------------------------------------------- */
 .process { background: var(--color-bg-light); }
+/* Testimonials sit directly above on the same tint; a hairline keeps the two apart */
+.reviews + .process { border-top: 1px solid var(--color-border); }
 
 .process__inner { display: grid; gap: var(--space-7); align-items: start; }
 .process__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; max-width: 28rem; }

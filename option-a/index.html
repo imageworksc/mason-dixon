@@ -13,11 +13,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
-  <script src="js/head.js?v=202610042154"></script>
-  <link rel="stylesheet" href="css/base.css?v=202610042154" />
-  <link rel="stylesheet" href="css/components.css?v=202610042154" />
-  <link rel="stylesheet" href="css/sections.css?v=202610042154" />
-  <link rel="stylesheet" href="css/motion.css?v=202610042154" />
+  <script src="js/head.js?v=202610042357"></script>
+  <link rel="stylesheet" href="css/base.css?v=202610042357" />
+  <link rel="stylesheet" href="css/components.css?v=202610042357" />
+  <link rel="stylesheet" href="css/sections.css?v=202610042357" />
+  <link rel="stylesheet" href="css/motion.css?v=202610042357" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -120,6 +120,107 @@
             <span>(717) 432-6030</span>
             <span class="btn__orb" aria-hidden="true"><svg><use href="#icon-phone"/></svg></span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Reviews ============================ -->
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-heading">
+      <!-- Real thank-you cards, gifts and the reviewers' pets, as a faint backdrop. Whichever one belongs to
+           the slide on show travels to the featured spot beside the copy (see initReviews) -->
+      <div class="reviews__backdrop" aria-hidden="true">
+        <img id="photo-dozer" class="letter" style="--x: -2%; --y: 4%; --r: -8deg;" src="../assets/images/option-a/letters/letter-dozer.jpg" alt="" data-alt="A handwritten thank-you card to the Mason Dixon ER staff from Dozer and his Paw-rents, with an orange sticky note on top" width="524" height="800" loading="lazy" />
+        <img id="photo-coco" class="letter" style="--x: 13%; --y: -5%; --r: 5deg;" src="../assets/images/option-a/letters/letter-coco.jpg" alt="" data-alt="A message written in Coco's voice to her parents, with a photo of a small Yorkshire terrier resting in a cozy bed" width="800" height="492" loading="lazy" />
+        <img id="photo-gertrude" class="letter" style="--x: -5%; --y: 60%; --r: 6deg;" src="../assets/images/option-a/letters/letter-gertrude.jpg" alt="" data-alt="Gertrude, a black dog with a white chest, licking her nose as her owner scratches her chest" width="618" height="800" loading="lazy" />
+        <img id="photo-remy" class="letter" style="--x: 16%; --y: 64%; --r: -5deg;" src="../assets/images/option-a/letters/letter-remy.jpg" alt="" data-alt="A child's card in purple and pink marker with crayon flowers, next to a box of chocolate chip cookies" width="753" height="800" loading="lazy" />
+        <img id="photo-difference" class="letter" style="--x: 38%; --y: 74%; --r: 3deg;" src="../assets/images/option-a/letters/letter-difference.jpg" alt="" data-alt="A blue card reading &lsquo;The countless little things you do make a huge difference&rsquo; beside a bouquet of yellow, white and purple flowers" width="800" height="774" loading="lazy" />
+        <img id="photo-staff" class="letter" style="--x: 70%; --y: -6%; --r: -6deg;" src="../assets/images/option-a/letters/letter-staff.jpg" alt="" data-alt="A basket of snacks with an envelope addressed to the Mason Dixon staff" width="800" height="726" loading="lazy" />
+        <img id="photo-willie" class="letter" style="--x: 85%; --y: 16%; --r: 88deg;" src="../assets/images/option-a/letters/letter-willie.jpg" alt="" data-alt="A Christmas card thanking the team for taking care of Willie Nelson" data-upright="90" width="800" height="728" loading="lazy" />
+        <img id="photo-treats" class="letter" style="--x: 69%; --y: 58%; --r: 7deg;" src="../assets/images/option-a/letters/letter-treats.jpg" alt="" data-alt="An arched pink thank-you card and a photo of a black kitten" width="800" height="800" loading="lazy" />
+        <img id="photo-amazing" class="letter" style="--x: 86%; --y: 66%; --r: -9deg;" src="../assets/images/option-a/letters/letter-amazing.jpg" alt="" data-alt="A gift basket with cookies, snacks, drinks and a card asking &lsquo;Could you be any more amazing?&rsquo;" width="800" height="731" loading="lazy" />
+        <!-- The reviewers' pets, pinned among the cards -->
+        <img id="photo-lana" class="letter letter--pet" style="--x: 30%; --y: 3%; --r: -7deg;" src="../assets/images/option-a/pets/pet-lana.jpg" alt="" data-alt="A black cat looking up from inside a holiday-patterned cat tunnel" width="1200" height="1200" />
+        <img id="photo-pamela" class="letter letter--pet" style="--x: 58%; --y: 86%; --r: 6deg;" src="../assets/images/option-a/pets/pet-sandy.jpg" alt="" data-alt="Sandy, a cream-coloured dog, wearing a blue recovery collar in the back of a car" width="736" height="736" />
+        <img id="photo-alexis" class="letter letter--pet" style="--x: 60%; --y: 1%; --r: 8deg;" src="../assets/images/option-a/pets/pet-mabel.jpg" alt="" data-alt="Mabel, a ginger and white long-haired cat, resting in a patterned recovery suit" width="1200" height="1200" />
+      </div>
+
+      <div class="container">
+        <div class="reviews__layout" data-reviews>
+          <div class="reviews__copy">
+            <div class="reviews__head" data-reveal>
+              <span class="reviews__mark" aria-hidden="true">&ldquo;</span>
+              <h2 id="reviews-heading">From the families we&rsquo;ve cared for</h2>
+              <p>Letters and reviews that stay with us.</p>
+            </div>
+            <div class="reviews__slides">
+              <figure class="review" id="review-1" data-photo="photo-lana">
+                <blockquote><p>I&rsquo;m deeply grateful for their help and their kindness, they took great care of my best friend and he thoroughly enjoyed the attention he was given. Highly recommend them.</p></blockquote>
+                <figcaption class="review__by"><span class="review__name">Lana O.</span><span class="review__src">Google review</span></figcaption>
+              </figure>
+              <figure class="review" id="review-2" data-photo="photo-dozer">
+                <blockquote><p>&ldquo;The compassion and support you gave us as a family made a stressful and exhausting day much easier.&rdquo;</p></blockquote>
+                <p class="review__note">A handwritten card to the whole team, with a sticky note telling everyone to treat themselves.</p>
+                <figcaption class="review__by"><span class="review__name">Dozer &amp; Paw-rents</span><span class="review__src">Thank-you card</span></figcaption>
+              </figure>
+              <figure class="review" id="review-3" data-photo="photo-pamela">
+                <blockquote><p>They saved our sweet Sandy&rsquo;s life&hellip; We can really tell everyone that works there loves animals and their job.</p></blockquote>
+                <figcaption class="review__by"><span class="review__name">Pamela B.</span><span class="review__src">Google review</span></figcaption>
+              </figure>
+              <figure class="review" id="review-4" data-photo="photo-treats">
+                <blockquote><p>&ldquo;You all made him a top priority as soon as you saw him and truly saved his life.&rdquo;</p></blockquote>
+                <p class="review__note">Bones&rsquo;s family wrote to the team after he came home, and added that he has shown off his playful personality ever since.</p>
+                <figcaption class="review__by"><span class="review__name">Ben &amp; Becca</span><span class="review__src">Thank-you card</span></figcaption>
+              </figure>
+              <figure class="review" id="review-5" data-photo="photo-alexis">
+                <blockquote><p>There was so much communication and transparency the entire time. Dr. Longbottom was also lovely and knowledgeable.</p></blockquote>
+                <figcaption class="review__by"><span class="review__name">Alexis B.</span><span class="review__src">Google review</span></figcaption>
+              </figure>
+              <figure class="review" id="review-6" data-photo="photo-remy">
+                <blockquote><p>&ldquo;For helping our dog, Remy! Love, Addie.&rdquo;</p></blockquote>
+                <p class="review__note">A card made with markers and crayon flowers, left with a box of cookies.</p>
+                <figcaption class="review__by"><span class="review__name">Addie</span><span class="review__src">Handmade card</span></figcaption>
+              </figure>
+              <figure class="review" id="review-7" data-photo="photo-willie">
+                <blockquote><p>&ldquo;Thank you for helping and taking care of our Willie Nelson!! Merry Christmas, we hope his care team will enjoy these!&rdquo;</p></blockquote>
+                <p class="review__note">It arrived with treats for the team that looked after him.</p>
+                <figcaption class="review__by"><span class="review__name">Willie Nelson&rsquo;s family</span><span class="review__src">Christmas card</span></figcaption>
+              </figure>
+              <figure class="review" id="review-8" data-photo="photo-difference">
+                <blockquote><p>&ldquo;The countless little things you do make a huge difference.&rdquo;</p></blockquote>
+                <p class="review__note">A bouquet of yellow, white and purple flowers came with a handwritten note of thanks.</p>
+                <figcaption class="review__by"><span class="review__name">Card and flowers</span><span class="review__src">Left for the team</span></figcaption>
+              </figure>
+              <figure class="review" id="review-9" data-photo="photo-coco">
+                <blockquote><p>&ldquo;Hello parents! Just wanted to tell you I miss you! I&rsquo;m being the best girl for my new friends.&rdquo;</p></blockquote>
+                <p class="review__note">A message in Coco&rsquo;s voice while she stayed with us, with a photo of her in her cozy bed.</p>
+                <figcaption class="review__by"><span class="review__name">Coco</span><span class="review__src">Note to her parents</span></figcaption>
+              </figure>
+              <figure class="review" id="review-10" data-photo="photo-amazing">
+                <p class="review__lead">Could you be any more amazing?</p>
+                <p class="review__note">That is what the card in this basket asks. It came with cookies, snacks and drinks.</p>
+                <figcaption class="review__by"><span class="review__name">Gift basket</span><span class="review__src">Left for the team</span></figcaption>
+              </figure>
+              <figure class="review" id="review-11" data-photo="photo-staff">
+                <p class="review__lead">A snack basket for the Mason Dixon staff.</p>
+                <p class="review__note">Goldfish crackers, chips, chocolate and more, with an envelope addressed to the team.</p>
+                <figcaption class="review__by"><span class="review__name">Snack basket</span><span class="review__src">Left for the team</span></figcaption>
+              </figure>
+              <figure class="review" id="review-12" data-photo="photo-gertrude">
+                <p class="review__lead">Highly recommend Mason Dixon Animal Emergency Hospital!!!</p>
+                <p class="review__note">They did everything they could to help my dog and I, they were so understanding and sympathetic, took such great care of my Gertrude. She gets her second chance at life today because of them.</p>
+                <figcaption class="review__by"><span class="review__name">Cierra H.</span><span class="review__src">Google review</span></figcaption>
+              </figure>
+            </div>
+            <div class="reviews__dots" role="group" aria-label="Choose a review" data-reviews-dots></div>
+            <div class="reviews__cta" data-reveal>
+              <a class="reviews__link" href="https://www.google.com/search?q=mason+dixon+animal+emergency+hospital#lrd=0x89c865c0f770685f:0xefa263436c121061,1,,,," target="_blank" rel="noopener">
+                <span>Read Their Words</span>
+                <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- The featured pet photo lands here -->
+          <div class="reviews__slot" aria-hidden="true" data-reviews-slot></div>
         </div>
       </div>
     </section>
@@ -258,107 +359,6 @@
           <button type="button" class="round-btn" data-carousel-next aria-label="Show next team members"><svg aria-hidden="true"><use href="#icon-chevron-right"/></svg></button>
         </div>
         <a class="btn btn--outline" href="../about.html#team"><span>Meet Our Team</span><svg class="btn__icon btn__icon--trail" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a>
-      </div>
-    </section>
-
-    <!-- ============================ Reviews ============================ -->
-    <section class="section reviews" id="reviews" aria-labelledby="reviews-heading">
-      <!-- Real thank-you cards, gifts and the reviewers' pets, as a faint backdrop. Whichever one belongs to
-           the slide on show travels to the featured spot beside the copy (see initReviews) -->
-      <div class="reviews__backdrop" aria-hidden="true">
-        <img id="photo-dozer" class="letter" style="--x: -2%; --y: 4%; --r: -8deg;" src="../assets/images/option-a/letters/letter-dozer.jpg" alt="" data-alt="A handwritten thank-you card to the Mason Dixon ER staff from Dozer and his Paw-rents, with an orange sticky note on top" width="524" height="800" loading="lazy" />
-        <img id="photo-coco" class="letter" style="--x: 13%; --y: -5%; --r: 5deg;" src="../assets/images/option-a/letters/letter-coco.jpg" alt="" data-alt="A message written in Coco's voice to her parents, with a photo of a small Yorkshire terrier resting in a cozy bed" width="800" height="492" loading="lazy" />
-        <img id="photo-gertrude" class="letter" style="--x: -5%; --y: 60%; --r: 6deg;" src="../assets/images/option-a/letters/letter-gertrude.jpg" alt="" data-alt="Gertrude, a black dog with a white chest, licking her nose as her owner scratches her chest" width="618" height="800" loading="lazy" />
-        <img id="photo-remy" class="letter" style="--x: 16%; --y: 64%; --r: -5deg;" src="../assets/images/option-a/letters/letter-remy.jpg" alt="" data-alt="A child's card in purple and pink marker with crayon flowers, next to a box of chocolate chip cookies" width="753" height="800" loading="lazy" />
-        <img id="photo-difference" class="letter" style="--x: 38%; --y: 74%; --r: 3deg;" src="../assets/images/option-a/letters/letter-difference.jpg" alt="" data-alt="A blue card reading &lsquo;The countless little things you do make a huge difference&rsquo; beside a bouquet of yellow, white and purple flowers" width="800" height="774" loading="lazy" />
-        <img id="photo-staff" class="letter" style="--x: 70%; --y: -6%; --r: -6deg;" src="../assets/images/option-a/letters/letter-staff.jpg" alt="" data-alt="A basket of snacks with an envelope addressed to the Mason Dixon staff" width="800" height="726" loading="lazy" />
-        <img id="photo-willie" class="letter" style="--x: 85%; --y: 16%; --r: 88deg;" src="../assets/images/option-a/letters/letter-willie.jpg" alt="" data-alt="A Christmas card thanking the team for taking care of Willie Nelson" data-upright="90" width="800" height="728" loading="lazy" />
-        <img id="photo-treats" class="letter" style="--x: 69%; --y: 58%; --r: 7deg;" src="../assets/images/option-a/letters/letter-treats.jpg" alt="" data-alt="An arched pink thank-you card and a photo of a black kitten" width="800" height="800" loading="lazy" />
-        <img id="photo-amazing" class="letter" style="--x: 86%; --y: 66%; --r: -9deg;" src="../assets/images/option-a/letters/letter-amazing.jpg" alt="" data-alt="A gift basket with cookies, snacks, drinks and a card asking &lsquo;Could you be any more amazing?&rsquo;" width="800" height="731" loading="lazy" />
-        <!-- The reviewers' pets, pinned among the cards -->
-        <img id="photo-lana" class="letter letter--pet" style="--x: 30%; --y: 3%; --r: -7deg;" src="../assets/images/option-a/pets/pet-lana.jpg" alt="" data-alt="A black cat looking up from inside a holiday-patterned cat tunnel" width="1200" height="1200" />
-        <img id="photo-pamela" class="letter letter--pet" style="--x: 58%; --y: 86%; --r: 6deg;" src="../assets/images/option-a/pets/pet-sandy.jpg" alt="" data-alt="Sandy, a cream-coloured dog, wearing a blue recovery collar in the back of a car" width="736" height="736" />
-        <img id="photo-alexis" class="letter letter--pet" style="--x: 60%; --y: 1%; --r: 8deg;" src="../assets/images/option-a/pets/pet-mabel.jpg" alt="" data-alt="Mabel, a ginger and white long-haired cat, resting in a patterned recovery suit" width="1200" height="1200" />
-      </div>
-
-      <div class="container">
-        <div class="reviews__layout" data-reviews>
-          <div class="reviews__copy">
-            <div class="reviews__head" data-reveal>
-              <span class="reviews__mark" aria-hidden="true">&ldquo;</span>
-              <h2 id="reviews-heading">From the families we&rsquo;ve cared for</h2>
-              <p>Letters and reviews that stay with us.</p>
-            </div>
-            <div class="reviews__slides">
-              <figure class="review" id="review-1" data-photo="photo-lana">
-                <blockquote><p>I&rsquo;m deeply grateful for their help and their kindness, they took great care of my best friend and he thoroughly enjoyed the attention he was given. Highly recommend them.</p></blockquote>
-                <figcaption class="review__by"><span class="review__name">Lana O.</span><span class="review__src">Google review</span></figcaption>
-              </figure>
-              <figure class="review" id="review-2" data-photo="photo-dozer">
-                <blockquote><p>&ldquo;The compassion and support you gave us as a family made a stressful and exhausting day much easier.&rdquo;</p></blockquote>
-                <p class="review__note">A handwritten card to the whole team, with a sticky note telling everyone to treat themselves.</p>
-                <figcaption class="review__by"><span class="review__name">Dozer &amp; Paw-rents</span><span class="review__src">Thank-you card</span></figcaption>
-              </figure>
-              <figure class="review" id="review-3" data-photo="photo-pamela">
-                <blockquote><p>They saved our sweet Sandy&rsquo;s life&hellip; We can really tell everyone that works there loves animals and their job.</p></blockquote>
-                <figcaption class="review__by"><span class="review__name">Pamela B.</span><span class="review__src">Google review</span></figcaption>
-              </figure>
-              <figure class="review" id="review-4" data-photo="photo-treats">
-                <blockquote><p>&ldquo;You all made him a top priority as soon as you saw him and truly saved his life.&rdquo;</p></blockquote>
-                <p class="review__note">Bones&rsquo;s family wrote to the team after he came home, and added that he has shown off his playful personality ever since.</p>
-                <figcaption class="review__by"><span class="review__name">Ben &amp; Becca</span><span class="review__src">Thank-you card</span></figcaption>
-              </figure>
-              <figure class="review" id="review-5" data-photo="photo-alexis">
-                <blockquote><p>There was so much communication and transparency the entire time. Dr. Longbottom was also lovely and knowledgeable.</p></blockquote>
-                <figcaption class="review__by"><span class="review__name">Alexis B.</span><span class="review__src">Google review</span></figcaption>
-              </figure>
-              <figure class="review" id="review-6" data-photo="photo-remy">
-                <blockquote><p>&ldquo;For helping our dog, Remy! Love, Addie.&rdquo;</p></blockquote>
-                <p class="review__note">A card made with markers and crayon flowers, left with a box of cookies.</p>
-                <figcaption class="review__by"><span class="review__name">Addie</span><span class="review__src">Handmade card</span></figcaption>
-              </figure>
-              <figure class="review" id="review-7" data-photo="photo-willie">
-                <blockquote><p>&ldquo;Thank you for helping and taking care of our Willie Nelson!! Merry Christmas, we hope his care team will enjoy these!&rdquo;</p></blockquote>
-                <p class="review__note">It arrived with treats for the team that looked after him.</p>
-                <figcaption class="review__by"><span class="review__name">Willie Nelson&rsquo;s family</span><span class="review__src">Christmas card</span></figcaption>
-              </figure>
-              <figure class="review" id="review-8" data-photo="photo-difference">
-                <blockquote><p>&ldquo;The countless little things you do make a huge difference.&rdquo;</p></blockquote>
-                <p class="review__note">A bouquet of yellow, white and purple flowers came with a handwritten note of thanks.</p>
-                <figcaption class="review__by"><span class="review__name">Card and flowers</span><span class="review__src">Left for the team</span></figcaption>
-              </figure>
-              <figure class="review" id="review-9" data-photo="photo-coco">
-                <blockquote><p>&ldquo;Hello parents! Just wanted to tell you I miss you! I&rsquo;m being the best girl for my new friends.&rdquo;</p></blockquote>
-                <p class="review__note">A message in Coco&rsquo;s voice while she stayed with us, with a photo of her in her cozy bed.</p>
-                <figcaption class="review__by"><span class="review__name">Coco</span><span class="review__src">Note to her parents</span></figcaption>
-              </figure>
-              <figure class="review" id="review-10" data-photo="photo-amazing">
-                <p class="review__lead">Could you be any more amazing?</p>
-                <p class="review__note">That is what the card in this basket asks. It came with cookies, snacks and drinks.</p>
-                <figcaption class="review__by"><span class="review__name">Gift basket</span><span class="review__src">Left for the team</span></figcaption>
-              </figure>
-              <figure class="review" id="review-11" data-photo="photo-staff">
-                <p class="review__lead">A snack basket for the Mason Dixon staff.</p>
-                <p class="review__note">Goldfish crackers, chips, chocolate and more, with an envelope addressed to the team.</p>
-                <figcaption class="review__by"><span class="review__name">Snack basket</span><span class="review__src">Left for the team</span></figcaption>
-              </figure>
-              <figure class="review" id="review-12" data-photo="photo-gertrude">
-                <p class="review__lead">Highly recommend Mason Dixon Animal Emergency Hospital!!!</p>
-                <p class="review__note">They did everything they could to help my dog and I, they were so understanding and sympathetic, took such great care of my Gertrude. She gets her second chance at life today because of them.</p>
-                <figcaption class="review__by"><span class="review__name">Cierra H.</span><span class="review__src">Google review</span></figcaption>
-              </figure>
-            </div>
-            <div class="reviews__dots" role="group" aria-label="Choose a review" data-reviews-dots></div>
-            <div class="reviews__cta" data-reveal>
-              <a class="reviews__link" href="https://www.google.com/search?q=mason+dixon+animal+emergency+hospital#lrd=0x89c865c0f770685f:0xefa263436c121061,1,,,," target="_blank" rel="noopener">
-                <span>Read Their Words</span>
-                <svg aria-hidden="true"><use href="#icon-arrow-right"/></svg>
-              </a>
-            </div>
-          </div>
-          <!-- The featured pet photo lands here -->
-          <div class="reviews__slot" aria-hidden="true" data-reviews-slot></div>
-        </div>
       </div>
     </section>
 
@@ -529,6 +529,6 @@
     </a>
   </div>
 
-  <script type="module" src="js/main.js?v=202610042154"></script>
+  <script type="module" src="js/main.js?v=202610042357"></script>
 </body>
 </html>
