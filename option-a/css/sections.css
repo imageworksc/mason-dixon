@@ -475,13 +475,31 @@
 .glass-card .btn-row { margin-top: var(--space-2); justify-content: center; }
 
 /* ---------------------------------------------------------------------
-   9. Refer a vet
+   9. Trust bar — accreditations and memberships in one quiet row
    --------------------------------------------------------------------- */
-.refer { position: relative; z-index: 2; overflow-x: clip; overflow-y: visible; background: #fff; }
-.refer__copy { position: relative; z-index: 1; max-width: 42rem; margin-inline: auto; text-align: center; }
-.refer__copy h2 { color: var(--color-red); }
-.refer__copy p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
-.refer__copy .btn-row { margin-top: var(--space-6); justify-content: center; }
+.trust { padding-block: clamp(2.5rem, 4vw, 3.5rem); background: #fff; border-top: 1px solid var(--color-border); }
+.trust__inner { display: grid; gap: var(--space-5); justify-items: center; }
+.trust__title {
+  font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-gray);
+}
+.trust__logos {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: var(--space-6) clamp(2rem, 5vw, 4.5rem);
+}
+/* Each mark sized by eye so the four read as equals despite different shapes */
+.trust__logo { display: block; width: auto; height: 4.5rem; }
+.trust__logo--aaha { height: 4.75rem; }
+.trust__logo--bbb { height: 4.1rem; }
+.trust__logo--vspa { height: 3.7rem; }
+.trust__logo--recover { height: 5.25rem; }
+@media (max-width: 639px) {
+  .trust__logos { display: grid; grid-template-columns: repeat(2, auto); justify-content: center; justify-items: center; }
+  .trust__logo { height: 3.4rem; }
+  .trust__logo--bbb { height: 2.9rem; }
+  .trust__logo--vspa { height: 2.6rem; }
+  .trust__logo--recover { height: 3.8rem; }
+}
 
 /* ---------------------------------------------------------------------
    10. FAQ — accordion with animated grid rows
