@@ -477,12 +477,8 @@
 /* ---------------------------------------------------------------------
    9. Trust bar — accreditations and memberships in one quiet row
    --------------------------------------------------------------------- */
-.trust { padding-block: clamp(2.5rem, 4vw, 3.5rem); background: #fff; border-top: 1px solid var(--color-border); }
-.trust__inner { display: grid; gap: var(--space-5); justify-items: center; }
-.trust__title {
-  font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--color-gray);
-}
+.trust { padding-block: clamp(3.5rem, 6vw, 5.5rem); background: #fff; border-top: 1px solid var(--color-border); }
+.trust__inner { display: grid; gap: var(--space-7); justify-items: center; text-align: center; } /* heading uses the page's h2 style */
 .trust__logos {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
   gap: var(--space-6) clamp(2rem, 5vw, 4.5rem);
