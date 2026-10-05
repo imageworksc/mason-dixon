@@ -209,18 +209,22 @@
 .why { padding-bottom: 0; background: var(--color-bg-light); } /* flat tint, no bone texture */
 .why__head { max-width: 48rem; margin-bottom: var(--space-7); }
 .why__head p { margin-top: var(--space-4); font-size: 1.05rem; line-height: 1.65; }
-/* Plain two-column list, no rules — the reasons read as statements, not tiles */
+/* Plain two-column list with rules between rows only (none above the first or below the last) */
 .why__list { display: grid; column-gap: var(--space-8); }
 .why__list li {
   display: flex; align-items: flex-start; gap: var(--space-4);
-  padding: 0.85rem 0;
+  padding: 1.1rem 0;
   font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; line-height: 1.4; letter-spacing: -0.01em; color: var(--color-navy);
 }
 .why__icon {
   flex-shrink: 0; width: 2.4rem; height: 2.4rem; padding: 0.55rem; margin-top: -0.35rem;
   border-radius: 0.7rem; background: rgba(192, 29, 46, 0.08); color: var(--color-red);
 }
-@media (min-width: 640px) { .why__list { grid-template-columns: repeat(2, 1fr); } }
+.why__list li + li { border-top: 1px solid var(--color-border); }
+@media (min-width: 640px) {
+  .why__list { grid-template-columns: repeat(2, 1fr); }
+  .why__list li:nth-child(2) { border-top: 0; } /* second item shares the first row */
+}
 
 .why__band { position: relative; margin-top: var(--space-8); height: clamp(18rem, 48vw, 36rem); overflow: hidden; background: var(--color-navy-900); }
 .why__band img { position: absolute; left: 0; top: -15%; width: 100%; height: 130%; object-fit: cover; object-position: 50% 85%; transform: translateY(var(--parallax, 0)); will-change: transform; }
