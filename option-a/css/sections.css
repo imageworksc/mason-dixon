@@ -484,6 +484,8 @@
   gap: var(--space-6) clamp(2rem, 5vw, 4.5rem);
 }
 /* Each mark sized by eye so the four read as equals despite different shapes */
+.trust__link { display: block; border-radius: var(--radius-md); transition: transform var(--dur-med) var(--ease-out), opacity var(--dur-fast) var(--ease-out); }
+.trust__link:hover { transform: translateY(-3px); opacity: 0.85; }
 .trust__logo { display: block; width: auto; height: 4.5rem; }
 .trust__logo--aaha { height: 4.75rem; }
 .trust__logo--bbb { height: 4.1rem; }
