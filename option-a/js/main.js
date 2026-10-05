@@ -65,7 +65,7 @@ const initPayPill = () => {
    Scroll reveals via IntersectionObserver
    --------------------------------------------------------------- */
 const initReveals = () => {
-  const targets = document.querySelectorAll("[data-reveal], [data-reveal-stagger], [data-reveal-side]");
+  const targets = document.querySelectorAll("[data-reveal], [data-reveal-stagger]");
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
     targets.forEach((el) => el.classList.add("is-visible"));

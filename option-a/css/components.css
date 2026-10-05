@@ -37,8 +37,6 @@
 .btn--ghost { background: transparent; border-color: rgba(255, 255, 255, 0.6); color: #fff; }
 .btn--ghost:hover { background: #fff; border-color: #fff; color: var(--color-navy); }
 
-.btn--navy { background: var(--color-navy); border-color: var(--color-navy); color: #fff; }
-.btn--navy:hover { background: var(--color-navy-dark); border-color: var(--color-navy-dark); }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
 
