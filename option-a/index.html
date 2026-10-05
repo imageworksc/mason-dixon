@@ -13,11 +13,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
-  <script src="js/head.js?v=202610050056"></script>
-  <link rel="stylesheet" href="css/base.css?v=202610050056" />
-  <link rel="stylesheet" href="css/components.css?v=202610050056" />
-  <link rel="stylesheet" href="css/sections.css?v=202610050056" />
-  <link rel="stylesheet" href="css/motion.css?v=202610050056" />
+  <script src="js/head.js?v=202610051501"></script>
+  <link rel="stylesheet" href="css/base.css?v=202610051501" />
+  <link rel="stylesheet" href="css/components.css?v=202610051501" />
+  <link rel="stylesheet" href="css/sections.css?v=202610051501" />
+  <link rel="stylesheet" href="css/motion.css?v=202610051501" />
+  <link rel="stylesheet" href="css/menu.css?v=202610051501" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -51,8 +52,460 @@
       <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></symbol>
       <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
       <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 14.9 8.6 22 9.3 16.5 14 18.2 21 12 17.3 5.8 21 7.5 14 2 9.3 9.1 8.6"/></symbol>
+      <symbol id="icon-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a2 2 0 0 1 2 2h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1"/><rect x="9" y="2" width="6" height="4" rx="1"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
     </defs>
   </svg>
+
+  <!-- ============================ Header ============================ -->
+  <header class="site-header" data-site-header>
+
+    <!-- Tier 1 — utility -->
+    <div class="util">
+      <div class="container util__inner">
+        <p class="status">
+          <span class="status__dot" aria-hidden="true"></span>
+          <span class="status__label">Open 24/7</span>
+          <span class="status__note status__note--mid">Accepting Emergency Patients</span>
+          <span class="status__note status__note--wide">Critical Patients Treated First</span>
+        </p>
+
+        <nav class="util__links" aria-label="Quick links">
+          <a class="util__job is-hiring" href="/careers">
+            <svg aria-hidden="true"><use href="#icon-briefcase"/></svg>
+            <span class="sr-only">Now Hiring — Apply Here</span><span class="job-flip" aria-hidden="true"><span class="job-flip__track"><span>Now Hiring</span><span>Apply Here<span class="job-flip__arrow">→</span></span></span></span>
+          </a>
+          <a href="https://form.jotform.com/262285054603050">
+            <svg aria-hidden="true"><use href="#icon-clipboard"/></svg>
+            Patient Intake Form
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Tier 2 — main -->
+    <div class="navbar">
+      <div class="container navbar__inner">
+
+        <a class="logo" href="/" aria-label="Mason Dixon Animal Emergency Hospital — home">
+          <img src="../assets/images/logo.png" alt="Mason Dixon Animal Emergency Hospital" width="327" height="94" />
+        </a>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary" data-nav>
+
+          <button type="button" class="nav__close" data-nav-close>
+            <svg aria-hidden="true"><use href="#icon-close"/></svg>
+            <span class="sr-only">Close menu</span>
+          </button>
+
+          <ul class="nav__list">
+
+            <!-- ---------------- Symptoms & Conditions ---------------- -->
+            <li class="nav__item" data-nav-item>
+              <button type="button" class="nav__btn" data-nav-btn aria-expanded="false" aria-controls="panel-symptoms">
+                Symptoms &amp; Conditions
+                <svg class="nav__chev" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+              </button>
+              <div class="panel" id="panel-symptoms">
+                <div class="panel__lead">
+                  <a class="pfeat" href="/is-this-an-emergency">
+                    <span class="pfeat__title">Is This an Emergency?</span>
+                    <span class="pfeat__desc">Check the signs that shouldn't wait.</span>
+                  </a>
+                </div>
+                <div class="panel__groups">
+                  <div class="pgroup">
+                    <ul class="panel__list">
+                      <li>
+                        <a class="pitem" href="/medical-emergencies-conditions">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Medical Emergencies &amp; Conditions</span>
+                            <span class="pitem__desc">What we treat, around the clock.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="pitem" href="/pet-emergency-symptoms">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Pet Emergency Symptoms</span>
+                            <span class="pitem__desc">What to watch for, symptom by symptom.</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- ---------------- Emergency Care ---------------- -->
+            <li class="nav__item" data-nav-item>
+              <button type="button" class="nav__btn" data-nav-btn aria-expanded="false" aria-controls="panel-care">
+                Emergency Care
+                <svg class="nav__chev" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+              </button>
+              <div class="panel panel--wide" id="panel-care">
+                <div class="panel__groups">
+                  <div class="pgroup-col">
+                    <div class="pgroup">
+                      <span class="pgroup__label">Treatment</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/outpatient-care">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Outpatient Treatment</span>
+                              <span class="pitem__desc">Treated and discharged, no admission.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/intensive-care">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Intensive Care</span>
+                              <span class="pitem__desc">Advanced monitoring for critical patients.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/emergency-surgery">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Emergency Surgery</span>
+                              <span class="pitem__desc">Procedures for life-threatening conditions.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="pgroup">
+                      <span class="pgroup__label">Stabilization</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/oxygen-supplementation">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Oxygen Support</span>
+                              <span class="pitem__desc">Support for breathing difficulty.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/blood-transfusions">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Blood Transfusions</span>
+                              <span class="pitem__desc">Type-matched transfusion services.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="pgroup-col">
+                    <div class="pgroup">
+                      <span class="pgroup__label">Diagnostics</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/house-laboratory">
+                            <span class="pitem__text">
+                              <span class="pitem__title">In-House Laboratory</span>
+                              <span class="pitem__desc">Rapid bloodwork and diagnostic testing.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/radiology-ultrasound">
+                            <span class="pitem__text">
+                              <span class="pitem__title">X-Ray &amp; Ultrasound</span>
+                              <span class="pitem__desc">Advanced imaging around the clock.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/endoscopy">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Endoscopy</span>
+                              <span class="pitem__desc">Minimally invasive retrieval and diagnostics.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="pgroup">
+                      <span class="pgroup__label">Continuing care</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/specialist-referrals">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Specialist Referrals</span>
+                              <span class="pitem__desc">Coordination with local specialists.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/euthanasia-aftercare-services">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Euthanasia &amp; Aftercare</span>
+                              <span class="pitem__desc">Compassionate support for hard decisions.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- ---------------- Your Visit ---------------- -->
+            <li class="nav__item" data-nav-item>
+              <button type="button" class="nav__btn" data-nav-btn aria-expanded="false" aria-controls="panel-visit">
+                Your Visit
+                <svg class="nav__chev" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+              </button>
+              <div class="panel" id="panel-visit">
+                <div class="panel__groups">
+                  <div class="pgroup">
+                    <span class="pgroup__label">Before you arrive</span>
+                    <ul class="panel__list">
+                      <li>
+                        <a class="pitem" href="/what-expect-during-your-visit">
+                          <span class="pitem__text">
+                            <span class="pitem__title">What to Expect</span>
+                            <span class="pitem__desc">From arrival to discharge, step by step.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="pitem" href="/triage-levels-patient-illness">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Triage Policies</span>
+                            <span class="pitem__desc">Medical triage, not arrival order.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="pitem" href="/faqs">
+                          <span class="pitem__text">
+                            <span class="pitem__title">FAQs</span>
+                            <span class="pitem__desc">The questions we hear most.</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="pgroup">
+                    <span class="pgroup__label">Paying for care</span>
+                    <ul class="panel__list">
+                      <li>
+                        <a class="pitem" href="/financing-options">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Financing Options</span>
+                            <span class="pitem__desc">Payment plans and what we accept.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="pitem" href="/mason-dixon-miracle-fund">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Miracle Fund</span>
+                            <span class="pitem__desc">Help for families facing hard costs.</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- ---------------- Our Hospital ---------------- -->
+            <li class="nav__item" data-nav-item>
+              <button type="button" class="nav__btn" data-nav-btn aria-expanded="false" aria-controls="panel-hospital">
+                Our Hospital
+                <svg class="nav__chev" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+              </button>
+              <div class="panel panel--wide panel--right" id="panel-hospital">
+                <div class="panel__groups">
+                  <div class="pgroup-col">
+                    <div class="pgroup">
+                      <span class="pgroup__label">The hospital</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/about-our-emergency-hospital">
+                            <span class="pitem__text">
+                              <span class="pitem__title">About Mason Dixon</span>
+                              <span class="pitem__desc">Who we are and how we work.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/meet-our-team">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Our Team</span>
+                              <span class="pitem__desc">The doctors and nurses on shift.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/explore-our-facility">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Our Facility</span>
+                              <span class="pitem__desc">A look inside the hospital.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/careers">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Careers</span>
+                              <span class="pitem__desc">Open roles on our team.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="pgroup-col">
+                    <div class="pgroup">
+                      <span class="pgroup__label">For pet owners</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/reviews">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Testimonials</span>
+                              <span class="pitem__desc">What other families have said.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/blog">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Resources / Blog</span>
+                              <span class="pitem__desc">Guides and reading for pet owners.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/grief-counseling">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Grief Counseling</span>
+                              <span class="pitem__desc">Support after losing a pet.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/additional-pet-care-resources">
+                            <span class="pitem__text">
+                              <span class="pitem__title">Additional Pet Resources</span>
+                              <span class="pitem__desc">Local services beyond emergency care.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- ---------------- Contact Us ---------------- -->
+            <li class="nav__item" data-nav-item>
+              <button type="button" class="nav__btn" data-nav-btn aria-expanded="false" aria-controls="panel-contact">
+                Contact Us
+                <svg class="nav__chev" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+              </button>
+              <div class="panel panel--right" id="panel-contact">
+                <div class="panel__groups">
+                  <div class="pgroup">
+                    <span class="pgroup__label">Pet owners</span>
+                    <ul class="panel__list">
+                      <li>
+                        <a class="pitem" href="/contact-us">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Contact Information</span>
+                            <span class="pitem__desc">Phone, hours and how to reach us.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="pitem" href="https://www.google.com/maps/place/Mason+Dixon+Animal+Emergency+Hospital/@39.7568262,-76.6723362,17z" target="_blank" rel="noopener">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Directions</span>
+                            <span class="pitem__desc">96 Sofia Drive, Shrewsbury PA.</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="pgroup">
+                    <span class="pgroup__label">Referring veterinarians</span>
+                    <ul class="panel__list">
+                      <li>
+                        <a class="pitem" href="/vet-referrals">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Emergency Referral</span>
+                            <span class="pitem__desc">For veterinarians sending a patient.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="pitem" href="/ultrasound-referrals">
+                          <span class="pitem__text">
+                            <span class="pitem__title">Ultrasound Referral</span>
+                            <span class="pitem__desc">Request a referral ultrasound.</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="pfoot">
+                  <p class="pfoot__status">
+                    <span class="status__dot" aria-hidden="true"></span>
+                    Open 24 hours, every day
+                  </p>
+                  <p class="pfoot__addr">96 Sofia Drive, Suite 203 · Shrewsbury, PA 17361</p>
+                  <a class="pfoot__call" href="tel:+17174326030">(717) 432-6030</a>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="nav__util">
+            <a class="is-hiring" href="/careers">
+              <svg aria-hidden="true"><use href="#icon-briefcase"/></svg>
+              <span class="sr-only">Now Hiring — Apply Here</span><span class="job-flip" aria-hidden="true"><span class="job-flip__track"><span>Now Hiring</span><span>Apply Here<span class="job-flip__arrow">→</span></span></span></span>
+            </a>
+            <a href="https://form.jotform.com/262285054603050">
+              <svg aria-hidden="true"><use href="#icon-clipboard"/></svg>
+              Patient Intake Form
+            </a>
+          </div>
+        </nav>
+
+        <a class="btn btn--primary navbar__call" href="tel:+17174326030">
+          <svg class="btn-icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+          (717) 432-6030
+        </a>
+
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">
+          <svg class="nav-toggle__open" aria-hidden="true"><use href="#icon-menu"/></svg>
+          <svg class="nav-toggle__close" aria-hidden="true"><use href="#icon-close"/></svg>
+          <span class="sr-only">Toggle navigation menu</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-veil" data-nav-veil></div>
 
   <main id="main">
     <!-- ============================ Hero ============================ -->
@@ -526,6 +979,7 @@
     </a>
   </div>
 
-  <script type="module" src="js/main.js?v=202610050056"></script>
+  <script type="module" src="js/main.js?v=202610051501"></script>
+  <script type="module" src="js/menu.js?v=202610051501"></script>
 </body>
 </html>
