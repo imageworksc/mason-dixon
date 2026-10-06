@@ -41,13 +41,13 @@
 .hero__copy { max-width: 52rem; }
 .hero__status {
   display: inline-flex; align-items: center; gap: 0.65rem; margin-bottom: var(--space-6);
-  padding: 0.65rem 1rem; border-radius: var(--radius-sm);
+  padding: 0.4rem 0.85rem; border-radius: var(--radius-sm);
   background: var(--color-lavender); border: 1px solid rgba(36, 38, 103, 0.14);
   box-shadow: var(--shadow-sm);
-  font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; color: var(--color-navy);
+  font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; color: var(--color-navy);
 }
 .hero__copy h1 { text-wrap: initial; color: #fff; }
-.hero__copy h1 em { font-style: normal; color: #ff5867; } /* brand red lifted for contrast on navy */
+.hero__copy h1 em { font-style: normal; color: #ee1c30; } /* the brand red, saturated rather than lightened, so it holds on navy */
 .hero__copy p { color: var(--text-on-dark-secondary); margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 38rem; } /* ~70 characters per line */
 .hero__copy .btn-row { margin-top: var(--space-6); }
 /* Explicit two-line breaks on desktop only; below that the text wraps naturally */
