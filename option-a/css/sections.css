@@ -4,8 +4,8 @@
    ========================================================================= */
 
 /* ---------------------------------------------------------------------
-   1. Hero — video in full view, curved white glow behind the copy,
-   navy copy bottom-left
+   1. Hero — video in full view, curved navy glow behind the copy,
+   white copy bottom-left
    --------------------------------------------------------------------- */
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
@@ -16,25 +16,25 @@
 }
 .hero__bg { position: absolute; inset: 0; z-index: -1; }
 .hero__video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
-/* A curved white glow sits only behind the copy (bottom-left) and fades out
+/* A curved navy glow sits only behind the copy (bottom-left) and fades out
    along an eased curve — many stops instead of a straight ramp — so it melts
    into the video with no visible edge. The video stays clear across the top
-   and right while the navy text keeps its contrast. */
+   and right while the white text keeps its contrast. */
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 68% 85% at 18% 78%, rgba(255, 255, 255, 0.818) 0%, rgba(255, 255, 255, 0.777) 18%, rgba(255, 255, 255, 0.695) 32%, rgba(255, 255, 255, 0.572) 45%, rgba(255, 255, 255, 0.433) 57%, rgba(255, 255, 255, 0.294) 68%, rgba(255, 255, 255, 0.171) 78%, rgba(255, 255, 255, 0.082) 87%, rgba(255, 255, 255, 0.029) 94%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(ellipse 70% 88% at 18% 78%, rgba(18, 19, 58, 0.9) 0%, rgba(18, 19, 58, 0.855) 18%, rgba(18, 19, 58, 0.765) 32%, rgba(18, 19, 58, 0.63) 45%, rgba(18, 19, 58, 0.477) 57%, rgba(18, 19, 58, 0.324) 68%, rgba(18, 19, 58, 0.189) 78%, rgba(18, 19, 58, 0.09) 87%, rgba(18, 19, 58, 0.032) 94%, rgba(18, 19, 58, 0) 100%);
 }
 /* Tablets: the copy sits low in a tall frame, so the glow is wide and short */
 @media (max-width: 1023px) {
   .hero__bg::after {
-    background: radial-gradient(ellipse 150% 75% at 28% 95%, rgba(255, 255, 255, 0.827) 0%, rgba(255, 255, 255, 0.785) 18%, rgba(255, 255, 255, 0.702) 32%, rgba(255, 255, 255, 0.579) 45%, rgba(255, 255, 255, 0.438) 57%, rgba(255, 255, 255, 0.298) 68%, rgba(255, 255, 255, 0.173) 78%, rgba(255, 255, 255, 0.083) 87%, rgba(255, 255, 255, 0.029) 94%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(ellipse 150% 78% at 28% 95%, rgba(18, 19, 58, 0.9) 0%, rgba(18, 19, 58, 0.855) 18%, rgba(18, 19, 58, 0.765) 32%, rgba(18, 19, 58, 0.63) 45%, rgba(18, 19, 58, 0.477) 57%, rgba(18, 19, 58, 0.324) 68%, rgba(18, 19, 58, 0.189) 78%, rgba(18, 19, 58, 0.09) 87%, rgba(18, 19, 58, 0.032) 94%, rgba(18, 19, 58, 0) 100%);
   }
 }
 /* Phones: the copy starts near the top, so the glow reaches up behind the
    heading and only the top edge of the video stays untouched */
 @media (max-width: 639px) {
   .hero__bg::after {
-    background: radial-gradient(ellipse 180% 100% at 30% 72%, rgba(255, 255, 255, 0.827) 0%, rgba(255, 255, 255, 0.785) 18%, rgba(255, 255, 255, 0.702) 32%, rgba(255, 255, 255, 0.579) 45%, rgba(255, 255, 255, 0.438) 57%, rgba(255, 255, 255, 0.298) 68%, rgba(255, 255, 255, 0.173) 78%, rgba(255, 255, 255, 0.083) 87%, rgba(255, 255, 255, 0.029) 94%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(ellipse 180% 100% at 30% 72%, rgba(18, 19, 58, 0.9) 0%, rgba(18, 19, 58, 0.855) 18%, rgba(18, 19, 58, 0.765) 32%, rgba(18, 19, 58, 0.63) 45%, rgba(18, 19, 58, 0.477) 57%, rgba(18, 19, 58, 0.324) 68%, rgba(18, 19, 58, 0.189) 78%, rgba(18, 19, 58, 0.09) 87%, rgba(18, 19, 58, 0.032) 94%, rgba(18, 19, 58, 0) 100%);
   }
 }
 .hero__inner { display: grid; }
@@ -46,9 +46,9 @@
   box-shadow: var(--shadow-sm);
   font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; color: var(--color-navy);
 }
-.hero__copy h1 { text-wrap: initial; }
-.hero__copy h1 em { font-style: normal; color: var(--color-red); }
-.hero__copy p { margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 38rem; } /* ~70 characters per line */
+.hero__copy h1 { text-wrap: initial; color: #fff; }
+.hero__copy h1 em { font-style: normal; color: #ff5867; } /* brand red lifted for contrast on navy */
+.hero__copy p { color: var(--text-on-dark-secondary); margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 38rem; } /* ~70 characters per line */
 .hero__copy .btn-row { margin-top: var(--space-6); }
 /* Explicit two-line breaks on desktop only; below that the text wraps naturally */
 .hero__br { display: none; }
