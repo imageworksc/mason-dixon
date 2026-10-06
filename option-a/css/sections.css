@@ -47,7 +47,7 @@
   font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; color: var(--color-navy);
 }
 .hero__copy h1 { text-wrap: initial; color: #fff; }
-.hero__copy h1 em { font-style: normal; color: #ee1c30; } /* the brand red, saturated rather than lightened, so it holds on navy */
+.hero__copy h1 em { font-style: normal; color: #de1d2f; } /* the brand red, saturated rather than lightened, so it holds on navy */
 .hero__copy p { color: var(--text-on-dark-secondary); margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 38rem; } /* ~70 characters per line */
 .hero__copy .btn-row { margin-top: var(--space-6); }
 /* Explicit two-line breaks on desktop only; below that the text wraps naturally */
