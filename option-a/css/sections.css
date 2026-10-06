@@ -4,7 +4,7 @@
    ========================================================================= */
 
 /* ---------------------------------------------------------------------
-   1. Hero — photo in full view, white gradient rising from the bottom,
+   1. Hero — video in full view, curved white glow behind the copy,
    navy copy bottom-left
    --------------------------------------------------------------------- */
 .hero {
@@ -16,9 +16,30 @@
 }
 .hero__bg { position: absolute; inset: 0; z-index: -1; }
 .hero__video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+/* A curved white glow sits only behind the copy (bottom-left) and fades out
+   in an ellipse, so the video stays clear across the top and right while the
+   navy text keeps its contrast. A second, wider wash softens the glow's edge. */
 .hero__bg::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0.86) 58%, #fff 100%);
+  background:
+    radial-gradient(ellipse 52% 62% at 22% 74%, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(ellipse 85% 95% at 12% 100%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 70%);
+}
+/* Phones and tablets: the copy fills most of the frame, so the glow grows
+   with it and anchors lower, leaving the top of the video uncovered */
+@media (max-width: 1023px) {
+  .hero__bg::after {
+    background:
+      radial-gradient(ellipse 130% 62% at 28% 92%, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.86) 52%, rgba(255, 255, 255, 0) 100%);
+  }
+}
+/* Phones: the copy starts near the top, so the glow reaches up behind the
+   heading and only the very top edge of the video stays untouched */
+@media (max-width: 639px) {
+  .hero__bg::after {
+    background:
+      radial-gradient(ellipse 160% 88% at 30% 70%, rgba(255, 255, 255, 0.93) 0%, rgba(255, 255, 255, 0.84) 55%, rgba(255, 255, 255, 0) 100%);
+  }
 }
 .hero__inner { display: grid; }
 .hero__copy { max-width: 52rem; }
