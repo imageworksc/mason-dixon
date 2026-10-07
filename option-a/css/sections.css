@@ -270,27 +270,29 @@
 
 .team__foot { margin-top: var(--space-6); display: flex; justify-content: center; }
 
-/* Prev / next arrows on either side of the carousel, vertically centred on
-   the cards. At either end the arrow that has nowhere to go fades away. */
-.team__carousel { position: relative; }
-.team__arrow {
-  position: absolute; top: 50%; z-index: 2; width: 3rem; height: 3rem; border-radius: 50%;
-  margin-top: calc(-1.5rem - var(--space-3) / 2); box-shadow: var(--shadow-md);
-  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+/* Prev / next arrows in their own columns either side of the carousel, so
+   they never sit on a photo. The carousel loops, so both always work. */
+.team__carousel {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-2);
+  max-width: var(--container); margin-inline: auto; padding-inline: var(--container-pad);
 }
-.team__arrow:hover { transform: none; }
-.team__arrow--prev { left: max(0.5rem, calc(var(--edge, var(--container-pad)) - 1.5rem)); }
-.team__arrow--next { right: max(0.5rem, calc(var(--edge, var(--container-pad)) - 1.5rem)); }
-.team__arrow:disabled, .team__arrow:disabled:hover { opacity: 0; pointer-events: none; }
-html:not(.js) .team__arrow { display: none; }
-
-/* Desktop: four cards in view inside the page container, arrows half outside them */
+.team__arrow { width: 2.75rem; height: 2.75rem; border-radius: 50%; }
+.team__arrow--prev { grid-column: 1; grid-row: 1; }
+.team__arrow--next { grid-column: 3; grid-row: 1; }
+.team__carousel .spotlight {
+  grid-column: 2; grid-row: 1; container-type: inline-size;
+  padding: 0; scroll-padding-inline: 0; border-radius: 1.25rem;
+}
+/* One card in view on phones, two on tablets, four on desktop */
+.team__carousel .spot { width: 100cqw; }
+@media (min-width: 640px) { .team__carousel .spot { width: calc((100cqw - var(--space-4)) / 2); } }
 @media (min-width: 1024px) {
-  .team__carousel { --edge: var(--container-pad); max-width: var(--container); margin-inline: auto; }
-  .spotlight { container-type: inline-size; margin-inline: var(--container-pad); padding-inline: 0; scroll-padding-inline: 0; padding-bottom: 0; border-radius: 1.25rem; }
-  .spot { width: calc((100cqw - 3 * var(--space-4)) / 4); }
-  .team__arrow { margin-top: -1.5rem; }
+  .team__carousel { gap: var(--space-4); }
+  .team__arrow { width: 3rem; height: 3rem; }
+  .team__carousel .spot { width: calc((100cqw - 3 * var(--space-4)) / 4); }
 }
+html:not(.js) .team__arrow { display: none; }
+html:not(.js) .team__carousel .spotlight { grid-column: 1 / -1; }
 
 /* ---------------------------------------------------------------------
    7. Reviews — left-aligned heading, one quote at a time, dots to switch.

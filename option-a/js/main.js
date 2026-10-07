@@ -128,7 +128,7 @@ const initProcess = () => {
 };
 
 /* ---------------------------------------------------------------
-   Team spotlight — native scroll-snap + prev/next (below desktop)
+   Team carousel — native scroll-snap + looping prev/next arrows
    --------------------------------------------------------------- */
 const initCarousel = () => {
   const carousel = document.querySelector("[data-carousel]");
@@ -141,22 +141,17 @@ const initCarousel = () => {
     const gap = parseFloat(getComputedStyle(carousel.querySelector(".spotlight__track")).columnGap) || 0;
     return card ? card.getBoundingClientRect().width + gap : carousel.clientWidth * 0.8;
   };
+  // Loops: past the last card it returns to the first, and back from the first to the last
   const scrollByStep = (dir) => {
-    carousel.scrollBy({ left: dir * step(), behavior: reduceMotion ? "auto" : "smooth" });
+    const max = carousel.scrollWidth - carousel.clientWidth;
+    const behavior = reduceMotion ? "auto" : "smooth";
+    if (dir > 0 && carousel.scrollLeft >= max - 2) carousel.scrollTo({ left: 0, behavior });
+    else if (dir < 0 && carousel.scrollLeft <= 2) carousel.scrollTo({ left: max, behavior });
+    else carousel.scrollBy({ left: dir * step(), behavior });
   };
 
   prev?.addEventListener("click", () => scrollByStep(-1));
   next?.addEventListener("click", () => scrollByStep(1));
-
-  // Disable the arrow that has nowhere left to go
-  const syncArrows = () => {
-    const max = carousel.scrollWidth - carousel.clientWidth - 2;
-    if (prev) prev.disabled = carousel.scrollLeft <= 2;
-    if (next) next.disabled = carousel.scrollLeft >= max;
-  };
-  carousel.addEventListener("scroll", syncArrows, { passive: true });
-  window.addEventListener("resize", syncArrows);
-  syncArrows();
 };
 
 /* ---------------------------------------------------------------
