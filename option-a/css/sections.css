@@ -480,7 +480,7 @@ html:not(.js) .team__carousel .spotlight { grid-column: 1 / -1; }
 .glass-card h2 { color: #fff; font-size: clamp(1.4rem, 1.6vw + 0.6rem, 2.1rem); }
 .glass-card__phone {
   position: relative; display: inline-block; font-family: var(--font-display); font-weight: 500; line-height: 1;
-  font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.01em; color: #fff;
+  font-size: clamp(1.75rem, 3.4vw, 3rem); letter-spacing: -0.01em; color: #fff;
   transition: color var(--dur-fast) var(--ease-out);
 }
 .glass-card__phone::after { content: ""; position: absolute; left: 0.04em; right: 0.04em; bottom: -0.06em; height: 0.07em; border-radius: 1em; background: var(--color-red); transform: scaleX(0); transform-origin: left center; transition: transform var(--dur-slow) var(--ease-out); }
