@@ -9,7 +9,7 @@
 :root {
   --color-navy: #242667;
   --color-navy-dark: #1a1b4e;
-  --color-navy-900: #12133a; /* darkest surface — behind the why-us photo band */
+  --color-navy-900: #12133a; /* darkest surface */
   --color-red: #c01d2e;
   --color-red-dark: #9c1622;
   --color-slate: #56566a;
@@ -144,7 +144,7 @@ p { text-wrap: pretty; }
 
 .section--navy {
   position: relative;
-  overflow: clip; /* not hidden — keeps position: sticky working inside (why-us media) */
+  overflow: clip; /* not hidden — keeps position: sticky working inside */
   background: var(--color-navy);
   color: var(--text-on-dark-secondary);
 }

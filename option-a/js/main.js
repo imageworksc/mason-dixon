@@ -5,17 +5,14 @@
  */
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const desktop = window.matchMedia("(min-width: 1024px)");
 
 /* ---------------------------------------------------------------
-   Scroll-driven state: sticky call bar, and the
-   why-us photo band's parallax. One rAF-throttled listener for all.
+   Scroll-driven state: sticky call bar and the financing badge's
+   lift. One rAF-throttled listener for both.
    --------------------------------------------------------------- */
 const initScrollState = () => {
   const callBar = document.querySelector("[data-call-bar]");
   const payPill = document.querySelector("[data-pay-pill]");
-  const band = document.querySelector("[data-parallax]");
-  const bandImg = band?.querySelector("img") ?? null;
   let ticking = false;
 
   const update = () => {
@@ -24,17 +21,6 @@ const initScrollState = () => {
     callBar?.classList.toggle("is-visible", pastHero);
     payPill?.classList.toggle("is-raised", pastHero);
 
-    if (bandImg && !reduceMotion && desktop.matches) {
-      const rect = band.getBoundingClientRect();
-      const vh = window.innerHeight;
-      if (rect.bottom > 0 && rect.top < vh) {
-        // -1 (band entering from bottom) … +1 (band leaving at top)
-        const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
-        bandImg.style.setProperty("--parallax", `${(progress * -8).toFixed(2)}%`);
-      }
-    } else if (bandImg) {
-      bandImg.style.removeProperty("--parallax");
-    }
     ticking = false;
   };
 
