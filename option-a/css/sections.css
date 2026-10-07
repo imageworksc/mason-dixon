@@ -268,15 +268,28 @@
 .spot__link:hover .spot__arrow, .spot__link:focus-visible .spot__arrow { opacity: 1; transform: none; }
 .spot__link:hover .spot__arrow { background: var(--color-red); border-color: var(--color-red); }
 
-.team__foot { margin-top: var(--space-6); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
-.team__controls { display: flex; gap: var(--space-2); }
+.team__foot { margin-top: var(--space-6); display: flex; justify-content: center; }
 
+/* Prev / next arrows on either side of the carousel, vertically centred on
+   the cards. At either end the arrow that has nowhere to go fades away. */
+.team__carousel { position: relative; }
+.team__arrow {
+  position: absolute; top: 50%; z-index: 2; width: 3rem; height: 3rem; border-radius: 50%;
+  margin-top: calc(-1.5rem - var(--space-3) / 2); box-shadow: var(--shadow-md);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+.team__arrow:hover { transform: none; }
+.team__arrow--prev { left: max(0.5rem, calc(var(--edge, var(--container-pad)) - 1.5rem)); }
+.team__arrow--next { right: max(0.5rem, calc(var(--edge, var(--container-pad)) - 1.5rem)); }
+.team__arrow:disabled, .team__arrow:disabled:hover { opacity: 0; pointer-events: none; }
+html:not(.js) .team__arrow { display: none; }
+
+/* Desktop: four cards in view inside the page container, arrows half outside them */
 @media (min-width: 1024px) {
-  .spotlight { overflow: visible; padding-inline: var(--container-pad); max-width: var(--container); margin-inline: auto; padding-bottom: 0; }
-  .spotlight__track { width: auto; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4); }
-  .spot { width: auto; }
-  .team__controls { display: none; }
-  .team__foot { justify-content: center; }
+  .team__carousel { --edge: var(--container-pad); max-width: var(--container); margin-inline: auto; }
+  .spotlight { container-type: inline-size; margin-inline: var(--container-pad); padding-inline: 0; scroll-padding-inline: 0; padding-bottom: 0; border-radius: 1.25rem; }
+  .spot { width: calc((100cqw - 3 * var(--space-4)) / 4); }
+  .team__arrow { margin-top: -1.5rem; }
 }
 
 /* ---------------------------------------------------------------------
