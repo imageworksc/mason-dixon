@@ -579,6 +579,8 @@ html:not(.js) .team__carousel .spotlight { grid-column: 1 / -1; }
 .footer__areas { padding-block: var(--space-6); border-top: 1px solid rgba(255, 255, 255, 0.08); }
 .footer__areas h2 { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; margin-bottom: var(--space-3); }
 .footer__areas p { line-height: 1.7; max-width: 64rem; }
+.footer__areas a { text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.25); text-underline-offset: 3px; transition: color var(--dur-fast) var(--ease-out), text-decoration-color var(--dur-fast) var(--ease-out); }
+.footer__areas a:hover { color: #fff; text-decoration-color: currentColor; }
 .footer__bottom { padding-block: var(--space-5); border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: space-between; font-size: 0.8rem; }
 .footer__legal { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
 .footer__legal a { transition: color var(--dur-fast) var(--ease-out); }
