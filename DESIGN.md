@@ -62,7 +62,7 @@ Container width is `80rem` (1280px at 16px) so it grows with the root size.
 ## 4. File organisation (homepage and both options)
 
 ```
-<page>/                (homepage uses assets/css and assets/js)
+<page>/                (homepage = Option A, using assets/css and assets/js)
   index.html          markup only — no inline styles or scripts
   css/base.css        tokens, large-display scaling, reset, typography, layout utilities
   css/components.css  buttons, header + navigation, (ticker), mobile call bar
@@ -78,7 +78,7 @@ Per-item values that used to be inline custom properties (`--i`, `--n`) are set 
 CSS/JS references carry a `?v=yyyymmddhhmm` query so GitHub Pages' 10-minute cache never
 serves stale files after a deploy. Run `node scripts/stamp-assets.js` before committing.
 
-## 5. Option A — "Calm Clinical" (`option-a/`)
+## 5. Option A — "Calm Clinical" (now the homepage: `index.html` + `assets/`; `option-a/` redirects there)
 
 Direction: light, airy, editorial. The hero is the official video in full view with a
 white gradient rising from the bottom; label, two-line headline, two-line copy and two

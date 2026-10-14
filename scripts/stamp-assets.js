@@ -7,7 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const version = new Date().toISOString().replace(/[-:TZ.]/g, "").slice(0, 12); // yyyymmddhhmm
-const pages = ["index.html", "option-a/index.html", "option-b/index.html"];
+const pages = ["index.html", "option-b/index.html"];
 
 for (const page of pages) {
   const file = path.join(__dirname, "..", page);
