@@ -40,7 +40,7 @@
 
 .btn-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
 
-/* Round icon button — team carousel arrows (below desktop) */
+/* Round icon button — team carousel arrows */
 .round-btn {
   width: 2.75rem; height: 2.75rem; border-radius: var(--radius-sm);
   background: #fff; border: 1px solid var(--color-border); color: var(--color-navy); box-shadow: var(--shadow-sm);
@@ -54,7 +54,7 @@
 .round-btn:disabled:hover { background: #fff; color: var(--color-navy); transform: none; }
 
 /* ---------------------------------------------------------------------
-   3. Sticky call bar (below desktop)
+   2. Sticky call bar (below desktop)
    --------------------------------------------------------------------- */
 .call-bar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
@@ -87,7 +87,7 @@
 @media (min-width: 1024px) { .call-bar { display: none; } }
 
 /* ---------------------------------------------------------------------
-   4. Floating financing badge — bottom-left, sits above the call bar.
+   3. Floating financing badge — bottom-left, sits above the call bar.
    Built from the double-bezel material: tinted outer shell, navy core
    with a paw watermark and concentric radii.
    --------------------------------------------------------------------- */

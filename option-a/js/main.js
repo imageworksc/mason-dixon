@@ -9,7 +9,7 @@ const desktop = window.matchMedia("(min-width: 1024px)");
 
 /* ---------------------------------------------------------------
    Scroll-driven state: sticky call bar, and the
-   why-us photo band's parallax. One rAF-throttled listener for all.
+   X-ray photo band parallax. One rAF-throttled listener for all.
    --------------------------------------------------------------- */
 const initScrollState = () => {
   const callBar = document.querySelector("[data-call-bar]");
