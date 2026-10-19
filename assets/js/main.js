@@ -173,7 +173,6 @@ const initReviews = () => {
   if (!slot || !dotsBox || slides.length < 2 || photos.some((photo) => !photo)) return;
 
   root.classList.add("is-enhanced");
-  section.classList.add("is-enhanced-reviews"); // lets the backdrop react to the slider (phones)
   const FEATURED_TILT = -3; // deg — straightened, but still a pinned snapshot
   const FIT = 0.94;         // leave room for the tilt's corners
   let current = -1;
@@ -258,13 +257,13 @@ const initReviews = () => {
     dots[next].focus();
   });
 
-  // Phones: prev / next arrows with a "3 / 12" count instead of twelve tiny dots
+  // Phones: prev / next arrows either side of the photo instead of twelve tiny dots
   const icon = (id) => `<svg aria-hidden="true"><use href="#icon-${id}"/></svg>`;
   const pager = document.createElement("div");
   pager.className = "reviews__pager";
   pager.innerHTML =
     `<button type="button" class="round-btn reviews__step" aria-label="Previous review">${icon("chevron-left")}</button>` +
-    `<span class="reviews__count" aria-hidden="true"></span>` +
+    `<span class="reviews__count" aria-live="polite"></span>` +
     `<button type="button" class="round-btn reviews__step" aria-label="Next review">${icon("chevron-right")}</button>`;
   dotsBox.after(pager);
   const [prevBtn, nextBtn] = pager.querySelectorAll("button");
