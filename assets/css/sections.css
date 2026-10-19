@@ -46,6 +46,17 @@
   box-shadow: var(--shadow-sm);
   font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; color: var(--color-navy);
 }
+/* Each phrase stays whole so no word is ever left alone on a line. Phones get
+   a slightly tighter chip so it fits on one line from 375px up; narrower than
+   that, it splits cleanly into "Open now · 24/7 emergency care" / "Shrewsbury, PA" */
+.hero__status-text > span { white-space: nowrap; }
+@media (max-width: 430px) {
+  .hero__status { gap: 0.5rem; padding: 0.4rem 0.7rem; font-size: 0.74rem; }
+}
+@media (max-width: 374px) {
+  .hero__status-sep--last { display: none; }
+  .hero__status-text > span:last-child { display: block; }
+}
 .hero__copy h1 { text-wrap: initial; color: #fff; }
 .hero__copy h1 em { font-style: normal; color: #de1d2f; } /* the brand red, saturated rather than lightened, so it holds on navy */
 .hero__copy p { color: var(--text-on-dark-secondary); margin-top: var(--space-5); font-size: 1.1rem; line-height: 1.7; max-width: 38rem; } /* ~70 characters per line */
