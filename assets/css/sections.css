@@ -272,12 +272,22 @@
   .reviews__link::after { display: none; }
   .reviews__link:hover { background: var(--color-navy); color: #fff; }
 
-  .letter:nth-child(5) { left: 30%; top: 88%; }
-  .letter:nth-child(8) { left: -6%; top: 90%; }
-  .letter:nth-child(9) { left: 70%; top: 87%; }
-  .letter--pet:nth-child(10) { left: 72%; top: 1%; }
-  .letter--pet:nth-child(11) { left: 4%; top: 92%; }
-  .letter--pet:nth-child(12) { left: 62%; top: 96%; }
+  /* Smaller cards on a loose grid down both edges, plus the top and bottom
+     centre (the middle is where the featured photo lands), so none overlap */
+  .letter { width: 6rem; }
+  .letter--pet { width: 4.75rem; padding-bottom: 1rem; }
+  #photo-coco { --x: -3%; --y: 1%; --r: -6deg; }
+  #photo-lana { --x: 38%; --y: -1%; --r: 5deg; }
+  #photo-staff { --x: 73%; --y: 1%; --r: 6deg; }
+  #photo-gertrude { --x: -4%; --y: 20%; --r: 5deg; }
+  #photo-willie { --x: 74%; --y: 21%; --r: 93deg; }
+  #photo-remy { --x: -3%; --y: 41%; --r: -5deg; }
+  #photo-treats { --x: 73%; --y: 41%; --r: 4deg; }
+  #photo-difference { --x: -4%; --y: 61%; --r: 6deg; }
+  #photo-amazing { --x: 74%; --y: 61%; --r: -6deg; }
+  #photo-alexis { --x: -2%; --y: 83%; --r: -7deg; }
+  #photo-dozer { --x: 38%; --y: 80%; --r: 3deg; }
+  #photo-pamela { --x: 75%; --y: 84%; --r: 7deg; }
   .reviews::after { background: radial-gradient(ellipse 90% 45% at 40% 42%, rgba(245, 245, 247, 0.94), rgba(245, 245, 247, 0) 100%); }
 }
 
