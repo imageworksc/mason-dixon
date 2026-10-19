@@ -210,6 +210,15 @@
 .reviews__dot:hover::before { opacity: 0.55; }
 .reviews__dot[aria-current="true"]::before { width: 1.25rem; background: var(--color-red); opacity: 1; }
 .reviews__dot:focus-visible { outline: 2px solid var(--color-red); outline-offset: -2px; border-radius: var(--radius-md); }
+/* Phone pager: prev / next arrows around a "3 / 12" count, in place of the dots */
+.reviews__pager { display: none; order: 4; align-items: center; gap: var(--space-4); }
+.reviews__step { width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--color-navy); border-color: var(--color-navy); color: #fff; }
+.reviews__step:hover { background: var(--color-red); border-color: var(--color-red); color: #fff; transform: none; }
+.reviews__count { min-width: 3.5rem; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--color-navy); font-variant-numeric: tabular-nums; }
+@media (max-width: 767px) {
+  .reviews__dots { display: none; }
+  .reviews__pager { display: flex; }
+}
 
 .reviews__link {
   position: relative; display: inline-flex; align-items: center; gap: 0.55rem;
@@ -240,14 +249,11 @@
 }
 /* Phones: the stacked text covers the middle, so the spare pet photos and a few
    cards move to the edges rather than hiding behind the quote */
+/* Phones: the backdrop would sit behind every line of text, so only the
+   featured photo shows (and the one flying back); the rest stay hidden */
 @media (max-width: 767px) {
-  .letter:nth-child(5) { left: 30%; top: 88%; }
-  .letter:nth-child(8) { left: -6%; top: 90%; }
-  .letter:nth-child(9) { left: 70%; top: 87%; }
-  .letter--pet:nth-child(10) { left: 72%; top: 1%; }
-  .letter--pet:nth-child(11) { left: 4%; top: 92%; }
-  .letter--pet:nth-child(12) { left: 62%; top: 96%; }
-  .reviews::after { background: radial-gradient(ellipse 90% 45% at 40% 42%, rgba(245, 245, 247, 0.94), rgba(245, 245, 247, 0) 100%); }
+  .is-enhanced-reviews .letter:not(.is-active):not(.is-leaving) { opacity: 0; }
+  .reviews::after { display: none; }
 }
 
 /* ---------------------------------------------------------------------

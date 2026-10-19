@@ -173,9 +173,11 @@ const initReviews = () => {
   if (!slot || !dotsBox || slides.length < 2 || photos.some((photo) => !photo)) return;
 
   root.classList.add("is-enhanced");
+  section.classList.add("is-enhanced-reviews"); // lets the backdrop react to the slider (phones)
   const FEATURED_TILT = -3; // deg — straightened, but still a pinned snapshot
   const FIT = 0.94;         // leave room for the tilt's corners
   let current = -1;
+  let count = null; // the phone pager's "3 / 12", set up below
 
   // Position of an element relative to the section, ignoring transforms
   // (so it stays correct while a reveal animation is running)
@@ -231,6 +233,7 @@ const initReviews = () => {
       if (i === index) dot.setAttribute("aria-current", "true");
       else dot.removeAttribute("aria-current");
     });
+    if (count) count.textContent = `${index + 1} / ${slides.length}`;
 
     if (leaving) { // back into the backdrop; keeps its height until it lands
       leaving.classList.remove("is-active");
@@ -254,6 +257,34 @@ const initReviews = () => {
     show(next, true);
     dots[next].focus();
   });
+
+  // Phones: prev / next arrows with a "3 / 12" count instead of twelve tiny dots
+  const icon = (id) => `<svg aria-hidden="true"><use href="#icon-${id}"/></svg>`;
+  const pager = document.createElement("div");
+  pager.className = "reviews__pager";
+  pager.innerHTML =
+    `<button type="button" class="round-btn reviews__step" aria-label="Previous review">${icon("chevron-left")}</button>` +
+    `<span class="reviews__count" aria-hidden="true"></span>` +
+    `<button type="button" class="round-btn reviews__step" aria-label="Next review">${icon("chevron-right")}</button>`;
+  dotsBox.after(pager);
+  const [prevBtn, nextBtn] = pager.querySelectorAll("button");
+  count = pager.querySelector(".reviews__count");
+  const go = (step) => show((current + step + slides.length) % slides.length, true);
+  prevBtn.addEventListener("click", () => go(-1));
+  nextBtn.addEventListener("click", () => go(1));
+
+  // Swipe left / right on the quote or the photo to change review
+  let touchX = null, touchY = null;
+  root.addEventListener("touchstart", (event) => {
+    touchX = event.touches[0].clientX; touchY = event.touches[0].clientY;
+  }, { passive: true });
+  root.addEventListener("touchend", (event) => {
+    if (touchX === null) return;
+    const dx = event.changedTouches[0].clientX - touchX;
+    const dy = event.changedTouches[0].clientY - touchY;
+    touchX = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) { go(dx < 0 ? 1 : -1); }
+  }, { passive: true });
 
   if ("ResizeObserver" in window) new ResizeObserver(settle).observe(section);
   else window.addEventListener("resize", settle);
