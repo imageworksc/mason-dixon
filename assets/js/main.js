@@ -176,7 +176,7 @@ const initReviews = () => {
   const FEATURED_TILT = -3; // deg — straightened, but still a pinned snapshot
   const FIT = 0.94;         // leave room for the tilt's corners
   let current = -1;
-  let count = null; // the phone pager's "3 / 12", set up below
+  let count = null; // the phone pager's "3 / 12" for screen readers, set up below
 
   // Position of an element relative to the section, ignoring transforms
   // (so it stays correct while a reveal animation is running)
@@ -263,7 +263,7 @@ const initReviews = () => {
   pager.className = "reviews__pager";
   pager.innerHTML =
     `<button type="button" class="round-btn reviews__step" aria-label="Previous review">${icon("chevron-left")}</button>` +
-    `<span class="reviews__count" aria-live="polite"></span>` +
+    `<span class="reviews__count sr-only" aria-live="polite"></span>` +
     `<button type="button" class="round-btn reviews__step" aria-label="Next review">${icon("chevron-right")}</button>`;
   dotsBox.after(pager);
   const [prevBtn, nextBtn] = pager.querySelectorAll("button");

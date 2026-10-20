@@ -221,15 +221,10 @@
 .reviews__dot:hover::before { opacity: 0.55; }
 .reviews__dot[aria-current="true"]::before { width: 1.25rem; background: var(--color-red); opacity: 1; }
 .reviews__dot:focus-visible { outline: 2px solid var(--color-red); outline-offset: -2px; border-radius: var(--radius-md); }
-/* Phone pager: prev / next arrows around a "3 / 12" count, in place of the dots */
+/* Phone pager: prev / next arrows either side of the photo, in place of the dots */
 .reviews__pager { display: none; order: 4; align-items: center; gap: var(--space-4); }
 .reviews__step { width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--color-navy); border-color: var(--color-navy); color: #fff; }
 .reviews__step:hover { background: var(--color-red); border-color: var(--color-red); color: #fff; transform: none; }
-.reviews__count { min-width: 3.5rem; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; color: var(--color-navy); font-variant-numeric: tabular-nums; }
-@media (max-width: 767px) {
-  .reviews__dots { display: none; }
-  .reviews__pager { display: flex; }
-}
 
 .reviews__link {
   position: relative; display: inline-flex; align-items: center; gap: 0.55rem;
@@ -263,13 +258,13 @@
    decorative quote mark goes, and the link becomes a regular outline button.
    The backdrop stays, with a few cards moved to the edges of the text. */
 @media (max-width: 767px) {
+  .reviews__dots { display: none; }
   .reviews__layout { --slot-h: min(52vw, 13rem); gap: var(--space-4); }
   .reviews__mark { display: none; }
   .reviews__head p { margin-top: var(--space-2); }
-  .reviews__pager { order: 2; grid-row: 2; grid-column: 1; align-self: center; justify-content: space-between; pointer-events: none; position: relative; z-index: 1; } /* above the photo box that shares its cell, so taps reach the arrows */
+  .reviews__pager { display: flex; order: 2; grid-row: 2; grid-column: 1; align-self: center; justify-content: space-between; pointer-events: none; position: relative; z-index: 1; } /* above the photo box that shares its cell, so taps reach the arrows */
   .reviews__slot { grid-row: 2; grid-column: 1; }
   .reviews__step { pointer-events: auto; }
-  .reviews__count { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
   .review__lead { font-size: 1.05rem; }
   .review__note { font-size: 0.95rem; margin-bottom: var(--space-4); }
   .review__by { grid-template-columns: auto 1fr; align-items: baseline; column-gap: 0.5rem; }
